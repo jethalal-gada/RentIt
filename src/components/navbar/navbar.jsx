@@ -17,7 +17,7 @@ const Navbar = () => {
             className="searchBtn buttom search"
             // onClick={handleSubmit}
           >
-            <FaSearch className="text-purple" size={19} />
+            <FaSearch className="text-purple" size={18} />
           </button>
           <input
             type="text"

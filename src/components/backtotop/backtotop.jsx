@@ -23,7 +23,7 @@ const Backtotop = () => {
     <>
       {Backtotop && (
         <button className="backToTop" onClick={scrollUp}>
-          <IoIosArrowDropupCircle size={25} />
+          <IoIosArrowDropupCircle size={27} />
         </button>
       )}
     </>

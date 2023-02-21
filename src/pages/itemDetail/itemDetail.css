@@ -1,62 +1,119 @@
-.detailPage {
+@import url('https://fonts.googleapis.com/css2?family=Alike&family=Archivo:wght@100;600&family=Libre+Franklin:ital,wght@0,500;1,400&display=swap');
+.items {
   display: flex;
   align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+  margin: 4% 4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.imgItemDetail {
+  width: 23rem;
+  height: 18rem;
+  padding: 1rem;
+  border: 1px solid #cdcdcd;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.2rem;
+}
+.infoItem {
+  display: flex;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+  width: 40rem;
 }
-.itemInfoHolder {
+/* .imgItemTag { */
+/* width: 25rem; */
+/* } */
+/* .itemDetailBox { */
+/* width: 30%;
+  height: 30%; */
+/* } */
+.txtA {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
+}
+.info1 {
+  display: flex;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 1.2rem;
 }
-.itemImg {
-  width: 20rem;
-  background: #ffffff;
-  border: 1px solid #cdcdcd9f;
-  border-radius: 5px;
-  margin: 1rem;
-  margin-bottom: 0;
-}
-/* .nameNprice {
-  width: 20%;
-  background: #ffffff;
-  border: 1px solid #cdcdcd9f;
-  border-radius: 5px;
-} */
-/* .description {
-  width: 20%;
-  background: #ffffff;
-  border: 1px solid #cdcdcd9f;
-  border-radius: 5px;
-} */
-.itemInfoHolder {
+.info2 {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  width: 80rem;
-  height: 20rem;
-  background: #ffffff;
-  /* border: 1px solid #cdcdcd9f; */
-  border-radius: 5px;
-  margin: 1rem;
-}
-/* #ownerInfo {
-  width: 20%;
-  background: #ffffff;
-  border: 1px solid #cdcdcd9f;
-  border-radius: 5px;
-} */
-.cardItem {
-  display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  width: 40%;
-  height: 100%;
-  background: #ffffff;
-  border: 1px solid #cdcdcd9f;
+  margin-bottom: 1.2rem;
+}
+
+.info3 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.infoA {
+  font-family: 'Alike';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 40px;
+  /* margin-left: 10px; */
+}
+.infoB {
+  font-family: 'Alike';
+  font-style: initial;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 40px;
+}
+.infoC {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 19px;
+
+  color: #675c55d1;
+}
+#name,
+#contact,
+#lpuId {
+  margin-left: 10px;
+}
+.br {
+  color: #433228;
+}
+.or {
+  color: #ff5e03;
+}
+#save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6% 0rem;
+}
+.save {
+  background: #ff5e03;
   border-radius: 5px;
-  margin: 3rem;
+  border-style: hidden;
+  width: 5em;
+  height: 2.5rem;
+  color: #ffffff;
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+
+  /* margin-top: 3vh; */
+  /* margin-right: 2vw; */
 }

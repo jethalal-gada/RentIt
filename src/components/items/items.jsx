@@ -8,7 +8,7 @@ const Items = () => {
         <Link to="itemDetail">
           <div className="item">
             <div id="itemImgBox">
-              <img src={itemImg} alt="cover" />
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
             <div className="line"></div>
             <div className="itemInfo">
@@ -22,259 +22,193 @@ const Items = () => {
             </div>
           </div>
         </Link>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
+        <Link to="itemDetail">
+          <div className="item">
+            <div id="itemImgBox">
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
-            <div className="itemDetail">
-              <span>
+            <div className="line"></div>
+            <div className="itemInfo">
+              <div className="itemName">
+                <span>Iron 1000W</span>
+              </div>
+              <div className="itemDetail">
                 Description of my product will be written in this area. This
                 will be the maximum space that can be taken by a card.
-              </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
+        </Link>
+        <Link to="itemDetail">
+          <div className="item">
+            <div id="itemImgBox">
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
-            <div className="itemDetail">
-              <span>
+            <div className="line"></div>
+            <div className="itemInfo">
+              <div className="itemName">
+                <span>Iron 1000W</span>
+              </div>
+              <div className="itemDetail">
                 Description of my product will be written in this area. This
                 will be the maximum space that can be taken by a card.
-              </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
+        </Link>
+        <Link to="itemDetail">
+          <div className="item">
+            <div id="itemImgBox">
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
-            <div className="itemDetail">
-              <span>
+            <div className="line"></div>
+            <div className="itemInfo">
+              <div className="itemName">
+                <span>Iron 1000W</span>
+              </div>
+              <div className="itemDetail">
                 Description of my product will be written in this area. This
                 will be the maximum space that can be taken by a card.
-              </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
+        </Link>
+        <Link to="itemDetail">
+          <div className="item">
+            <div id="itemImgBox">
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
-            <div className="itemDetail">
-              <span>
+            <div className="line"></div>
+            <div className="itemInfo">
+              <div className="itemName">
+                <span>Iron 1000W</span>
+              </div>
+              <div className="itemDetail">
                 Description of my product will be written in this area. This
                 will be the maximum space that can be taken by a card.
-              </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
+        </Link>
+        <Link to="itemDetail">
+          <div className="item">
+            <div id="itemImgBox">
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
-            <div className="itemDetail">
-              <span>
+            <div className="line"></div>
+            <div className="itemInfo">
+              <div className="itemName">
+                <span>Iron 1000W</span>
+              </div>
+              <div className="itemDetail">
                 Description of my product will be written in this area. This
                 will be the maximum space that can be taken by a card.
-              </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
+        </Link>
+        <Link to="itemDetail">
+          <div className="item">
+            <div id="itemImgBox">
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
-            <div className="itemDetail">
-              <span>
+            <div className="line"></div>
+            <div className="itemInfo">
+              <div className="itemName">
+                <span>Iron 1000W</span>
+              </div>
+              <div className="itemDetail">
                 Description of my product will be written in this area. This
                 will be the maximum space that can be taken by a card.
-              </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
+        </Link>
+        <Link to="itemDetail">
+          <div className="item">
+            <div id="itemImgBox">
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
-            <div className="itemDetail">
-              <span>
+            <div className="line"></div>
+            <div className="itemInfo">
+              <div className="itemName">
+                <span>Iron 1000W</span>
+              </div>
+              <div className="itemDetail">
                 Description of my product will be written in this area. This
                 will be the maximum space that can be taken by a card.
-              </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
+        </Link>
+        <Link to="itemDetail">
+          <div className="item">
+            <div id="itemImgBox">
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
-            <div className="itemDetail">
-              Description of my product will be written in this area. This will
-              be the maximum space that can be taken by a card.
-            </div>
-          </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
-            </div>
-            <div className="itemDetail">
-              <span>
+            <div className="line"></div>
+            <div className="itemInfo">
+              <div className="itemName">
+                <span>Iron 1000W</span>
+              </div>
+              <div className="itemDetail">
                 Description of my product will be written in this area. This
                 will be the maximum space that can be taken by a card.
-              </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
+        </Link>
+        <Link to="itemDetail">
+          <div className="item">
+            <div id="itemImgBox">
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
-            <div className="itemDetail">
-              <span>
+            <div className="line"></div>
+            <div className="itemInfo">
+              <div className="itemName">
+                <span>Iron 1000W</span>
+              </div>
+              <div className="itemDetail">
                 Description of my product will be written in this area. This
                 will be the maximum space that can be taken by a card.
-              </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
+        </Link>
+        <Link to="itemDetail">
+          <div className="item">
+            <div id="itemImgBox">
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
-            <div className="itemDetail">
-              <span>
+            <div className="line"></div>
+            <div className="itemInfo">
+              <div className="itemName">
+                <span>Iron 1000W</span>
+              </div>
+              <div className="itemDetail">
                 Description of my product will be written in this area. This
                 will be the maximum space that can be taken by a card.
-              </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
+        </Link>
+        <Link to="itemDetail">
+          <div className="item">
+            <div id="itemImgBox">
+              <img className="imgItem" src={itemImg} alt="cover" />
             </div>
-            <div className="itemDetail">
-              <span>
+            <div className="line"></div>
+            <div className="itemInfo">
+              <div className="itemName">
+                <span>Iron 1000W</span>
+              </div>
+              <div className="itemDetail">
                 Description of my product will be written in this area. This
                 will be the maximum space that can be taken by a card.
-              </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
-            </div>
-            <div className="itemDetail">
-              <span>
-                Description of my product will be written in this area. This
-                will be the maximum space that can be taken by a card.
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
-            </div>
-            <div className="itemDetail">
-              <span>
-                Description of my product will be written in this area. This
-                will be the maximum space that can be taken by a card.
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="item">
-          <div id="itemImgBox">
-            <img src={itemImg} alt="cover" />
-          </div>
-          <div className="line"></div>
-          <div className="itemInfo">
-            <div className="itemName">
-              <span>Iron 1000W</span>
-            </div>
-            <div className="itemDetail">
-              <span>
-                Description of my product will be written in this area. This
-                will be the maximum space that can be taken by a card.
-              </span>
-            </div>
-          </div>
-        </div>
+        </Link>
       </div>
     </>
   );
