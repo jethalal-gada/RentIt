@@ -34,10 +34,6 @@
 .item:hover {
   border: 1.5px solid #ff5e03;
 }
-/* .itemImg {
-  width: 100%;
-  background: url(../../images/itemImg.svg);
-} */
 .imgHome {
   width: 100%;
 }
@@ -46,17 +42,16 @@
   transition: 0.2ms;
 }
 #itemImgBox:hover {
-  padding: 2px;
-  /* padding-top: 4px; */
+  padding: 3px;
+  rotate: 1deg;
 }
 #itemImgBox {
   width: 80%;
   padding: 4px;
-  /* padding-top: 6px; */
   margin-left: auto;
   margin-right: auto;
   margin-top: 2px;
-  transition: 0.2s;
+  transition: 0.1s;
 }
 .itemDetail {
   font-family: 'Libre Franklin';

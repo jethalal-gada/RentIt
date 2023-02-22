@@ -85,6 +85,9 @@ form {
   padding: 8px;
   outline: none;
 }
+.des {
+  height: 56px;
+}
 .detailA,
 .detailB,
 .detailC {
@@ -194,6 +197,9 @@ form {
     padding: 8px;
     outline: none;
   }
+  .des {
+    height: 56px;
+  }
   .detailA,
   .detailB,
   .detailC {
@@ -219,13 +225,13 @@ form {
     background: #ff5e03;
     border-radius: 5px;
     border-style: hidden;
-    width: 4em;
-    height: 2rem;
+    width: 4.6em;
+    height: 2.3rem;
     color: #ffffff;
     font-family: 'Archivo';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 18px;
     margin-right: 0.8rem;
     margin-bottom: 1%;
   }
@@ -260,15 +266,15 @@ form {
     font-family: 'Libre Franklin';
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
-    margin-bottom: 8px;
+    font-size: 16px;
+    margin-bottom: 9px;
     margin-top: 2px;
   }
   .heading {
     font-family: 'Lexend Deca';
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 1.6rem;
   }
   .detail1,
   .detail2,
@@ -285,7 +291,7 @@ form {
     font-family: 'Libre Franklin';
     font-style: normal;
     font-weight: 200;
-    font-size: 10px;
+    font-size: 11px;
     /* line-height: 19px; */
 
     color: #675c55d1;
@@ -299,6 +305,9 @@ form {
     border-radius: 5px;
     padding: 8px;
     outline: none;
+  }
+  .des {
+    height: 56px;
   }
   .detailA,
   .detailB,
