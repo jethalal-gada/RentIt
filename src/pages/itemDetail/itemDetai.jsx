@@ -48,7 +48,7 @@ const ItemDetail = () => {
         </div>
       </div>
       <div id="save">
-        <button className="save">Save</button>
+        <button className="save btn">Save</button>
       </div>
     </>
   );

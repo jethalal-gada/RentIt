@@ -93,7 +93,10 @@ form {
 .wrapBox {
   width: 533px;
 }
-.reset {
+.rentBox:active {
+  border-color: #ff5e03;
+}
+.upload {
   margin-top: 0.5rem;
   color: #ff5e03;
   padding: 0px 6px;
@@ -199,7 +202,7 @@ form {
   .wrapBox {
     width: 448px;
   }
-  .reset {
+  .upload {
     margin-top: 0.5rem;
     color: #ff5e03;
     padding: 0px 6px;
@@ -305,7 +308,7 @@ form {
   .wrapBox {
     width: 328px;
   }
-  .reset {
+  .upload {
     margin-top: 0.5rem;
     color: #ff5e03;
     padding: 0px 6px;

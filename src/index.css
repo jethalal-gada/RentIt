@@ -20,6 +20,9 @@ code {
 button {
   cursor: pointer;
 }
+.btn:hover {
+  background-color: #c44800;
+}
 a {
   text-decoration: none;
 }
