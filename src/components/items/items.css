@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;600&family=Libre+Franklin:wght@500&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.allItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 15rem;
+  height: 18rem;
+  background: #ffffff;
+  border: 1px solid #cdcdcd9f;
+  border-radius: 5px;
+  margin: 33px;
+  margin-bottom: 1px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.item:hover {
+  border: 1.5px solid #ff5e03;
+}
+/* .itemImg {
+  width: 100%;
+  background: url(../../images/itemImg.svg);
+} */
+.imgHome {
+  width: 100%;
+}
+.imgItem {
+  width: 100%;
+  transition: 0.2ms;
+}
+#itemImgBox:hover {
+  padding: 2px;
+  /* padding-top: 4px; */
+}
+#itemImgBox {
+  width: 80%;
+  padding: 4px;
+  /* padding-top: 6px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2px;
+  transition: 0.2s;
+}
+.itemDetail {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 15px;
+  color: #675c55;
+  text-overflow: ellipsis;
+}
+.itemName {
+  color: #ff5e03;
+  margin-bottom: 5px;
+  font-family: 'Archivo';
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: -12px;
+  margin-bottom: 8px;
+  margin-left: 25%;
+}
+.itemInfo {
+  padding: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+hr {
+  color: black;
+  width: 2px;
+}

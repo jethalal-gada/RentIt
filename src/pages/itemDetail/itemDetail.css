@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Alike&family=Archivo:wght@100;600&family=Libre+Franklin:ital,wght@0,500;1,400&display=swap');
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+  margin: 4% 4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.imgItemDetail {
+  width: 23rem;
+  height: 18rem;
+  padding: 1rem;
+  border: 1px solid #cdcdcd;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.2rem;
+}
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 40rem;
+}
+/* .imgItemTag { */
+/* width: 25rem; */
+/* } */
+/* .itemDetailBox { */
+/* width: 30%;
+  height: 30%; */
+/* } */
+.txtA {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.info2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+.info1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.info3 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.infoB {
+  font-family: 'Alike';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 40px;
+  /* margin-left: 10px; */
+}
+.infoA {
+  font-family: 'Alike';
+  font-style: initial;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 40px;
+}
+.infoC {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 19px;
+
+  color: #675c55d1;
+}
+#name,
+#contact,
+#lpuId {
+  margin-left: 10px;
+}
+#save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6% 0rem;
+}
+.save {
+  background: #ff5e03;
+  border-radius: 5px;
+  border-style: hidden;
+  width: 5em;
+  height: 2.5rem;
+  color: #ffffff;
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+
+  /* margin-top: 3vh; */
+  /* margin-right: 2vw; */
+}
