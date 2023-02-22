@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="searchBox search">
           <button
             type="submit"
-            className="searchBtn buttom search"
+            className="searchBtn buttom search btn"
             // onClick={handleSubmit}
           >
             <FaSearch className="search" size={18} />
@@ -30,7 +30,7 @@ const Navbar = () => {
         </div>
         <div className="navBtns">
           <Link to="login">
-            <div className="login btn buttom">
+            <div className="login buttom">
               <u> Login</u>{' '}
             </div>
           </Link>

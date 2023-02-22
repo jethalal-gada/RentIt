@@ -21,6 +21,12 @@
   margin-right: 1rem;
   margin-bottom: 1.5rem;
   margin-top: 1.2rem;
+  transition: 1s;
+}
+.imgItemDetail:hover {
+  border: 2px solid #ff5e03;
+  rotate: 90deg;
+  cursor: none;
 }
 .infoItem {
   display: flex;
@@ -29,13 +35,6 @@
   flex-direction: column;
   width: 40rem;
 }
-/* .imgItemTag { */
-/* width: 25rem; */
-/* } */
-/* .itemDetailBox { */
-/* width: 30%;
-  height: 30%; */
-/* } */
 .txtA {
   display: flex;
   align-items: flex-start;
@@ -46,14 +45,14 @@
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
 }
 .info1 {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
 }
 
 .info3 {
@@ -61,27 +60,28 @@
   align-items: flex-start;
   justify-content: center;
 }
-.infoB {
-  font-family: 'Alike';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 40px;
-  /* margin-left: 10px; */
-}
+
 .infoA {
-  font-family: 'Alike';
-  font-style: initial;
+  font-family: 'Archivo';
+  font-style: normal;
   font-weight: 600;
-  font-size: 28px;
+  font-size: 30px;
   line-height: 40px;
+}
+.infoB {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 34px;
+  /* margin-left: 10px; */
 }
 .infoC {
   font-family: 'Libre Franklin';
   font-style: normal;
   font-weight: 200;
   font-size: 14px;
-  line-height: 19px;
+  line-height: 22px;
 
   color: #675c55d1;
 }
@@ -107,7 +107,20 @@
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
-
-  /* margin-top: 3vh; */
-  /* margin-right: 2vw; */
+}
+@media only screen and (max-width: 868px) {
+  .imgItemDetail {
+    width: 18rem;
+    height: 16rem;
+    padding: 1rem;
+    border: 1px solid #cdcdcd;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.8rem;
+    transition: 1s;
+  }
 }

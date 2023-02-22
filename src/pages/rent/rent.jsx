@@ -19,10 +19,10 @@ const Rent = () => {
             <div className="detailA">
               Description*
               <div className="rentDes wrapBox">
-                <input type="text" className="rentBox" />
+                <textarea type="text" className="rentBox des" />
               </div>
             </div>
-            <button type="reset" className="detailA reset">
+            <button type="reset" className="detailA upload">
               <TbCameraPlus className="camera" size={28} />
             </button>
           </div>
@@ -59,7 +59,7 @@ const Rent = () => {
         </div>
       </form>
       <div id="post">
-        <button className="post">Post</button>
+        <button className="post btn">Post</button>
       </div>
     </>
   );
