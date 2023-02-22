@@ -23,3 +23,15 @@ button {
 a {
   text-decoration: none;
 }
+.br {
+  color: #433228;
+}
+.or {
+  color: #ff5e03;
+}
+.line {
+  width: 100%;
+  border: 1px solid #cdcdcd9f;
+  border-bottom: none;
+  height: 0;
+}

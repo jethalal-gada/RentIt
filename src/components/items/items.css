@@ -58,12 +58,6 @@
   margin-top: 2px;
   transition: 0.2s;
 }
-.line {
-  width: 100%;
-  border: 1px solid #cdcdcd9f;
-  border-bottom: none;
-  height: 0;
-}
 .itemDetail {
   font-family: 'Libre Franklin';
   font-style: normal;

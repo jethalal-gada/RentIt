@@ -12,29 +12,30 @@ const ItemDetail = () => {
         </div>
         <div className="infoItem itemDetailBox">
           <div className="info1">
+            <p className="infoA br">Iron 1000 W </p>
+            <p className="infoA br">₹30/hr</p>
+          </div>
+          <div className="info2">
             <div className="txtA">
-              <p className="infoA br">Owner: </p>
-              <p className="infoA or" id="name">
+              <p className="infoB br">Owner: </p>
+              <p className="infoB or" id="name">
                 Akash Singh
               </p>
             </div>
             <div className="txtA">
-              <p className="infoA br">Contact: </p>
-              <p className="infoA or" id="contact">
+              <p className="infoB br">Contact: </p>
+              <p className="infoB or" id="contact">
                 9010508930
               </p>
             </div>
             <div className="txtA">
-              <p className="infoA br">Lpu id: </p>
-              <p className="infoA or" id="lpuId">
+              <p className="infoB br">Lpu id: </p>
+              <p className="infoB or" id="lpuId">
                 12236369
               </p>
             </div>
           </div>
-          <div className="info2">
-            <p className="infoB or">Iron 1000 W </p>
-            <p className="infoB or">Rs. 30/hr</p>
-          </div>
+
           <div className="info3">
             <p className="infoC   ">
               Description of my product will be written in this area. This will

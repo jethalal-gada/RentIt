@@ -8,16 +8,18 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar">
-        <Link to="/">
-          <img className="logo" src={logo} alt="logo" />
-        </Link>
+        <div id="logo">
+          <Link to="/">
+            <img className="logo" src={logo} alt="logo" />
+          </Link>
+        </div>
         <div className="searchBox search">
           <button
             type="submit"
             className="searchBtn buttom search"
             // onClick={handleSubmit}
           >
-            <FaSearch className="text-purple" size={18} />
+            <FaSearch className="search" size={18} />
           </button>
           <input
             type="text"
@@ -33,7 +35,7 @@ const Navbar = () => {
             </div>
           </Link>
           <Link to="rent">
-            <button className="rent btn buttom">Rent</button>
+            <button className="rent btn button">Rent</button>
           </Link>
         </div>
       </div>

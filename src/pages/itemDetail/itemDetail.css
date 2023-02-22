@@ -41,14 +41,14 @@
   align-items: flex-start;
   justify-content: center;
 }
-.info1 {
+.info2 {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   margin-bottom: 1.2rem;
 }
-.info2 {
+.info1 {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -61,19 +61,19 @@
   align-items: flex-start;
   justify-content: center;
 }
-.infoA {
+.infoB {
   font-family: 'Alike';
   font-style: normal;
   font-weight: 400;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 40px;
   /* margin-left: 10px; */
 }
-.infoB {
+.infoA {
   font-family: 'Alike';
   font-style: initial;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 28px;
   line-height: 40px;
 }
 .infoC {
@@ -89,12 +89,6 @@
 #contact,
 #lpuId {
   margin-left: 10px;
-}
-.br {
-  color: #433228;
-}
-.or {
-  color: #ff5e03;
 }
 #save {
   display: flex;
