@@ -111,6 +111,10 @@ form {
   margin-left: 0.2rem;
 }
 
+textarea {
+  max-width: 533px;
+  max-height: 78px;
+}
 @media only screen and (max-width: 668px) {
   .post {
     background: #ff5e03;
@@ -218,6 +222,9 @@ form {
     border: 2px solid #ff5e03;
     border-radius: 10px;
     margin-left: 0.2rem;
+  }
+  textarea {
+    max-width: 448px;
   }
 }
 @media only screen and (max-width: 512px) {
@@ -327,5 +334,8 @@ form {
     border: 2px solid #ff5e03;
     border-radius: 10px;
     margin-left: 0.2rem;
+  }
+  textarea {
+    max-width: 328px;
   }
 }

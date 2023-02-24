@@ -26,6 +26,8 @@ button {
 }
 a {
   text-decoration: none;
+  cursor: default;
+  width: min-content0;
 }
 .br {
   color: #433228;
