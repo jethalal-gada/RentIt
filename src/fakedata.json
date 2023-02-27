@@ -7,7 +7,7 @@
     "price": "6.50",
     "unit": "day",
     "contact": "9415157878",
-    "lpu id": "122123698",
+    "lpuid": "122123698",
     "description": "A ripe avocado yields to gentle pressure when held in the palm of the hand and squeezed. "
   },
   {
@@ -18,29 +18,29 @@
     "price": "50",
     "unit": "day",
     "contact": "9415157878",
-    "lpu id": "122123698",
+    "lpuid": "122123698",
     "description": "A ripe avocado yields to gentle pressure when held in the palm of the hand and squeezed. "
   },
   {
     "id": 2,
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwsmn5sDAzJHfykTBkNC42BsHxrMO9Hwi1vQ&usqp=CAU",
-    "owner": "Puneet Pal",
+    "owner": "om raj",
     "product": "Kettle",
     "price": "20",
     "unit": "hour",
     "contact": "9415157878",
-    "lpu id": "122123698",
+    "lpuid": "122123698",
     "description": "A ripe avocado yields to gentle pressure when held in the palm of the hand and squeezed. "
   },
   {
     "id": 3,
     "image": "https://images.philips.com/is/image/philipsconsumer/333c524f98824bd98962ad1f0113c67a?wid=420&hei=360&$jpglarge$",
-    "owner": "Puneet Pal",
+    "owner": "Akash Singh",
     "product": "Fresh Avocados",
     "price": "6.50",
     "unit": "day",
     "contact": "9415157878",
-    "lpu id": "122123698",
+    "lpuid": "122123698",
     "description": "A ripe avocado yields to gentle pressure when held in the palm of the hand and squeezed. "
   },
   {
@@ -51,29 +51,29 @@
     "price": "6.50",
     "unit": "day",
     "contact": "9415157878",
-    "lpu id": "122123698",
+    "lpuid": "122123698",
     "description": "A ripe avocado yields to gentle pressure when held in the palm of the hand and squeezed. "
   },
   {
     "id": 5,
     "image": "https://m.media-amazon.com/images/I/619eCtRCBzL._SY450_.jpg",
-    "owner": "Puneet Pal",
+    "owner": "Raju Yadav",
     "product": "Extension wire",
     "price": "25",
     "unit": "day",
     "contact": "9415157878",
-    "lpu id": "122123698",
+    "lpuid": "122123698",
     "description": "A ripe avocado yields to gentle pressure when held in the palm of the hand and squeezed. "
   },
   {
     "id": 6,
     "image": "https://images.philips.com/is/image/philipsconsumer/333c524f98824bd98962ad1f0113c67a?wid=420&hei=360&$jpglarge$",
-    "owner": "Puneet Pal",
+    "owner": "Mr Modi",
     "product": "Iron 1000W  ",
     "price": "20",
     "unit": "hour",
     "contact": "9415157878",
-    "lpu id": "122123698",
+    "lpuid": "122123698",
     "description": "A ripe avocado yields to gentle pressure when held in the palm of the hand and squeezed.A ripe avocado yields to gentle pressure when held in the palm of the hand and squeezedA ripe avocado yields to gentle pressure when held in the palm of the hand and squeezed"
   },
   {
@@ -84,7 +84,7 @@
     "price": "50",
     "unit": "day",
     "contact": "9415157878",
-    "lpu id": "122123698",
+    "lpuid": "122123698",
     "description": "A ripe avocado yields to gentle pressure when held in the palm of the hand and squeezed. "
   },
   {
@@ -95,7 +95,7 @@
     "price": "10",
     "unit": "hour",
     "contact": "9415157878",
-    "lpu id": "122123698",
+    "lpuid": "122123698",
     "description": "A ripe avocado yields to gentle pressure when held in the palm of the hand and squeezed. "
   },
   {
@@ -106,7 +106,7 @@
     "price": "6.50",
     "unit": "day",
     "contact": "9415157878",
-    "lpu id": "122123698",
+    "lpuid": "122123698",
     "description": "A ripe avocado yields to gentle pressure when held in the palm of the hand and squeezed. "
   }
 ]
