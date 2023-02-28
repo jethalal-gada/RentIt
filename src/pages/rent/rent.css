@@ -114,6 +114,8 @@ form {
 textarea {
   max-width: 533px;
   max-height: 78px;
+  min-height: 35px;
+  min-width: 533px;
 }
 @media only screen and (max-width: 668px) {
   .post {

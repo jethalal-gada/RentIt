@@ -3,7 +3,7 @@ import './items.css';
 import { useNavigate } from 'react-router-dom';
 import fakedata from '../../fakedata.json';
 // import { FaSearch } from 'react-icons/fa';
-import Search from '../searchBar/search';
+// import Search from '../searchBar/search';
 const Items = () => {
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ const Items = () => {
 
   return (
     <>
-      <Search />
+      {/* <Search /> */}
       <div className='allItems'>
         {fakedata &&
           fakedata.map((data) => {

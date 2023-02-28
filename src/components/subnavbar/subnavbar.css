@@ -7,4 +7,5 @@
 }
 .back:hover {
   color: #ff5e03;
+  cursor: pointer;
 }

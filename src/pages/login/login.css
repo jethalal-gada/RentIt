@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Alike&family=Archivo:wght@100;600&family=Asap:wght@400;500&family=Libre+Franklin:ital,wght@0,500;1,400&family=Ubuntu:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alike&family=Archivo:wght@100;600&family=Asap:wght@400;500&family=Exo+2:wght@500&family=Libre+Franklin:ital,wght@0,500;1,400&family=Ubuntu:wght@500&display=swap');
+
+.loginBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 350px;
+  height: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 4px #ff5e03;
+  border-style: solid;
+  margin-top: 3rem;
+}
+.lineLogin {
+  border-color: #ff5e03;
+  border-style: solid;
+  border-width: 4px;
+  border-bottom: none;
+}
+.logoBox {
+  margin-bottom: 20px;
+}
+.loginBtn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  border: 2px solid #ff5e03;
+  height: 48px;
+  font-size: 16px;
+  font-family: 'Libre Franklin';
+  width: 16rem;
+  margin-bottom: 1rem;
+  padding-left: 15px;
+  background-color: white;
+}
+.loginBtn:hover {
+  border: 4px solid #ff5e03;
+}
+.signIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.signInTop {
+  margin-top: 25px;
+  width: 100%;
+}
+.signInLogo {
+  width: 9rem;
+  margin-left: 10px;
+}
+.signInTxt {
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.fb {
+  color: #0b9efa;
+}
+.gh {
+  color: #161b22;
+}
+.signInIcons {
+  margin-right: 10px;
+}
+.wlcmTxt {
+  /* margin-top: 15px; */
+  /* font-size: 17px; */
+  height: 0rem;
+  font-size: 22px;
+  font-family: 'Asap';
+  /* font-family: 'Exo 2'; */
+  color: #ff5e03;
+}
