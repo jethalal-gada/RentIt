@@ -11,16 +11,14 @@ import ItemDetail from './pages/itemDetail/itemDetai';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <AppProvider>
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="login" element={<Login />} />
-      <Route path="rent" element={<Rent />} />
-      <Route path="ItemDetail" element={<ItemDetail />} />
-      <Route path="*" element={<ErrorPage />} />
+      <Route path='/' element={<Home />} />
+      <Route path='login' element={<Login />} />
+      <Route path='rent' element={<Rent />} />
+      <Route path='ItemDetail' element={<ItemDetail />} />
+      <Route path='*' element={<ErrorPage />} />
       {/* <Route path="/form" element={<Form />} /> */}
     </Routes>
   </BrowserRouter>
-  // </AppProvider>
 );

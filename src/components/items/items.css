@@ -18,13 +18,11 @@
 .item {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   flex-direction: column;
   width: 15rem;
   height: 18rem;
   background: #ffffff;
   border: 1px solid #cecece;
-  /* box-shadow: 0 2px 20px 1px #cecece; */
   border-radius: 5px;
   margin: 33px;
   margin-bottom: 1px;
@@ -32,30 +30,26 @@
   overflow: hidden;
   transition: 0.2s;
 }
+/* .item:hover {
+  box-shadow: 0 4px 10px 1px #dcdcdc;
+} */
 .item:hover {
-  /* border: 1px solid #ff5e03; */
-  box-shadow: 0 1px 3px 1px #ff5f03;
-  /* box-shadow: 0 2px 20px 1px #cdcdcdbe; */
-  /* box-shadow: none; */
+  border: 1px solid #ff5e03;
 }
-/* .lineItems { */
-/* border: 1px solid #5f4638; */
-/* border-top: none; */
-/* } */
 .imgHome {
   width: 100%;
 }
 .imgItem {
   max-width: 12.5rem;
   max-height: 10rem;
-  transition: 0.5s;
+  transition: 0.1s;
 }
 #itemImgBox:hover {
   /* padding: 3px;
   rotate: 1deg !important;
   rotate: -1deg; */
 
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 #itemImgBox {
   display: flex;
@@ -64,6 +58,10 @@
   width: 16rem;
   height: 12.25rem;
   transition: 0.25s;
+}
+.imgItemTag {
+  max-width: 15rem;
+  max-height: 15rem;
 }
 .itemDetail {
   font-family: 'Libre Franklin';
