@@ -5,34 +5,32 @@ import fakedata from '../../fakedata.json';
 const Items = () => {
   const navigate = useNavigate();
 
-  const handleClick = data => {
-    navigate('itemDetail', { state: data });
+  const handleClick = (data) => {
+    navigate('/itemDetail', { state: data });
   };
 
   return (
     <>
-      <div className="allItems">
+      <div className='allItems'>
         {fakedata &&
-          fakedata.map(data => {
+          fakedata.map((data) => {
             return (
-              // <Link to="itemDetail">
               <div
-                className="item"
+                className='item'
                 onClick={() => handleClick(data)}
                 key={data.id}
               >
-                <div id="itemImgBox">
-                  <img className="imgItem" src={data.image} alt="cover" />
+                <div id='itemImgBox'>
+                  <img className='imgItem' src={data.image} alt='cover' />
                 </div>
-                <div className="line lineItems"></div>
-                <div className="itemInfo">
-                  <div className="itemName">
+                <div className='line lineItems'></div>
+                <div className='itemInfo'>
+                  <div className='itemName'>
                     <span>{data.product}</span>
                   </div>
-                  <div className="itemDetail">{data.description}</div>
+                  <div className='itemDetail'>{data.description}</div>
                 </div>
               </div>
-              // </Link>
             );
           })}
       </div>
