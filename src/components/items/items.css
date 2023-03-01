@@ -98,3 +98,21 @@ hr {
   color: black;
   width: 2px;
 }
+@media only screen and (max-width: 658px) {
+  .item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 15rem;
+    height: 18rem;
+    background: #ffffff;
+    border: 1px solid #cecece;
+    border-radius: 5px;
+    margin: 33px 12px;
+
+    margin-bottom: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.2s;
+  }
+}

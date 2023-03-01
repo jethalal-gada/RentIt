@@ -41,7 +41,28 @@
   font-weight: 500;
   font-size: 16px;
   color: #222222fd;
-  margin-right: 1rem;
+  margin-right: 1.2rem;
+  margin-left: 0.6rem;
+  text-decoration: none;
+  border: none;
+  border-bottom: 1px solid black;
+  background: transparent;
+}
+.user {
+  color: #222222fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  padding: 3px;
+  padding-bottom: 2px;
+  border-radius: 50%;
+}
+.loginArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 .searchBox {
   display: flex;
@@ -71,11 +92,13 @@
 .login:hover {
   color: #ff5e03;
   cursor: pointer;
+  border: none;
 }
-.logo:hover {
+.logo:hover,
+.btn:hover,
+.user:hover {
   cursor: pointer;
 }
-
 @media only screen and (max-width: 668px) {
   .navbar {
     display: flex;
