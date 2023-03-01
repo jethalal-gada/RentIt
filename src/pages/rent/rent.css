@@ -110,7 +110,12 @@ form {
   border-radius: 10px;
   margin-left: 0.2rem;
 }
-
+.upload:hover {
+  cursor: pointer;
+}
+#input[type] {
+  display: none;
+}
 textarea {
   max-width: 533px;
   max-height: 78px;

@@ -43,6 +43,10 @@
   color: #222222fd;
   margin-right: 1.2rem;
   margin-left: 0.6rem;
+  text-decoration: none;
+  border: none;
+  border-bottom: 1px solid black;
+  background: transparent;
 }
 .user {
   color: #222222fd;
@@ -88,6 +92,7 @@
 .login:hover {
   color: #ff5e03;
   cursor: pointer;
+  border: none;
 }
 .logo:hover,
 .btn:hover,

@@ -3,9 +3,25 @@ import './navbar.css';
 import logo from '../../images/Logo.svg';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-// import { FaRegUserCircle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  let user = null;
+  let data = null;
+  const navigate = useNavigate();
+  const checkLogin = () => {
+    if (localStorage.getItem('userDetails') != null) {
+      data = JSON.parse(localStorage.getItem('userDetails'));
+      user = 'Hi, ' + data.given_name;
+    } else user = 'Login';
+    return user;
+  };
+
+  const handleLogin = () => {
+    if (data) navigate('/profile', { state: data });
+    else navigate('/login');
+  };
+
   return (
     <>
       <div className='navbar'>
@@ -15,28 +31,18 @@ const Navbar = () => {
           </Link>
         </div>
         <div className='searchBox search'>
-          <button
-            type='submit'
-            className='searchBtn buttom search btn'
-            // onClick={handleSubmit}
-          >
+          <button type='submit' className='searchBtn buttom search btn'>
             <FaSearch className='search' size={18} />
           </button>
-          <input
-            type='text'
-            className='searchBar '
-            placeholder='Search'
-            // ref={searchText}
-          />
+          <input type='text' className='searchBar ' placeholder='Search' />
         </div>
         <div className='navBtns'>
           <div className=' buttom'>
-            {/* <u>
-              <FaRegUserCircle className='user btn' size={18} />
-            </u> */}
-            <Link to='login'>
-              <u className='login'> Login</u>{' '}
-            </Link>
+            {/* <Link to='login'> */}
+            <button className='login' onClick={handleLogin}>
+              {checkLogin()}
+            </button>{' '}
+            {/* </Link> */}
           </div>
           <Link to='rent'>
             <button className='rent btn button'>Rent</button>

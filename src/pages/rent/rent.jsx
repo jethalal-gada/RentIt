@@ -22,9 +22,10 @@ const Rent = () => {
                 <textarea type='text' className='rentBox des' />
               </div>
             </div>
-            <button type='reset' className='detailA upload'>
-              <TbCameraPlus className='camera' size={28} />
-            </button>
+            <label className='detailA upload'>
+              <TbCameraPlus in className='camera' size={28} />
+              <input id='input' type='file' accept='image/*'></input>
+            </label>
           </div>
           <div className='line' id='lineRent'></div>
           <div className='detail2'>
