@@ -9,20 +9,13 @@ import Animation from '../../components/cssAnimation/animation';
 import { LoginSocialGoogle } from 'reactjs-social-login';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { GoogleLoginButton } from 'react-social-login-buttons';
-// import Txt from '../../components/txtAnimation/txtAnimation';
-// import Search from '../../components/searchBar/search';
+
 const Login = () => {
   const [loginData, setLoginData] = useState(
     localStorage.getItem('loginData')
       ? JSON.parse(localStorage.getItem('userDetails'))
       : null
   );
-
-  // const logOut = () => {
-  //   localStorage.removeItem('userDetails');
-  //   setLoginData(null);
-  // };
   const navigate = useNavigate();
   return (
     <>

@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Subnavbar from '../../components/subnavbar/subnavbar';
 
 const Profile = () => {
   const location = useLocation();
@@ -13,6 +14,7 @@ const Profile = () => {
 
   return (
     <>
+      <Subnavbar />
       profile
       <div>Hi {data.given_name}</div>
       <button onClick={handleLogOut}>Log Out</button>
