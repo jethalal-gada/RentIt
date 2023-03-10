@@ -1,9 +1,6 @@
 import './items.css';
-// import itemImg from '../../images/itemImg.svg';
 import { useNavigate } from 'react-router-dom';
 import fakedata from '../../fakedata.json';
-// import { FaSearch } from 'react-icons/fa';
-// import Search from '../searchBar/search';
 const Items = () => {
   const navigate = useNavigate();
 

@@ -30,9 +30,6 @@
   overflow: hidden;
   transition: 0.2s;
 }
-/* .item:hover {
-  box-shadow: 0 4px 10px 1px #dcdcdc;
-} */
 .item:hover {
   border: 1px solid #ff5e03;
 }
@@ -45,10 +42,6 @@
   transition: 0.1s;
 }
 #itemImgBox:hover {
-  /* padding: 3px;
-  rotate: 1deg !important;
-  rotate: -1deg; */
-
   transform: scale(1.01);
 }
 #itemImgBox {

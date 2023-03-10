@@ -38,11 +38,9 @@ const Navbar = () => {
         </div>
         <div className='navBtns'>
           <div className=' buttom'>
-            {/* <Link to='login'> */}
             <button className='login' onClick={handleLogin}>
               {checkLogin()}
             </button>{' '}
-            {/* </Link> */}
           </div>
           <Link to='rent'>
             <button className='rent btn button'>Rent</button>

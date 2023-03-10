@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { AppProvider } from './context.';
 import './index.css';
 import Home from './pages/home/home';
 import ErrorPage from './pages/errorPage/errorPage';
@@ -22,8 +21,6 @@ root.render(
       <Route path='ItemDetail' element={<ItemDetail />} />
       <Route path='test' element={<Test />} />
       <Route path='*' element={<ErrorPage />} />
-
-      {/* <Route path="/form" element={<Form />} /> */}
     </Routes>
   </BrowserRouter>
 );
