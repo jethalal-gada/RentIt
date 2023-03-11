@@ -1,47 +1,82 @@
 import './itemDetail.css';
 import Subnavbar from '../../components/subnavbar/subnavbar';
 import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+// import Loading from '../../images/loading.svg';
 
 const ItemDetail = () => {
+  // const [loading, setLoading] = useState(false);
   const location = useLocation();
-  const data = location.state;
+  const id = location.state.id;
+  console.log(id);
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    // setLoading(true);
+    let url = `http://127.0.0.1:2000/api-rentit/v1/items/${id}`;
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        setProduct(data.data.item);
+      } catch (error) {
+        console.log('error', error);
+      }
+    };
+
+    console.log(url);
+    fetchData();
+    // setLoading(false);
+  }, [id]);
+
+  console.log(product);
+  if (!product)
+    return (
+      <>
+        <Subnavbar />
+        <div>loading</div>
+        {/* <Loading /> */}
+      </>
+    );
   return (
     <>
       <Subnavbar />
+      {/* <Loading /> */}
       <div className='items'>
         <div className='imgItemDetail itemDetailBox'>
-          <img className='imgItemTag' src={data.image} alt='' />
+          <img className='imgItemTag' src={product.image} alt='' />
         </div>
         <div className='infoItem itemDetailBox'>
           <div className='info1'>
-            <p className='infoA br'>{data.product}</p>
+            <p className='infoA br'>{product.product}</p>
             <p className='infoA br'>
-              ₹{data.price} per {data.unit}
+              ₹{product.price} per {product.unit}
             </p>
           </div>
           <div className='info2'>
             <div className='txtA'>
               <p className='infoB br'>Owner: </p>
               <p className='infoB or' id='name'>
-                {data.owner}
+                {product.owner}
               </p>
             </div>
             <div className='txtA'>
               <p className='infoB br'>Contact: </p>
               <p className='infoB or' id='contact'>
-                {data.contact}
+                {product.contact}
               </p>
             </div>
             <div className='txtA'>
               <p className='infoB br'>Lpu id: </p>
               <p className='infoB or' id='lpuId'>
-                {data.lpuid}
+                {product.lpuid}
               </p>
             </div>
           </div>
 
           <div className='info3'>
-            <p className='infoC   '>{data.description}</p>
+            <p className='infoC   '>{product.description}</p>
           </div>
         </div>
       </div>
