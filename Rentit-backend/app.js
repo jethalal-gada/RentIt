@@ -20,11 +20,9 @@ app.use((req, res, next) => {
 });
 
 const getItems = (req, res) => {
-  // console.log(req);
   res.status(200).json({
     status: 'sucess',
     results: items.length,
-    // reqAt: req.requestTime,
     data: {
       items: items,
     },
@@ -32,11 +30,10 @@ const getItems = (req, res) => {
 };
 const getItemDetails = (req, res) => {
   const item = items.find((e) => e.id == req.params.id);
-  // console.log(req);
   if (req.params.id > items.length - 1)
     return res.status(404).json({
       status: 'fail',
-      message: 'imvalid ID',
+      message: 'invalid ID',
     });
 
   res.status(200).json({
