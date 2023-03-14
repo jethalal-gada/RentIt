@@ -3,7 +3,7 @@ const router = express.Router();
 const {
   getItemDetails,
   getItems,
-} = require('./../controllers/itemsPageContoller');
+} = require('../controllers/itemsPageContoller');
 
 router.route('/').get(getItems);
 router.route('/:id').get(getItemDetails);
