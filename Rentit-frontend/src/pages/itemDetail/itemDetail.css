@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Alike&family=Archivo:wght@100;600&family=Libre+Franklin:ital,wght@0,500;1,400&display=swap');
+.loader {
+  /* margin-top: auto; */
+  /* margin-right: auto; */
+  width: 3rem;
+}
+#loader {
+  height: 50vh;
+  margin-top: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .items {
   display: flex;
   align-items: center;
@@ -108,6 +121,7 @@
   font-weight: 600;
   font-size: 18px;
 }
+
 @media only screen and (max-width: 868px) {
   .imgItemDetail {
     width: 18rem;

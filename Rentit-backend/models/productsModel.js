@@ -3,16 +3,16 @@ const productSchema = new mongoose.Schema({
   image: {
     type: String,
     required: [true, 'this feild is required'],
+    unique: true,
   },
   owner: {
     type: String,
     required: [true, 'name is required'],
-    unique: true,
+    unique: false,
   },
   product: {
     type: String,
     required: [true, 'name is required'],
-    unique: true,
   },
   price: {
     type: Number,

@@ -14,7 +14,7 @@ exports.postItem = async (req, res) => {
     console.log(err);
     res.status(404).json({
       status: 'fail',
-      message: 'error',
+      message: err,
     });
   }
 };

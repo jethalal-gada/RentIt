@@ -37,7 +37,7 @@ const Items = () => {
             return (
               <div
                 className='item'
-                onClick={() => handleClick(data.id)}
+                onClick={() => handleClick(data._id)}
                 key={data.id}
               >
                 <div id='itemImgBox'>

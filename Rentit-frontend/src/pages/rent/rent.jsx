@@ -1,31 +1,82 @@
+import { useState } from 'react';
 import Subnavbar from '../../components/subnavbar/subnavbar';
 import './rent.css';
 import { TbCameraPlus } from 'react-icons/tb';
+import { useNavigate } from 'react-router-dom';
 const Rent = () => {
+  const navigate = useNavigate();
+  const [values, setValues] = useState({
+    owner: '',
+    product: '',
+    price: '',
+    unit: 'day',
+    contact: '',
+    lpuid: '',
+    description: '',
+    image: '',
+  });
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+  const handlePost = (e) => {
+    e.preventDefault();
+    navigate('/');
+    console.log(values);
+    // setValues(...values, '');
+  };
   return (
     <>
       <Subnavbar />
       <div className='rentHeading or heading'>What do you want to rent ?</div>
-      <form action=''>
+      <form onSubmit={handlePost}>
         <div className='rentForm'>
           <div className='detail1'>
             <div className='or titles'>Product detials</div>
             <div className='detailA'>
               Title*
               <div className='rentTitle wrapBox'>
-                <input type='text' className='rentBox' />
+                <input
+                  className='rentBox'
+                  onChange={handleChange}
+                  name='product'
+                  pattern='[A-Za-z]{3,25}'
+                  title='Minimum 3 and maximun 25 words'
+                  required
+                />
               </div>
             </div>
             <div className='detailA'>
               Description*
               <div className='rentDes wrapBox'>
-                <textarea type='text' className='rentBox des' />
+                <textarea
+                  maxLength={100}
+                  minLength={10}
+                  className='rentBox des'
+                  onChange={handleChange}
+                  name='description'
+                  title='Minimum 10 and maximun 100 words'
+                  required
+                />
               </div>
             </div>
-            <label className='detailA upload'>
-              <TbCameraPlus in className='camera' size={28} />
-              <input id='input' type='file' accept='image/*'></input>
-            </label>
+            <div className='detailImg'>
+              {/* <div className='uploadImg'> */}
+              <label className='detailA upload'>
+                <TbCameraPlus in className='camera' size={28} />
+                <input id='input' type='file' accept='image/*'></input>
+              </label>
+              {/* </div> */}
+              <div className='urlImg wrapBox imgBox '>
+                <input
+                  name='image'
+                  onChange={handleChange}
+                  type='url'
+                  className='rentBox'
+                  placeholder='Paste image url here'
+                  required
+                />
+              </div>
+            </div>
           </div>
           <div className='line' id='lineRent'></div>
           <div className='detail2'>
@@ -33,19 +84,40 @@ const Rent = () => {
             <div className='detailB'>
               Name*
               <div className='rentName wrapBox'>
-                <input type='text' className='rentBox' />
+                <input
+                  className='rentBox'
+                  onChange={handleChange}
+                  required
+                  name='owner'
+                  pattern='[A-Za-z]{3,25}'
+                  title='Minimum 3 and maximun 25 words'
+                />
               </div>
             </div>
             <div className='detailB'>
               LPU ID*
               <div className='rentID wrapBox'>
-                <input type='text' className='rentBox' />
+                <input
+                  className='rentBox'
+                  onChange={handleChange}
+                  name='lpuid'
+                  pattern='[0-9]{8}'
+                  title='Eight digit numeric ID only'
+                  required
+                />
               </div>
             </div>
             <div className='detailB'>
               Contact*
               <div className='rentMob wrapBox'>
-                <input type='text' className='rentBox' />
+                <input
+                  className='rentBox'
+                  onChange={handleChange}
+                  name='contact'
+                  pattern='[0-9]{10}'
+                  title='10 digit mobile number'
+                  required
+                />
               </div>
             </div>
           </div>
@@ -53,15 +125,35 @@ const Rent = () => {
           <div className='detail3'>
             <div className=' or titles'>Renting Charges</div>
             <div className='rentCharge  chargeBox wrapBox'>
-              <input type='text' placeholder='Rs.' className='rentBox' />
+              <div className='chargeBox'>
+                <input
+                  placeholder='Rs.'
+                  className='rentBox priceBox'
+                  onChange={handleChange}
+                  name='price'
+                  pattern='[0-9]{1,4}'
+                  title='Price shoud be between 1-9999'
+                  required
+                />
+              </div>
+              <div className='unitBox chargeBox '>
+                <select
+                  name='unit'
+                  id='unit'
+                  className='rentBox unitBox'
+                  onChange={handleChange}
+                >
+                  <option value='day'>Per day</option>
+                  <option value='hour'>Per hour</option>
+                </select>
+              </div>
             </div>
-            <div className=' chargeBox'></div>
           </div>
         </div>
+        <div id='post'>
+          <button className='post btn'>Post</button>
+        </div>
       </form>
-      <div id='post'>
-        <button className='post btn'>Post</button>
-      </div>
     </>
   );
 };
