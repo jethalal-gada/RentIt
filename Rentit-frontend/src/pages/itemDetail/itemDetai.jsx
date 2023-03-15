@@ -2,10 +2,9 @@ import './itemDetail.css';
 import Subnavbar from '../../components/subnavbar/subnavbar';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-// import Loading from '../../images/loading.svg';
+import Loading from '../../images/loading.svg';
 
 const ItemDetail = () => {
-  // const [loading, setLoading] = useState(false);
   const location = useLocation();
   const id = location.state.id;
   console.log(id);
@@ -27,7 +26,6 @@ const ItemDetail = () => {
 
     console.log(url);
     fetchData();
-    // setLoading(false);
   }, [id]);
 
   console.log(product);
@@ -35,14 +33,12 @@ const ItemDetail = () => {
     return (
       <>
         <Subnavbar />
-        <div>loading</div>
-        {/* <Loading /> */}
+        <img src={Loading} alt='loaing' />
       </>
     );
   return (
     <>
       <Subnavbar />
-      {/* <Loading /> */}
       <div className='items'>
         <div className='imgItemDetail itemDetailBox'>
           <img className='imgItemTag' src={product.image} alt='' />
