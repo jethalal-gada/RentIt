@@ -5,6 +5,7 @@ import { TbCameraPlus } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
 const Rent = () => {
   const navigate = useNavigate();
+  const url = 'http://127.0.0.1:2000/api-rentit/v1/rent';
   const [values, setValues] = useState({
     owner: '',
     product: '',
@@ -20,8 +21,17 @@ const Rent = () => {
   };
   const handlePost = (e) => {
     e.preventDefault();
-    navigate('/');
-    console.log(values);
+    //trial
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then(navigate('/'))
+      .catch((err) => console.log(err));
     // setValues(...values, '');
   };
   return (
@@ -38,8 +48,9 @@ const Rent = () => {
                 <input
                   className='rentBox'
                   onChange={handleChange}
+                  maxLength={25}
+                  minLength={3}
                   name='product'
-                  pattern='[A-Za-z]{3,25}'
                   title='Minimum 3 and maximun 25 words'
                   required
                 />
@@ -60,12 +71,10 @@ const Rent = () => {
               </div>
             </div>
             <div className='detailImg'>
-              {/* <div className='uploadImg'> */}
               <label className='detailA upload'>
                 <TbCameraPlus in className='camera' size={28} />
                 <input id='input' type='file' accept='image/*'></input>
               </label>
-              {/* </div> */}
               <div className='urlImg wrapBox imgBox '>
                 <input
                   name='image'
@@ -85,11 +94,13 @@ const Rent = () => {
               Name*
               <div className='rentName wrapBox'>
                 <input
+                  type='text'
+                  maxLength={25}
+                  minLength={3}
                   className='rentBox'
                   onChange={handleChange}
                   required
                   name='owner'
-                  pattern='[A-Za-z]{3,25}'
                   title='Minimum 3 and maximun 25 words'
                 />
               </div>
