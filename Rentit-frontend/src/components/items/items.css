@@ -60,8 +60,9 @@
   font-family: 'Libre Franklin';
   font-style: normal;
   font-weight: 400;
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 0.7rem;
+  line-height: 17px;
+  padding: 0px 5px;
   color: #675c55;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -75,8 +76,8 @@
   font-family: 'Archivo';
   font-size: 1.3rem;
   font-weight: 600;
-  margin-top: 8px;
-  margin-bottom: 10px;
+  margin-top: 9px;
+  margin-bottom: 7px;
   display: flex;
   align-items: center;
   justify-content: center;

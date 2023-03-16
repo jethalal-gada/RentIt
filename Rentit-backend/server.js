@@ -15,7 +15,7 @@ mongoose
     useFindAndModify: false,
     useUnifiedTopology: true, //optional
   })
-  .then((con) => console.log('DB connction stablished'))
+  .then((con) => console.log('DB connction established'))
   .catch((err) => console.log(err));
 
 const port = process.env.PORT;

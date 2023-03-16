@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Subnavbar from '../../components/subnavbar/subnavbar';
 import './rent.css';
 import { TbCameraPlus } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../images/loading.svg';
 const Rent = () => {
   const navigate = useNavigate();
   const url = 'http://127.0.0.1:2000/api-rentit/v1/rent';
@@ -16,12 +17,28 @@ const Rent = () => {
     description: '',
     image: '',
   });
+  // const [message, setMessage] = useState('');
+  const [status, setStatus] = useState(null);
+  const [loader, setLoader] = useState(false);
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
+
+  useEffect(() => {
+    setLoader(false);
+    if (status === 201) {
+      alert('Posted sucesfully');
+      setStatus(null);
+      navigate('/');
+    } else if (status === 404) {
+      alert('Failed to post, image already exists');
+      setStatus(null);
+    }
+  }, [status]);
+
   const handlePost = (e) => {
     e.preventDefault();
-    //trial
+    setLoader(true);
     fetch(url, {
       method: 'POST',
       body: JSON.stringify(values),
@@ -29,11 +46,59 @@ const Rent = () => {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
-      .then((response) => response.json())
-      .then(navigate('/'))
-      .catch((err) => console.log(err));
-    // setValues(...values, '');
+      .then((response) => {
+        setStatus(response.status);
+        return response.json();
+      })
+      // .then((data) => {
+      //   console.log(status);
+      //   console.log(data);
+      //   if (status === 201) {
+      //     setMessage('Posted sucesfully');
+      //   } else {
+      //     setMessage('Failed to Post. Image already used');
+      //   }
+      //   if (status === 404) alert(message);
+      // })
+      .catch((err) => {
+        console.log('ERROR -', err);
+        setLoader(false);
+      });
   };
+
+  // const savePost = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await fetch(url, {
+  //       method: 'POST',
+  //       body: JSON.stringify(values),
+  //       headers: {
+  //         'Content-type': 'application/json; charset=UTF-8',
+  //       },
+  //     });
+  //     setStatus(response.status);
+  //     console.log(status);
+  //     if (status === 201) {
+  //       setMessage('Sucessfully posted');
+  //     } else {
+  //       setMessage(`Failed to post`);
+  //       // alert(`Failed to post : ${message}`);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  if (loader) {
+    return (
+      <>
+        <Subnavbar />
+        <div id='loader'>
+          <img className='loader' src={Loading} alt='loaing...' />
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <Subnavbar />
@@ -48,10 +113,10 @@ const Rent = () => {
                 <input
                   className='rentBox'
                   onChange={handleChange}
-                  maxLength={25}
+                  maxLength={20}
                   minLength={3}
                   name='product'
-                  title='Minimum 3 and maximun 25 words'
+                  title='Minimum 3 and maximun 20 words'
                   required
                 />
               </div>
@@ -60,7 +125,7 @@ const Rent = () => {
               Description*
               <div className='rentDes wrapBox'>
                 <textarea
-                  maxLength={100}
+                  maxLength={200}
                   minLength={10}
                   className='rentBox des'
                   onChange={handleChange}
