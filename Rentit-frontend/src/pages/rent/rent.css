@@ -96,6 +96,9 @@ form {
 .wrapBox {
   width: 533px;
 }
+.rentCharge {
+  width: 200px;
+}
 .rentBox:active {
   border-color: #ff5e03;
 }
@@ -122,6 +125,32 @@ textarea {
   min-height: 35px;
   min-width: 533px;
 }
+.rentCharge {
+  display: flex;
+  width: 100%;
+}
+#unit {
+  padding: 4px;
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 13px;
+  border-left: none;
+  border-radius: 0px 5px 5px 0px;
+}
+.priceBox {
+  border-radius: 5px 0px 0px 5px;
+}
+.imgBox {
+  margin-left: 1rem;
+  width: 29.5rem;
+}
+.detailImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 668px) {
   .post {
     background: #ff5e03;
@@ -219,6 +248,9 @@ textarea {
   .wrapBox {
     width: 448px;
   }
+  .rentCharge {
+    width: 200px;
+  }
   .upload {
     margin-top: 0.5rem;
     color: #ff5e03;
@@ -232,6 +264,35 @@ textarea {
   }
   textarea {
     max-width: 448px;
+    /* max-width: 533px; */
+    max-height: 78px;
+    min-height: 35px;
+    min-width: 448px;
+  }
+  .rentCharge {
+    display: flex;
+    width: 100%;
+  }
+  #unit {
+    padding: 4px;
+    font-family: 'Libre Franklin';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 13px;
+    border-left: none;
+    border-radius: 0px 5px 5px 0px;
+  }
+  .priceBox {
+    border-radius: 5px 0px 0px 5px;
+  }
+  .imgBox {
+    margin-left: 1rem;
+    width: 24rem;
+  }
+  .detailImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 @media only screen and (max-width: 512px) {
@@ -331,6 +392,9 @@ textarea {
   .wrapBox {
     width: 328px;
   }
+  .rentCharge {
+    width: 200px;
+  }
   .upload {
     margin-top: 0.5rem;
     color: #ff5e03;
@@ -344,5 +408,35 @@ textarea {
   }
   textarea {
     max-width: 328px;
+    /* max-width: 448px; */
+    /* max-width: 533px; */
+    max-height: 78px;
+    min-height: 35px;
+    min-width: 328px;
+  }
+  .rentCharge {
+    display: flex;
+    width: 100%;
+  }
+  #unit {
+    padding: 4px;
+    font-family: 'Libre Franklin';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 13px;
+    border-left: none;
+    border-radius: 0px 5px 5px 0px;
+  }
+  .priceBox {
+    border-radius: 5px 0px 0px 5px;
+  }
+  .imgBox {
+    margin-left: 1rem;
+    width: 16.5rem;
+  }
+  .detailImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

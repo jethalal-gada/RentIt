@@ -33,7 +33,9 @@ const ItemDetail = () => {
     return (
       <>
         <Subnavbar />
-        <img src={Loading} alt='loaing' />
+        <div id='loader'>
+          <img className='loader' src={Loading} alt='loaing...' />
+        </div>
       </>
     );
   return (

@@ -1,6 +1,7 @@
 import './items.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Loading from '../../images/loading.svg';
 
 const Items = () => {
   const [itemData, setItemData] = useState(null);
@@ -28,7 +29,14 @@ const Items = () => {
     console.log(id);
     navigate('/itemDetail', { state: { id: id } });
   };
-
+  if (!itemData)
+    return (
+      <>
+        <div id='loader'>
+          <img className='loader' src={Loading} alt='loaing...' />
+        </div>
+      </>
+    );
   return (
     <>
       <div className='allItems'>
@@ -37,7 +45,7 @@ const Items = () => {
             return (
               <div
                 className='item'
-                onClick={() => handleClick(data.id)}
+                onClick={() => handleClick(data._id)}
                 key={data.id}
               >
                 <div id='itemImgBox'>
