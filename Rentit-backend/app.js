@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const itemsRouter = require('./routes/itemsRoute');
 const postRouter = require('./routes/postRoute');
+const loginRouter = require('./routes/loginRoute');
 
 //Middlewares
 app.use(express.json());
@@ -20,5 +21,6 @@ app.use((req, res, next) => {
 
 app.use('/api-rentit/v1/items', itemsRouter);
 app.use('/api-rentit/v1/rent', postRouter);
+app.use('/api-rentit/v1/rent', loginRouter);
 
 module.exports = app;

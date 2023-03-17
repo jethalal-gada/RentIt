@@ -50,44 +50,12 @@ const Rent = () => {
         setStatus(response.status);
         return response.json();
       })
-      // .then((data) => {
-      //   console.log(status);
-      //   console.log(data);
-      //   if (status === 201) {
-      //     setMessage('Posted sucesfully');
-      //   } else {
-      //     setMessage('Failed to Post. Image already used');
-      //   }
-      //   if (status === 404) alert(message);
-      // })
       .catch((err) => {
         console.log('ERROR -', err);
         setLoader(false);
       });
   };
 
-  // const savePost = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await fetch(url, {
-  //       method: 'POST',
-  //       body: JSON.stringify(values),
-  //       headers: {
-  //         'Content-type': 'application/json; charset=UTF-8',
-  //       },
-  //     });
-  //     setStatus(response.status);
-  //     console.log(status);
-  //     if (status === 201) {
-  //       setMessage('Sucessfully posted');
-  //     } else {
-  //       setMessage(`Failed to post`);
-  //       // alert(`Failed to post : ${message}`);
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
   if (loader) {
     return (
       <>
