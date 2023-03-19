@@ -8,7 +8,6 @@ import Animation from '../../components/cssAnimation/animation';
 import { LoginSocialGoogle } from 'reactjs-social-login';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Loading from '../../images/loading.svg';
 // import { useGlobalContext } from '../../authContext';
 
 const Login = () => {
@@ -25,7 +24,6 @@ const Login = () => {
   };
 
   useEffect(() => {
-    console.log(loginData);
     const saveUser = async () => {
       console.log('storing details');
       try {
@@ -65,7 +63,7 @@ const Login = () => {
         <div className='signInTop signIn'>
           <div className='logoBox'>
             <Link to='/'>
-              <img className='signInLogo logo' src={logo} alt='logo' />
+              <img className='signInLogo ' src={logo} alt='logo' />
             </Link>
           </div>
           <div className='line lineLogin'></div>
@@ -86,7 +84,6 @@ const Login = () => {
               // setLoader(true);
               setLoginData({ ...data });
               sessionStorage.setItem('userDetails', JSON.stringify(data));
-              console.log(loginData);
             }}
             onReject={(err) => {
               console.log(err, 'Failed');

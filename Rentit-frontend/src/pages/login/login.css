@@ -22,7 +22,8 @@
   border-bottom: none;
 }
 .logoBox {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+  margin-top: 15px;
 }
 .loginBtn {
   display: flex;
@@ -49,11 +50,11 @@
   flex-direction: column;
 }
 .signInTop {
-  margin-top: 25px;
+  /* margin-top: 25px; */
   width: 100%;
 }
 .signInLogo {
-  width: 9rem;
+  width: 9.5rem;
   margin-left: 10px;
 }
 .signInTxt {
