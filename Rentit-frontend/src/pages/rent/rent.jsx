@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Subnavbar from '../../components/subnavbar/subnavbar';
 import './rent.css';
 import { TbCameraPlus } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +16,6 @@ const Rent = () => {
     description: '',
     image: '',
   });
-  // const [message, setMessage] = useState('');
   const [status, setStatus] = useState(null);
   const [loader, setLoader] = useState(false);
   const handleChange = (e) => {
@@ -34,32 +32,30 @@ const Rent = () => {
       alert('Failed to post, image already exists');
       setStatus(null);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
-  const handlePost = (e) => {
+  const handlePost = async (e) => {
     e.preventDefault();
     setLoader(true);
-    fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(values),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => {
-        setStatus(response.status);
-        return response.json();
-      })
-      .catch((err) => {
-        console.log('ERROR -', err);
-        setLoader(false);
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
       });
+      setStatus(response.status);
+    } catch (err) {
+      console.log('Error -', err);
+      setLoader(false);
+    }
   };
 
   if (loader) {
     return (
       <>
-        <Subnavbar />
         <div id='loader'>
           <img className='loader' src={Loading} alt='loaing...' />
         </div>
@@ -69,7 +65,6 @@ const Rent = () => {
 
   return (
     <>
-      <Subnavbar />
       <div className='rentHeading or heading'>What do you want to rent ?</div>
       <form onSubmit={handlePost}>
         <div className='rentForm'>

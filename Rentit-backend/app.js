@@ -21,6 +21,6 @@ app.use((req, res, next) => {
 
 app.use('/api-rentit/v1/items', itemsRouter);
 app.use('/api-rentit/v1/rent', postRouter);
-app.use('/api-rentit/v1/rent', loginRouter);
+app.use('/api-rentit/v1/login', loginRouter);
 
 module.exports = app;

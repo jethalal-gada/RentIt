@@ -1,4 +1,3 @@
-import Subnavbar from '../../components/subnavbar/subnavbar';
 import './login.css';
 import logo from '../../images/Logo.svg';
 import { FcGoogle } from 'react-icons/fc';
@@ -7,19 +6,61 @@ import { SiFacebook } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import Animation from '../../components/cssAnimation/animation';
 import { LoginSocialGoogle } from 'reactjs-social-login';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+// import Loading from '../../images/loading.svg';
+// import { useGlobalContext } from '../../authContext';
 
 const Login = () => {
-  const [loginData, setLoginData] = useState(
-    localStorage.getItem('loginData')
-      ? JSON.parse(localStorage.getItem('userDetails'))
-      : null
-  );
+  // const { logIn, setLogIn } = useGlobalContext();
   const navigate = useNavigate();
+  const [loginData, setLoginData] = useState(null);
+  const url = 'http://127.0.0.1:2000/api-rentit/v1/login';
+
+  const handleLogOut = () => {
+    sessionStorage.removeItem('userDetails');
+    // setLogIn(false);
+    // console.log(logIn);
+    navigate('/');
+  };
+
+  useEffect(() => {
+    console.log(loginData);
+    const saveUser = async () => {
+      console.log('storing details');
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          body: JSON.stringify(loginData),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        });
+        console.log(response, 'Sucess');
+        // setLogIn(true);
+        // console.log(logIn);
+        navigate('/');
+      } catch (err) {
+        console.log(err, 'Fail');
+      }
+    };
+    if (loginData) saveUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loginData]);
+
+  if (sessionStorage.getItem('userDetails')) {
+    const data = JSON.parse(sessionStorage.getItem('userDetails'));
+    return (
+      <>
+        You are logged in
+        <div>Hi {data.given_name}</div>
+        <button onClick={handleLogOut}>Log Out</button>
+      </>
+    );
+  }
+
   return (
     <>
-      <Subnavbar />
       <div className='loginBox'>
         <div className='signInTop signIn'>
           <div className='logoBox'>
@@ -42,14 +83,13 @@ const Login = () => {
             discoveryDocs='claims_supported'
             access_type='offline'
             onResolve={({ provider, data }) => {
-              console.log(provider, data);
-              setLoginData(data);
-              localStorage.setItem('userDetails', JSON.stringify(data));
-              navigate('/', { state: data });
+              // setLoader(true);
+              setLoginData({ ...data });
+              sessionStorage.setItem('userDetails', JSON.stringify(data));
               console.log(loginData);
             }}
             onReject={(err) => {
-              console.log(err);
+              console.log(err, 'Failed');
             }}
           >
             <button className='loginBtn'>
