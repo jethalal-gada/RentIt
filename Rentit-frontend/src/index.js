@@ -9,10 +9,14 @@ import Login from './pages/login/login';
 import ItemDetail from './pages/itemDetail/itemDetai';
 import Profile from './pages/profile/profile';
 import Test from './pages/testPage/test';
+// import { AppProvider } from './authContext';
+import Navbar from './components/navbar/navbar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // <AppProvider>
   <BrowserRouter>
+    <Navbar />
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='login' element={<Login />} />
@@ -23,4 +27,5 @@ root.render(
       <Route path='*' element={<ErrorPage />} />
     </Routes>
   </BrowserRouter>
+  // </AppProvider>
 );

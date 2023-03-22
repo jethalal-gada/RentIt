@@ -2,37 +2,42 @@ const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
   image: {
     type: String,
-    required: [true, 'this feild is required'],
-    unique: true,
+    required: [true, 'Image feild is required'],
+    unique: [true, 'Image already exists'],
+    trim: true,
   },
   owner: {
     type: String,
     required: [true, 'name is required'],
     unique: false,
+    trim: true,
   },
   product: {
     type: String,
     required: [true, 'name is required'],
+    trim: true,
   },
   price: {
     type: Number,
     required: [true, 'Price is compulsory'],
+    trim: true,
   },
   unit: {
     type: String,
-    required: [true, 'this feild is required'],
+    required: [true, 'Unit feild is required'],
   },
   contact: {
     type: Number,
-    required: [true, 'this feild is required'],
+    required: [true, 'Contact feild is required'],
   },
   lpuid: {
     type: Number,
-    required: [true, 'this feild is required'],
+    required: [true, 'Lpu ID feild is required'],
   },
   description: {
     type: String,
-    required: [true, 'this feild is required'],
+    required: [true, 'Description feild is required'],
+    trim: true,
   },
 });
 

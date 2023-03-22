@@ -1,12 +1,12 @@
-const Product = require('../models/productsModel');
+const User = require('../models/usersModel');
 
-exports.postItem = async (req, res) => {
+exports.userLogin = async (req, res) => {
   try {
-    const newProduct = await Product.create(req.body);
+    const newUser = await User.create(req.body);
     res.status(201).json({
       status: 'sucess',
       data: {
-        products: newProduct,
+        users: newUser,
       },
     });
   } catch (err) {

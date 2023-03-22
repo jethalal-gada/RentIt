@@ -2,14 +2,21 @@ import './items.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Loading from '../../images/loading.svg';
+// import { useGlobalContext } from '../../authContext';
 
 const Items = () => {
   const [itemData, setItemData] = useState(null);
+  const [user, setUser] = useState(null);
+  // const { logIn, setLogIn } = useGlobalContext();
+
+  const url = 'http://127.0.0.1:2000/api-rentit/v1/items';
+
+  const checkLogin = () =>
+    setUser(JSON.parse(sessionStorage.getItem('userDetails')));
 
   useEffect(() => {
-    const url = 'http://127.0.0.1:2000/api-rentit/v1/items';
-
     const fetchData = async () => {
+      checkLogin();
       try {
         const response = await fetch(url);
         const data = await response.json();
@@ -22,13 +29,12 @@ const Items = () => {
     fetchData();
   }, []);
 
-  console.log(itemData);
   const navigate = useNavigate();
-
   const handleClick = (id) => {
-    console.log(id);
-    navigate('/itemDetail', { state: { id: id } });
+    user ? navigate('/itemDetail', { state: { id: id } }) : navigate('/login');
   };
+  // navigate(logIn ? ('/itemDetail', { state: { id: id } }) : '/login');
+
   if (!itemData)
     return (
       <>

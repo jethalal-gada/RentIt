@@ -1,20 +1,22 @@
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import Subnavbar from '../../components/subnavbar/subnavbar';
+// import { useGlobalContext } from '../../authContext';
 
 const Profile = () => {
+  // const { logIn, setLogIn } = useGlobalContext();
   const location = useLocation();
   const data = location.state;
   const navigate = useNavigate();
 
   const handleLogOut = () => {
-    localStorage.removeItem('userDetails');
+    sessionStorage.removeItem('userDetails');
+    // setLogIn(false);
+    // console.log(logIn);
     navigate('/');
   };
 
   return (
     <>
-      <Subnavbar />
       profile
       <div>Hi {data.given_name}</div>
       <button onClick={handleLogOut}>Log Out</button>

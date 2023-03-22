@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import Subnavbar from '../../components/subnavbar/subnavbar';
+import { useState, useEffect } from 'react';
 import './rent.css';
 import { TbCameraPlus } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../images/loading.svg';
 const Rent = () => {
   const navigate = useNavigate();
   const url = 'http://127.0.0.1:2000/api-rentit/v1/rent';
@@ -16,27 +16,55 @@ const Rent = () => {
     description: '',
     image: '',
   });
+  const [status, setStatus] = useState(null);
+  const [loader, setLoader] = useState(false);
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
-  const handlePost = (e) => {
+
+  useEffect(() => {
+    setLoader(false);
+    if (status === 201) {
+      alert('Posted sucesfully');
+      setStatus(null);
+      navigate('/');
+    } else if (status === 404) {
+      alert('Failed to post, image already exists');
+      setStatus(null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status]);
+
+  const handlePost = async (e) => {
     e.preventDefault();
-    //trial
-    fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(values),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => response.json())
-      .then(navigate('/'))
-      .catch((err) => console.log(err));
-    // setValues(...values, '');
+    setLoader(true);
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+      setStatus(response.status);
+    } catch (err) {
+      console.log('Error -', err);
+      setLoader(false);
+    }
   };
+
+  if (loader) {
+    return (
+      <>
+        <div id='loader'>
+          <img className='loader' src={Loading} alt='loaing...' />
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
-      <Subnavbar />
       <div className='rentHeading or heading'>What do you want to rent ?</div>
       <form onSubmit={handlePost}>
         <div className='rentForm'>
@@ -48,10 +76,10 @@ const Rent = () => {
                 <input
                   className='rentBox'
                   onChange={handleChange}
-                  maxLength={25}
+                  maxLength={20}
                   minLength={3}
                   name='product'
-                  title='Minimum 3 and maximun 25 words'
+                  title='Minimum 3 and maximun 20 words'
                   required
                 />
               </div>
@@ -60,7 +88,7 @@ const Rent = () => {
               Description*
               <div className='rentDes wrapBox'>
                 <textarea
-                  maxLength={100}
+                  maxLength={200}
                   minLength={10}
                   className='rentBox des'
                   onChange={handleChange}

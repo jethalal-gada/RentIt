@@ -10,16 +10,18 @@ const Navbar = () => {
   let data = null;
   const navigate = useNavigate();
   const checkLogin = () => {
-    if (localStorage.getItem('userDetails') != null) {
-      data = JSON.parse(localStorage.getItem('userDetails'));
+    if (sessionStorage.getItem('userDetails')) {
+      data = JSON.parse(sessionStorage.getItem('userDetails'));
       user = 'Hi, ' + data.given_name;
     } else user = 'Login';
     return user;
   };
 
-  const handleLogin = () => {
-    if (data) navigate('/profile', { state: data });
-    else navigate('/login');
+  const handleBtnClick = (e) => {
+    if (e.target.name === 'login' || (e.target.name === 'rent' && !data))
+      navigate('/login');
+
+    if (e.target.name === 'rent' && data) navigate('/rent');
   };
 
   return (
@@ -38,13 +40,17 @@ const Navbar = () => {
         </div>
         <div className='navBtns'>
           <div className=' buttom'>
-            <button className='login' onClick={handleLogin}>
+            <button className='login' name='login' onClick={handleBtnClick}>
               {checkLogin()}
             </button>{' '}
           </div>
-          <Link to='rent'>
-            <button className='rent btn button'>Rent</button>
-          </Link>
+          <button
+            className='rent btn button'
+            name='rent'
+            onClick={handleBtnClick}
+          >
+            Rent
+          </button>
         </div>
       </div>
     </>
