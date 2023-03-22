@@ -7,10 +7,14 @@ const ItemDetail = () => {
   const location = useLocation();
   const id = location.state.id;
   const [product, setProduct] = useState(null);
+  const [save, setSave] = useState(false);
+  const url = `http://127.0.0.1:2000/api-rentit/v1/items/${id}`;
+
+  const saveItem = () => {
+    setSave('saved');
+  };
 
   useEffect(() => {
-    let url = `http://127.0.0.1:2000/api-rentit/v1/items/${id}`;
-
     const fetchData = async () => {
       try {
         const response = await fetch(url);
@@ -21,6 +25,8 @@ const ItemDetail = () => {
       }
     };
     fetchData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   if (!product)
@@ -71,7 +77,9 @@ const ItemDetail = () => {
         </div>
       </div>
       <div id='save'>
-        <button className='save btn'>Save</button>
+        <button className='save btn' onClick={saveItem}>
+          {save ? 'Saved' : 'Save'}
+        </button>
       </div>
     </>
   );
