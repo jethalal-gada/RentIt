@@ -19,6 +19,6 @@ mongoose
   .catch((err) => console.log(err));
 
 const port = process.env.PORT;
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`listening port ${port}...`);
 });

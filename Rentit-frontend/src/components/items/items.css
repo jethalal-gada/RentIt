@@ -28,10 +28,11 @@
   margin-bottom: 1px;
   cursor: pointer;
   overflow: hidden;
-  transition: 0.2s;
+  transition: 0.15s;
 }
 .item:hover {
   border: 1px solid #ff5e03;
+  transform: scale(1.02);
 }
 .imgHome {
   width: 100%;
@@ -41,9 +42,9 @@
   max-height: 10rem;
   transition: 0.1s;
 }
-#itemImgBox:hover {
+/* #itemImgBox:hover {
   transform: scale(1.01);
-}
+} */
 #itemImgBox {
   display: flex;
   align-items: center;
