@@ -15,8 +15,10 @@ const userSchema = new mongoose.Schema({
   picture: String,
   sub: String,
   token_type: String,
+  savedProducts: [{ type: String }, { unique: true }],
+  postedProducts: [String],
 });
 
-const User = mongoose.model('User', userSchema);
+const Users = mongoose.model('Users', userSchema);
 
-module.exports = User;
+module.exports = Users;

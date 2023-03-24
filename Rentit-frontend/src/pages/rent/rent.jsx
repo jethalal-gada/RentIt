@@ -19,9 +19,12 @@ const Rent = () => {
   const [status, setStatus] = useState(null);
   const [loader, setLoader] = useState(false);
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+      email: JSON.parse(sessionStorage.getItem('userDetails')).email,
+    });
   };
-
   useEffect(() => {
     setLoader(false);
     if (status === 201) {

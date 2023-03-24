@@ -39,6 +39,10 @@ const productSchema = new mongoose.Schema({
     required: [true, 'Description feild is required'],
     trim: true,
   },
+  email: {
+    type: String,
+    required: true,
+  },
 });
 
 const Product = mongoose.model('product', productSchema);
