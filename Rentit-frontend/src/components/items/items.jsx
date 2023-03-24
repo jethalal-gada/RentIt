@@ -11,8 +11,9 @@ const Items = () => {
 
   const url = 'http://127.0.0.1:2000/api-rentit/v1/items';
 
-  const checkLogin = () =>
+  const checkLogin = () => {
     setUser(JSON.parse(sessionStorage.getItem('userDetails')));
+  };
 
   useEffect(() => {
     const fetchData = async () => {

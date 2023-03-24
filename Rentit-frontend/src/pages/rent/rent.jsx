@@ -3,7 +3,7 @@ import './rent.css';
 import { TbCameraPlus } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../images/loading.svg';
-import User from '../user/user';
+import User from '../login/login';
 const Rent = () => {
   const navigate = useNavigate();
   const url = 'http://127.0.0.1:2000/api-rentit/v1/rent';

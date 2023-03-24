@@ -5,7 +5,7 @@ import './index.css';
 import Home from './pages/home/home';
 import ErrorPage from './pages/errorPage/errorPage';
 import Rent from './pages/rent/rent';
-import Login from './pages/user/user';
+import Login from './pages/login/login';
 import ItemDetail from './pages/itemDetail/itemDetai';
 // import Profile from './pages/profile/profile';
 import Test from './pages/testPage/test';
