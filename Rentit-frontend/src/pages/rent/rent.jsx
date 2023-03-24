@@ -3,6 +3,7 @@ import './rent.css';
 import { TbCameraPlus } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../images/loading.svg';
+import User from '../user/user';
 const Rent = () => {
   const navigate = useNavigate();
   const url = 'http://127.0.0.1:2000/api-rentit/v1/rent';
@@ -55,8 +56,8 @@ const Rent = () => {
       setLoader(false);
     }
   };
-
-  if (loader) {
+  if (!sessionStorage.getItem('userDetails')) return <User />;
+  else if (loader) {
     return (
       <>
         <div id='loader'>
@@ -65,7 +66,6 @@ const Rent = () => {
       </>
     );
   }
-
   return (
     <>
       <div className='rentHeading or heading'>What do you want to rent ?</div>

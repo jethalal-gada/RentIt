@@ -31,9 +31,8 @@ const Items = () => {
 
   const navigate = useNavigate();
   const handleClick = (id) => {
-    user ? navigate('/itemDetail', { state: { id: id } }) : navigate('/login');
+    user ? navigate('/itemDetail', { state: { id: id } }) : navigate('/user');
   };
-  // navigate(logIn ? ('/itemDetail', { state: { id: id } }) : '/login');
 
   if (!itemData)
     return (

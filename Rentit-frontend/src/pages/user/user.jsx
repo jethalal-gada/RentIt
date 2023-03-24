@@ -1,4 +1,4 @@
-import './login.css';
+import './user.css';
 import logo from '../../images/Logo.svg';
 import { FcGoogle } from 'react-icons/fc';
 import { GoMarkGithub } from 'react-icons/go';
@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { useGlobalContext } from '../../authContext';
 
-const Login = () => {
+const User = () => {
   // const { logIn, setLogIn } = useGlobalContext();
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState(null);
@@ -111,4 +111,4 @@ const Login = () => {
     </>
   );
 };
-export default Login;
+export default User;
