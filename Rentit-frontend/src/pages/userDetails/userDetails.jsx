@@ -12,11 +12,10 @@ const UserDetails = (props) => {
     // console.log(logIn);
     navigate('/');
   };
-  const data = props.data;
   return (
     <>
       You are logged in
-      <div>Hi {data.given_name}</div>
+      <div>Hi {props.given_name}</div>
       <button onClick={handleLogOut}>Log Out</button>
     </>
   );

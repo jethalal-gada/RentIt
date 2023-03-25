@@ -21,17 +21,15 @@ const Login = () => {
     const saveUser = async () => {
       console.log('storing details');
       try {
-        const response = await fetch(url, {
+        await fetch(url, {
           method: 'POST',
           body: JSON.stringify(loginData),
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
           },
         });
-        console.log(response, 'Sucess');
         // setLogIn(true);
         // console.log(logIn);
-        navigate('/');
       } catch (err) {
         console.log(err, 'Fail');
       }
@@ -70,6 +68,7 @@ const Login = () => {
             access_type='offline'
             onResolve={({ provider, data }) => {
               // setLoader(true);
+              navigate('/');
               setLoginData({ ...data });
               sessionStorage.setItem('userDetails', JSON.stringify(data));
             }}

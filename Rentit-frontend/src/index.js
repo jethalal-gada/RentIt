@@ -6,9 +6,8 @@ import Home from './pages/home/home';
 import ErrorPage from './pages/errorPage/errorPage';
 import Rent from './pages/rent/rent';
 import Login from './pages/login/login';
-import ItemDetail from './pages/itemDetail/itemDetai';
+import ItemDetails from './pages/itemDetail/itemDetails';
 // import Profile from './pages/profile/profile';
-import Test from './pages/testPage/test';
 // import { AppProvider } from './authContext';
 import Navbar from './components/navbar/navbar';
 
@@ -22,8 +21,7 @@ root.render(
       <Route path='user' element={<Login />} />
       {/* <Route path='profile' element={<Profile />} /> */}
       <Route path='rent' element={<Rent />} />
-      <Route path='ItemDetail' element={<ItemDetail />} />
-      <Route path='test' element={<Test />} />
+      <Route path='ItemDetails' element={<ItemDetails />} />
       <Route path='*' element={<ErrorPage />} />
     </Routes>
   </BrowserRouter>
