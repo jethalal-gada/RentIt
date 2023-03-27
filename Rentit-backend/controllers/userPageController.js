@@ -22,9 +22,7 @@ exports.userLogin = async (req, res) => {
 exports.getPostedProducts = async (req, res) => {
   try {
     const email = req.params.id;
-    console.log(email);
     const posts = await Product.find({ email: email });
-    console.log(posts);
     res.status(201).json({
       status: 'sucess',
       data: {

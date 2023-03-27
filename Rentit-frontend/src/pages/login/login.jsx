@@ -40,7 +40,7 @@ const Login = () => {
 
   if (sessionStorage.getItem('userDetails')) {
     const data = JSON.parse(sessionStorage.getItem('userDetails'));
-    return <UserDetails props={data} />;
+    return <UserDetails {...data} />;
   }
 
   return (
