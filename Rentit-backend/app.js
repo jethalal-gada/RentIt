@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 //Mouting
 app.use('/api-rentit/v1/items', itemsRouter);
 app.use('/api-rentit/v1/rent', postRouter);
-app.use('/api-rentit/v1/login', userRouter);
+app.use('/api-rentit/v1/user', userRouter);
 app.use('/api-rentit/v1/itemDetail', itemDetailsRouter);
 
 module.exports = app;

@@ -6,7 +6,6 @@ const ItemCard = (props) => {
 
   const data = props.data;
   const user = props.user;
-
   const handleClick = (id) => {
     user ? navigate('/itemDetails', { state: { id: id } }) : navigate('/user');
   };

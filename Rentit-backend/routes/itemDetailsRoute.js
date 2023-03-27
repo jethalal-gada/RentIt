@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const {
-  saveItem,
-  getUserDetails,
-} = require('../controllers/itemDetailController');
+const { saveItem } = require('../controllers/itemDetailController');
+const { getSavedProducts } = require('../controllers/getSavedProducts');
 
-router.route('/:id').patch(saveItem).get(getUserDetails);
+router.route('/:id').patch(saveItem).get(getSavedProducts);
 
 module.exports = router;
