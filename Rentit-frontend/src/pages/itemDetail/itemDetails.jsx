@@ -11,7 +11,7 @@ const ItemDetails = () => {
   const url = `http://127.0.0.1:2000/api-rentit/v1/items/${id}`;
   const urlItemPg = `http://127.0.0.1:2000/api-rentit/v1/itemDetail`;
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
-  console.log(user);
+
   //Fuction to save the dava into saved items of user
   const saveData = async () => {
     console.log(JSON.stringify({ user }));

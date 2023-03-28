@@ -28,11 +28,11 @@
   margin-bottom: 1px;
   cursor: pointer;
   overflow: hidden;
-  transition: 0.15s;
+  transition: 0.25s;
 }
 .item:hover {
   border: 1px solid #ff5e03;
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 .imgHome {
   width: 100%;

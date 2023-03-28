@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import { useNavigate } from 'react-router-dom';
 // import { useGlobalContext } from '../../authContext';
 import './userDetails.css';
@@ -54,10 +55,17 @@ const UserDetails = (props) => {
   return (
     <>
       <div className='logInfo'>
-        <div className='wlcmMsg'>
-          <div className='userName'>You are logged in as {props.name}</div>
-          <div id='userPic'>
-            <img className='userPic' src={props.picture} alt='nan' />
+        <div className='wlcm'>
+          <div className='wlcmMsg'>
+            <p>Logged in as</p>
+          </div>
+          <div id='userPicName'>
+            <p className='or' id='userName'>
+              {props.name}
+            </p>
+            <div id='userPic'>
+              <img className='userPic' src={props.picture} alt='' />
+            </div>
           </div>
         </div>
         <div id='logOut'>
@@ -66,17 +74,29 @@ const UserDetails = (props) => {
           </button>
         </div>
       </div>
-      <div className='Prod-Heading br'> Saved Products</div>
+      <div className='Prod-Heading br'> Saved Products :</div>
       <div className='saves'>
-        {products.map((data, index) => {
-          return <ProductCard key={index} data={data.data.item} />;
-        })}
+        {products.length > 0
+          ? products.map((data, index) => {
+              if (data.data.item)
+                return (
+                  <ProductCard
+                    key={index}
+                    data={data.data.item}
+                    type={'saves'}
+                  />
+                );
+            })
+          : 'No products saved'}
       </div>
-      <div className='Prod-Heading br'> Posted Products</div>
+      <div className='Prod-Heading br'> Posted Products :</div>
       <div className='saves'>
-        {posts.map((data, index) => {
-          return <ProductCard key={index} data={data} />;
-        })}
+        {posts.length > 0
+          ? posts.map((data, index) => {
+              if (data)
+                return <ProductCard key={index} data={data} type={'posts'} />;
+            })
+          : 'No products posted'}
       </div>
     </>
   );

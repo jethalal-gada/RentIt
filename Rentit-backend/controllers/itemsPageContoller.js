@@ -37,11 +37,19 @@ exports.getItemDetails = async (req, res) => {
 };
 exports.deleteItem = async (req, res) => {
   try {
-    await Product.findByIdAndDelete(req.params.id);
-    res.status(204).json({
-      status: 'sucess',
-      data: null,
-    });
+    const { id, user, type } = req.params;
+
+    //Check the post type
+    if (type === 'posts') {
+      const product = await Product.findById(req.params.id);
+      if (product.email === user) {
+        await Product.findByIdAndDelete(req.params.id);
+        res.status(204).json({
+          status: 'sucess',
+          data: null,
+        });
+      }
+    }
   } catch (err) {
     res.status(404).json({
       status: 'fail',
