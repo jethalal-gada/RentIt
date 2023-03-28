@@ -83,6 +83,7 @@ const UserDetails = (props) => {
                   <ProductCard
                     key={index}
                     data={data.data.item}
+                    count={data.data.item.length}
                     type={'saves'}
                   />
                 );
@@ -94,7 +95,14 @@ const UserDetails = (props) => {
         {posts.length > 0
           ? posts.map((data, index) => {
               if (data)
-                return <ProductCard key={index} data={data} type={'posts'} />;
+                return (
+                  <ProductCard
+                    key={index}
+                    data={data}
+                    count={data.length}
+                    type={'posts'}
+                  />
+                );
             })
           : 'No products posted'}
       </div>
