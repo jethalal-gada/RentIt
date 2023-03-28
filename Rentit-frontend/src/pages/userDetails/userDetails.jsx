@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable array-callback-return */
 import { useNavigate } from 'react-router-dom';
 // import { useGlobalContext } from '../../authContext';
@@ -31,8 +32,8 @@ const UserDetails = (props) => {
 
     fetchData();
     fetchPosts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       const responses = await Promise.all(
@@ -42,11 +43,12 @@ const UserDetails = (props) => {
           return data;
         })
       );
-      setProducts(responses);
+      //Filter out the saved IDs which were not having any data. They might have been deleted
+      setProducts(responses.filter((e) => e.data.item));
     };
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [savedProducts]);
+
   const handleLogOut = () => {
     // console.log(logIn);
     sessionStorage.removeItem('userDetails');
@@ -83,7 +85,7 @@ const UserDetails = (props) => {
                   <ProductCard
                     key={index}
                     data={data.data.item}
-                    count={data.data.item.length}
+                    count={products.length}
                     type={'saves'}
                   />
                 );
@@ -99,7 +101,7 @@ const UserDetails = (props) => {
                   <ProductCard
                     key={index}
                     data={data}
-                    count={data.length}
+                    count={posts.length}
                     type={'posts'}
                   />
                 );

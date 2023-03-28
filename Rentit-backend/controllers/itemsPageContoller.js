@@ -1,4 +1,5 @@
 const Product = require('../models/productsModel');
+const User = require('../models/usersModel');
 
 exports.getItems = async (req, res) => {
   try {
@@ -44,11 +45,22 @@ exports.deleteItem = async (req, res) => {
       const product = await Product.findById(req.params.id);
       if (product.email === user) {
         await Product.findByIdAndDelete(req.params.id);
+
         res.status(204).json({
           status: 'sucess',
           data: null,
         });
       }
+    } else if (type === 'saves') {
+      await User.findOneAndUpdate(
+        { email: user },
+        { $pull: { savedProducts: id } },
+        { new: true }
+      );
+      res.status(204).json({
+        status: 'sucess',
+        data: null,
+      });
     }
   } catch (err) {
     res.status(404).json({

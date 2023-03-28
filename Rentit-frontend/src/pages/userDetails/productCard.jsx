@@ -3,13 +3,11 @@ import { useState } from 'react';
 import { CgRemove } from 'react-icons/cg';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import axios from 'axios';
-// import { MdOutlineRemoveCircle } from 'react-icons/md';
 
 const ProductCard = (props) => {
   const navigate = useNavigate();
   const [data, setData] = useState(props.data);
   const [count, setCount] = useState(props.count);
-  // const data = props.data;
   const type = props.type;
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
   const url = 'http://127.0.0.1:2000/api-rentit/v1/items';
@@ -17,7 +15,13 @@ const ProductCard = (props) => {
     navigate('/itemDetails', { state: { id: id } });
   };
   const removeProduct = async (id, type) => {
-    if (window.confirm('Do you want do delete this post?')) {
+    if (
+      window.confirm(
+        type === 'posts'
+          ? 'Do you want do delete this post ?'
+          : 'Do you want to unsave this ?'
+      )
+    ) {
       await axios.delete(`${url}/${id}/${user}/${type}`);
       setData(null);
       setCount(count - 1);
