@@ -4,9 +4,10 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [logIn, setLogIn] = useState(false);
-  if (sessionStorage.getItem('userDetails')) setLogIn(true);
+  const [loginObj, setLoginObj] = useState(null);
+  // if (sessionStorage.getItem('userDetails')) setLogIn(true);
   return (
-    <AppContext.Provider value={{ logIn, setLogIn }}>
+    <AppContext.Provider value={{ logIn, setLogIn, loginObj, setLoginObj }}>
       {children}
     </AppContext.Provider>
   );

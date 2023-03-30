@@ -9,8 +9,11 @@ const ItemDetails = () => {
   const [count, setCount] = useState(0);
   const [product, setProduct] = useState(null);
   const [save, setSave] = useState(false);
-  const url = `http://127.0.0.1:2000/api-rentit/v1/items/${id}`;
-  const urlItemPg = `http://127.0.0.1:2000/api-rentit/v1/itemDetail`;
+
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items/${id}`;
+
+  const urlItemPg = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/itemDetail`;
+
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
 
   //Fuction to save the dava into saved items of user

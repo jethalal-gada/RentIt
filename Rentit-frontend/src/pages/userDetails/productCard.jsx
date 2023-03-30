@@ -10,7 +10,9 @@ const ProductCard = (props) => {
   const [count, setCount] = useState(props.count);
   const type = props.type;
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
-  const url = 'http://127.0.0.1:2000/api-rentit/v1/items';
+
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
+
   const handleClick = (id) => {
     navigate('/itemDetails', { state: { id: id } });
   };

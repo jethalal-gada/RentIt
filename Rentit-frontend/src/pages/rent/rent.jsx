@@ -6,7 +6,7 @@ import Loading from '../../images/loading.svg';
 import User from '../login/login';
 const Rent = () => {
   const navigate = useNavigate();
-  const url = 'http://127.0.0.1:2000/api-rentit/v1/rent';
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/rent`;
   const [values, setValues] = useState({
     owner: '',
     product: '',
