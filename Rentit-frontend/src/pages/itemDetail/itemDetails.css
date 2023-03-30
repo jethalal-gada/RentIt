@@ -135,7 +135,7 @@
     margin-right: 1rem;
     margin-bottom: 1.5rem;
     margin-top: 0.8rem;
-    transition: 1s;
+    transition: 0.25s;
   }
   .loader {
     /* margin-top: auto; */

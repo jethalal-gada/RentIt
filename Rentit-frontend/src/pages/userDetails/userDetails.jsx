@@ -78,7 +78,7 @@ const UserDetails = (props) => {
       </div>
       <div className='Prod-Heading br'> Saved Products :</div>
       <div className='saves'>
-        {products.length > 0
+        {products.length !== 0
           ? products.map((data, index) => {
               if (data.data.item)
                 return (
@@ -94,7 +94,7 @@ const UserDetails = (props) => {
       </div>
       <div className='Prod-Heading br'> Posted Products :</div>
       <div className='saves'>
-        {posts.length > 0
+        {posts.length !== 0
           ? posts.map((data, index) => {
               if (data)
                 return (
@@ -112,5 +112,3 @@ const UserDetails = (props) => {
   );
 };
 export default UserDetails;
-
-// return <ItemCard key={index} data={product} user={user} />;

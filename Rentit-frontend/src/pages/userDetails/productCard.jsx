@@ -18,15 +18,18 @@ const ProductCard = (props) => {
     if (
       window.confirm(
         type === 'posts'
-          ? 'Do you want do delete this post ?'
-          : 'Do you want to unsave this ?'
+          ? 'Do you want do delete this post?'
+          : 'Do you want to unsave this?'
       )
     ) {
-      await axios.delete(`${url}/${id}/${user}/${type}`);
-      setData(null);
-      setCount(count - 1);
+      await axios
+        .delete(`${url}/${id}/${user}/${type}`)
+        .then(() => setData(null), setCount(count - 1));
+      // setData(null);
+      // setCount(count - 1);
     }
   };
+
   if (!data) {
     if (!count && type === 'posts') return <>No produts posted</>;
     else if (!count && type === 'saves') return <>No products saved</>;

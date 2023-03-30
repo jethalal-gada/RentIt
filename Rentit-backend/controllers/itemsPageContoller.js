@@ -45,7 +45,10 @@ exports.deleteItem = async (req, res) => {
       const product = await Product.findById(req.params.id);
       if (product.email === user) {
         await Product.findByIdAndDelete(req.params.id);
-
+        const saves = await User.updateMany(
+          { savedProducts: id },
+          { $pull: { savedProducts: id } }
+        );
         res.status(204).json({
           status: 'sucess',
           data: null,

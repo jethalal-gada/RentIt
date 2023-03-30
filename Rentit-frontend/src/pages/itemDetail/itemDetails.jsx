@@ -6,6 +6,7 @@ import Loading from '../../images/loading.svg';
 const ItemDetails = () => {
   const location = useLocation();
   const id = location.state.id;
+  const [count, setCount] = useState(0);
   const [product, setProduct] = useState(null);
   const [save, setSave] = useState(false);
   const url = `http://127.0.0.1:2000/api-rentit/v1/items/${id}`;
@@ -14,16 +15,14 @@ const ItemDetails = () => {
 
   //Fuction to save the dava into saved items of user
   const saveData = async () => {
-    console.log(JSON.stringify({ user }));
     try {
-      const response = await fetch(`${urlItemPg}/${id}`, {
+      await fetch(`${urlItemPg}/${id}`, {
         method: 'PATCH',
         body: JSON.stringify({ user }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
       });
-      console.log(await response.json());
     } catch (err) {
       console.log('Error -', err);
     }
@@ -31,10 +30,13 @@ const ItemDetails = () => {
   //calling the function  to save item'data
   const saveItem = () => {
     if (save !== 'Saved') {
-      saveData();
-      console.log(id);
+      console.log(count, 'count');
+      if (count >= 5) alert('cannot save more than 5 items');
+      else {
+        setSave('Saved');
+        saveData();
+      }
     }
-    setSave('Saved');
   };
 
   useEffect(() => {
@@ -51,7 +53,9 @@ const ItemDetails = () => {
       try {
         const response = await fetch(`${urlItemPg}/${user}`);
         const data = await response.json();
-        const savedProducts = data[0].savedProducts;
+        const savedProducts = await data[0].savedProducts;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        setCount(data[0].savedProducts.length);
         if (savedProducts.find((i) => i === id)) setSave('Saved');
       } catch (error) {
         console.log(error);
