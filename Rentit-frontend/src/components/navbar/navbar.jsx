@@ -4,12 +4,15 @@ import logo from '../../images/Logo.svg';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+// import { useGlobalContext } from '../../authContext';
 
 const Navbar = () => {
+  // const { loginObj } = useGlobalContext();
   let user = null;
   let data = null;
   const navigate = useNavigate();
   const checkLogin = () => {
+    // console.log(loginObj);
     if (sessionStorage.getItem('userDetails')) {
       data = JSON.parse(sessionStorage.getItem('userDetails'));
       user = 'Hi, ' + data.given_name;

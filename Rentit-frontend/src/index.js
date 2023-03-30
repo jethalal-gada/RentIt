@@ -13,8 +13,8 @@ import Navbar from './components/navbar/navbar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <AppProvider>
+  <AppProvider>
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -24,6 +24,6 @@ root.render(
         <Route path='ItemDetails' element={<ItemDetails />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
-    </AppProvider>
-  </BrowserRouter>
+    </BrowserRouter>
+  </AppProvider>
 );

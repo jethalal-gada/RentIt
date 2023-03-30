@@ -3,12 +3,12 @@ import './items.css';
 import { useEffect, useState } from 'react';
 import Loading from '../../images/loading.svg';
 import ItemCard from './itemCard';
-import { useGlobalContext } from '../../authContext';
+// import { useGlobalContext } from '../../authContext';
 
 const Items = () => {
   const [itemData, setItemData] = useState(null);
   const [user, setUser] = useState(null);
-  const { logIn, setLogIn } = useGlobalContext();
+  // const { logIn } = useGlobalContext();
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
 
@@ -30,10 +30,6 @@ const Items = () => {
 
     fetchData();
   }, []);
-  useEffect(() => {
-    // setLogIn(true);
-    console.log(logIn);
-  }, [logIn]);
   if (!itemData)
     return (
       <>

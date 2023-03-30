@@ -2,13 +2,16 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { CgRemove } from 'react-icons/cg';
 import { RiDeleteBinLine } from 'react-icons/ri';
+// import { useGlobalContext } from '../../authContext';
 import axios from 'axios';
 
 const ProductCard = (props) => {
   const navigate = useNavigate();
   const [data, setData] = useState(props.data);
   const [count, setCount] = useState(props.count);
+  // const { loginObj } = useGlobalContext();
   const type = props.type;
+  // console.log(loginObj.email);
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
