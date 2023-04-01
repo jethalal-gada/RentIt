@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable array-callback-return */
 import { useNavigate } from 'react-router-dom';
-// import { useGlobalContext } from '../../authContext';
+import { useGlobalContext } from '../../Context';
 import './userDetails.css';
 import { useEffect, useState } from 'react';
 import ProductCard from './productCard';
@@ -11,11 +11,12 @@ const UserDetails = (props) => {
   const [savedProducts, setSavedProducts] = useState([]);
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [highlight, setHighlight] = useState(0);
   // const { logIn, setLogIn } = useGlobalContext();
-  // const { loginObj, setLoginObj } = useGlobalContext();
+  const { savesCount, setSavesCount, postsCount, setPostsCount } =
+    useGlobalContext();
 
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
-  // console.log(loginObj);
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
 
@@ -49,18 +50,24 @@ const UserDetails = (props) => {
       );
       //Filter out the saved IDs which were not having any data. They might have been deleted
       setProducts(responses.filter((e) => e.data.item));
+      // setPosts();
     };
     fetchData();
   }, [savedProducts]);
+
+  useEffect(() => {
+    setSavesCount(products.length);
+    setPostsCount(posts.length);
+  }, [products]);
 
   const handleLogOut = (e) => {
     e.preventDefault();
     // setLoginObj(null);
     // setLogIn(false);
-    // console.log(logIn, loginObj);
     sessionStorage.removeItem('userDetails');
     navigate('/');
   };
+  const addHighlight = (index) => setHighlight(index);
   return (
     <>
       <div className='logInfo'>
@@ -83,9 +90,26 @@ const UserDetails = (props) => {
           </button>
         </div>
       </div>
-      <div className='Prod-Heading br'> Saved Products :</div>
-      <div className='saves'>
-        {products.length !== 0
+      <div className='container'>
+        <div
+          className={
+            highlight === 0 ? `box-1 tab highlight` : `box-1 tab unactive`
+          }
+          onClick={() => addHighlight(0)}
+        >
+          Saved Products
+        </div>
+        <div
+          className={
+            highlight === 1 ? `box-2 tab highlight` : `box-2 tab unactive`
+          }
+          onClick={() => addHighlight(1)}
+        >
+          Posted Products
+        </div>
+      </div>
+      <div className={highlight === 0 ? 'saves fade-in' : 'hide'}>
+        {savesCount !== 0
           ? products.map((data, index) => {
               if (data.data.item)
                 return (
@@ -99,9 +123,9 @@ const UserDetails = (props) => {
             })
           : 'No products saved'}
       </div>
-      <div className='Prod-Heading br'> Posted Products :</div>
-      <div className='saves'>
-        {posts.length !== 0
+
+      <div className={highlight === 1 ? 'saves fade-in' : 'hide'}>
+        {postsCount !== 0
           ? posts.map((data, index) => {
               if (data)
                 return (
