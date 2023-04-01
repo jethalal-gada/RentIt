@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 
 const AppContext = React.createContext();
 
+//Defining provider function to provide data to any components wrapped inside it
 const AppProvider = ({ children }) => {
   const [logIn, setLogIn] = useState(false);
   const [loginObj, setLoginObj] = useState(null);

@@ -44,8 +44,10 @@ exports.deleteItem = async (req, res) => {
     if (type === 'posts') {
       const product = await Product.findById(req.params.id);
       if (product.email === user) {
+        //First delete the post's document
         await Product.findByIdAndDelete(req.params.id);
-        const saves = await User.updateMany(
+        //Then if any user has saved it then delete it from there too
+        await User.updateMany(
           { savedProducts: id },
           { $pull: { savedProducts: id } }
         );

@@ -17,9 +17,11 @@ const Login = () => {
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState(null);
 
-  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/login`;
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
+  console.log(url);
 
   useEffect(() => {
+    console.log(loginData);
     const saveUser = async () => {
       console.log('storing details');
       try {
@@ -30,6 +32,7 @@ const Login = () => {
             'Content-type': 'application/json; charset=UTF-8',
           },
         });
+        navigate('/');
       } catch (err) {
         console.log(err, 'Fail');
       }
@@ -68,10 +71,9 @@ const Login = () => {
               // setLogIn(true);
               // console.log(logIn);
               // setLoader(true);
-              navigate('/');
               // setLoginObj({ ...data });
               // console.log(loginObj);
-              setLoginData({ ...data });
+              setLoginData(data);
               sessionStorage.setItem(
                 'userDetails',
                 JSON.stringify({
