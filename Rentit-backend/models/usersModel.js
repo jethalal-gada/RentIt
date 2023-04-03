@@ -19,7 +19,11 @@ const userSchema = new mongoose.Schema({
   picture: { type: String, required: true },
   sub: String,
   token_type: { type: String, required: true },
-  savedProducts: [{ type: String }, { unique: true }, { required: false }],
+  savedProducts: [
+    { type: mongoose.Schema.Types.ObjectId, ref: 'product' },
+    { unique: true },
+    { required: false },
+  ],
   postedProducts: [{ type: String }, { required: false }],
 });
 
