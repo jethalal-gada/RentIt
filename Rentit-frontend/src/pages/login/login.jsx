@@ -6,7 +6,6 @@ import { SiFacebook } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import Animation from '../../components/cssAnimation/animation';
 import { LoginSocialGoogle } from 'reactjs-social-login';
-// import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserDetails from '../userDetails/userDetails';
 import { useGlobalContext } from '../../Context';
@@ -15,32 +14,6 @@ const Login = () => {
   // const { logIn, setLogIn } = useGlobalContext();
   const { setLoginObj } = useGlobalContext();
   const navigate = useNavigate();
-  // const [loginData, setLoginData] = useState(null);
-
-  // const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
-  // console.log(url);
-
-  // useEffect(() => {
-  //   console.log(loginData);
-  //   const saveUser = async () => {
-  //     console.log('storing details');
-  //     try {
-  //       await fetch(url, {
-  //         method: 'POST',
-  //         body: JSON.stringify(loginData),
-  //         headers: {
-  //           'Content-type': 'application/json; charset=UTF-8',
-  //         },
-  //       });
-  //       navigate('/');
-  //     } catch (err) {
-  //       console.log(err, 'Fail');
-  //     }
-  //   };
-  //   if (loginData) saveUser();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [loginData]);
-
   if (sessionStorage.getItem('userDetails')) {
     const data = JSON.parse(sessionStorage.getItem('userDetails'));
     return <UserDetails {...data} />;
@@ -66,7 +39,8 @@ const Login = () => {
             client_id={`${process.env.REACT_APP_CLIENT_ID}`}
             scope='openid profile email'
             discoveryDocs='claims_supported'
-            access_type='offline'
+            // access_type='offline'
+            // typeResponse='idToken'
             onResolve={({ provider, data }) => {
               // setLogIn(true);
               setLoginObj(data);
@@ -79,11 +53,13 @@ const Login = () => {
                   family_name: data.family_name,
                   given_name: data.given_name,
                   picture: data.picture,
+                  sub: data.sub,
                 })
               );
               navigate('/');
             }}
             onReject={(err) => {
+              alert('Failed to login');
               console.log(err, 'Failed');
             }}
           >

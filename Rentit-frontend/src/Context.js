@@ -1,6 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
 
 const AppContext = React.createContext();
 
@@ -10,19 +8,19 @@ const AppProvider = ({ children }) => {
   const [loginObj, setLoginObj] = useState(null);
   const [savesCount, setSavesCount] = useState(0);
   const [postsCount, setPostsCount] = useState(0);
-  // const navigate = useNavigate();
   const urlSaveUSer = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
 
-  // if (sessionStorage.getItem('userDetails')) setLogIn(true);
   useEffect(() => {
     const saveUser = async () => {
       console.log('storing details');
+      // console.log(loginObj);
       try {
         await fetch(urlSaveUSer, {
           method: 'POST',
           body: JSON.stringify(loginObj),
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
+            Authorization: 'Bearer ' + loginObj.access_token,
           },
         });
         // navigate('/');
