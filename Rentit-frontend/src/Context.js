@@ -15,7 +15,7 @@ const AppProvider = ({ children }) => {
       console.log('storing details');
       // console.log(loginObj);
       try {
-        await fetch(urlSaveUSer, {
+        const response = await fetch(urlSaveUSer, {
           method: 'POST',
           body: JSON.stringify(loginObj),
           headers: {
@@ -23,6 +23,11 @@ const AppProvider = ({ children }) => {
             Authorization: 'Bearer ' + loginObj.access_token,
           },
         });
+        const data = await response.json();
+        const userDetails = JSON.parse(sessionStorage.getItem('userDetails'));
+        userDetails._id = data.data._id;
+        sessionStorage.setItem('userDetails', JSON.stringify(userDetails));
+        // console.log(data.data._id);
         // navigate('/');
       } catch (err) {
         console.log(err, 'Fail');

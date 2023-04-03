@@ -30,6 +30,9 @@ exports.userLogin = async (req, res) => {
         return res.status(403).json({
           status: 'sucess',
           message: 'User with this email already exists',
+          data: {
+            _id: existingUser._id,
+          },
         });
       }
       const newUser = await User.create(req.body);
@@ -37,6 +40,7 @@ exports.userLogin = async (req, res) => {
         status: 'sucess',
         data: {
           users: newUser,
+          _id: newUser._id,
         },
       });
     } catch (err) {

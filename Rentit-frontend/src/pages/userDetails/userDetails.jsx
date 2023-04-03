@@ -9,7 +9,7 @@ import ProductCard from './productCard';
 const UserDetails = (props) => {
   const navigate = useNavigate();
   const [savedProducts, setSavedProducts] = useState([]);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [highlight, setHighlight] = useState(0);
   // const { logIn, setLogIn } = useGlobalContext();
@@ -17,17 +17,22 @@ const UserDetails = (props) => {
     useGlobalContext();
 
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
-
+  const _id = JSON.parse(sessionStorage.getItem('userDetails'))._id;
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
 
-  const urlItem = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
+  // const urlItem = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
 
   useEffect(() => {
     //Fetch the array of saved products
-    const fetchData = async () => {
-      const response = await fetch(`${url}/${user}`);
+    const fetchSaves = async () => {
+      const response = await fetch(`${url}/${user}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          _id: _id,
+        },
+      });
       const data = await response.json();
-      setSavedProducts(data[0].savedProducts);
+      setSavedProducts(data.saves);
     };
     //Fetch the all posts with matching email
     const fetchPosts = async () => {
@@ -36,30 +41,30 @@ const UserDetails = (props) => {
       setPosts(data.data.posts);
     };
 
-    fetchData();
+    fetchSaves();
     fetchPosts();
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const responses = await Promise.all(
-        savedProducts.map(async (id) => {
-          const response = await fetch(`${urlItem}/${id}`);
-          const data = await response.json();
-          return data;
-        })
-      );
-      //Filter out the saved IDs which were not having any data. They might have been deleted
-      setProducts(responses.filter((e) => e.data.item));
-      // setPosts();
-    };
-    fetchData();
-  }, [savedProducts]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const responses = await Promise.all(
+  //       savedProducts.map(async (id) => {
+  //         const response = await fetch(`${urlItem}/${id}`);
+  //         const data = await response.json();
+  //         return data;
+  //       })
+  //     );
+  //     //Filter out the saved IDs which were not having any data. They might have been deleted
+  //     setProducts(responses.filter((e) => e.data.item));
+  //     // setPosts();
+  //   };
+  //   fetchData();
+  // }, [savedProducts]);
 
   useEffect(() => {
-    setSavesCount(products.length);
+    setSavesCount(savedProducts.length);
     setPostsCount(posts.length);
-  }, [products]);
+  }, [savedProducts]);
 
   const handleLogOut = (e) => {
     e.preventDefault();
@@ -111,13 +116,13 @@ const UserDetails = (props) => {
       </div>
       <div className={highlight === 0 ? 'saves fade-in' : 'hide'}>
         {savesCount !== 0
-          ? products.map((data, index) => {
-              if (data.data.item)
+          ? savedProducts.map((data, index) => {
+              if (data)
                 return (
                   <ProductCard
                     key={index}
-                    data={data.data.item}
-                    count={products.length}
+                    data={data}
+                    // count={products.length}
                     type={'saves'}
                   />
                 );

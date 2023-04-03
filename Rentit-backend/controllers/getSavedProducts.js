@@ -2,16 +2,23 @@ const Users = require('../models/usersModel');
 
 exports.getSavedProducts = async (req, res) => {
   try {
-    const user = req.params.id;
-    console.log('user', user);
-    const savedProducts = await Users.find(
-      { email: user },
-      { savedProducts: 1, _id: 0 }
-    );
-    res.status(201).json({
-      status: 'sucess',
-      ...savedProducts,
-    });
+    const userEmail = req.params.id;
+    console.log('user', userEmail);
+
+    const user = await Users.findOne({ email: userEmail });
+
+    if (String(user._id) === String(req.headers._id)) {
+      const savedProducts = await user.populate('savedProducts').execPopulate();
+      res.status(201).json({
+        status: 'sucess',
+        saves: savedProducts.savedProducts,
+      });
+    } else {
+      res.status(403).json({
+        status: 'fail',
+        message: 'Authentication failed',
+      });
+    }
   } catch (error) {
     console.log(error);
     res.status(404).json({
