@@ -99,7 +99,7 @@ const UserDetails = (props) => {
         </div>
       </div>
       <div className={highlight === 0 ? 'saves fade-in' : 'hide'}>
-        {savesCount !== 0
+        {!(savesCount <= 0)
           ? savedProducts.map((data, index) => {
               if (data)
                 return (
@@ -115,14 +115,14 @@ const UserDetails = (props) => {
       </div>
 
       <div className={highlight === 1 ? 'saves fade-in' : 'hide'}>
-        {postsCount !== 0
+        {!(postsCount <= 0)
           ? posts.map((data, index) => {
               if (data)
                 return (
                   <ProductCard
                     key={index}
                     data={data}
-                    count={posts.length}
+                    // count={posts.length}
                     type={'posts'}
                   />
                 );
