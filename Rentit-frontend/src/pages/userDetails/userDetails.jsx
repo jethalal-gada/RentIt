@@ -45,22 +45,6 @@ const UserDetails = (props) => {
     fetchPosts();
   }, []);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const responses = await Promise.all(
-  //       savedProducts.map(async (id) => {
-  //         const response = await fetch(`${urlItem}/${id}`);
-  //         const data = await response.json();
-  //         return data;
-  //       })
-  //     );
-  //     //Filter out the saved IDs which were not having any data. They might have been deleted
-  //     setProducts(responses.filter((e) => e.data.item));
-  //     // setPosts();
-  //   };
-  //   fetchData();
-  // }, [savedProducts]);
-
   useEffect(() => {
     setSavesCount(savedProducts.length);
     setPostsCount(posts.length);
