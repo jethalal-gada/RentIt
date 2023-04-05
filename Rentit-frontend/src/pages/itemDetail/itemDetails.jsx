@@ -18,7 +18,6 @@ const ItemDetails = () => {
   const access_token = JSON.parse(
     sessionStorage.getItem('userDetails')
   ).access_token;
-  console.log(access_token);
 
   //Fuction to save the dava into saved items of user
   const saveData = async () => {

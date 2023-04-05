@@ -48,8 +48,8 @@ const UserDetails = (props) => {
   }, []);
 
   useEffect(() => {
-    setSavesCount(savedProducts.length);
-    setPostsCount(posts.length);
+    savedProducts ? setSavesCount(savedProducts.length) : setSavesCount(null);
+    posts ? setPostsCount(posts.length) : setPosts(null);
   }, [savedProducts]);
 
   const handleLogOut = (e) => {
@@ -101,7 +101,7 @@ const UserDetails = (props) => {
         </div>
       </div>
       <div className={highlight === 0 ? 'saves fade-in' : 'hide'}>
-        {!(savesCount <= 0)
+        {savesCount > 0 && savesCount !== null
           ? savedProducts.map((data, index) => {
               if (data)
                 return (
@@ -117,7 +117,7 @@ const UserDetails = (props) => {
       </div>
 
       <div className={highlight === 1 ? 'saves fade-in' : 'hide'}>
-        {!(postsCount <= 0)
+        {postsCount > 0 && postsCount !== null
           ? posts.map((data, index) => {
               if (data)
                 return (

@@ -18,7 +18,7 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     const saveUser = async () => {
-      console.log('storing details', loginObj);
+      // console.log('storing details', loginObj);
       try {
         const response = await fetch(urlSaveUSer, {
           method: 'POST',
@@ -32,7 +32,7 @@ const AppProvider = ({ children }) => {
         const userDetails = JSON.parse(sessionStorage.getItem('userDetails'));
         console.log(data);
         userDetails._id = data.data._id;
-        userDetails.access_token = data.data.access_token;
+        userDetails.access_token = loginObj.access_token;
         sessionStorage.setItem('userDetails', JSON.stringify(userDetails));
       } catch (err) {
         console.log(err, 'Fail');

@@ -34,6 +34,7 @@ const Navbar = () => {
   };
 
   const handleSearch = (e) => {
+    navigate('/');
     if (e) e.preventDefault();
     setSearchTerm(searchText.current.value.trim());
   };
