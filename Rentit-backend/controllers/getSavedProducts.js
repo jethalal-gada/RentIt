@@ -6,7 +6,7 @@ exports.getSavedProducts = async (req, res) => {
 
     const user = await Users.findOne({ email: userEmail });
 
-    if (String(user._id) === String(req.headers._id)) {
+    if (req.headers._id && String(user._id) === String(req.headers._id)) {
       const savedProducts = await user.populate('savedProducts').execPopulate();
       res.status(201).json({
         status: 'sucess',

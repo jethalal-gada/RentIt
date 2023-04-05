@@ -58,12 +58,14 @@ exports.getItemDetails = async (req, res) => {
   }
 };
 exports.deleteItem = async (req, res) => {
+  console.log('delete req');
   try {
     const { id, user, type } = req.params;
 
     //Check the post type
     if (type === 'posts') {
       const product = await Product.findById(req.params.id);
+      console.log(product, product.email);
       if (product.email === user) {
         //First delete the post's document
         await Product.findByIdAndDelete(req.params.id);

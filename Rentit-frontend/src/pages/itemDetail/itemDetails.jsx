@@ -25,6 +25,7 @@ const ItemDetails = () => {
         body: JSON.stringify({ user }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
+          _id: _id,
         },
       });
     } catch (err) {
