@@ -58,7 +58,6 @@ exports.getItemDetails = async (req, res) => {
   }
 };
 exports.deleteItem = async (req, res) => {
-  console.log('delete req');
   try {
     const { id, user, type } = req.params;
 

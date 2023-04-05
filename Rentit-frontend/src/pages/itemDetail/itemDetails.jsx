@@ -15,7 +15,10 @@ const ItemDetails = () => {
   const urlItemPg = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/itemDetail`;
 
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
-  const _id = JSON.parse(sessionStorage.getItem('userDetails'))._id;
+  const access_token = JSON.parse(
+    sessionStorage.getItem('userDetails')
+  ).access_token;
+  console.log(access_token);
 
   //Fuction to save the dava into saved items of user
   const saveData = async () => {
@@ -25,7 +28,7 @@ const ItemDetails = () => {
         body: JSON.stringify({ user }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
-          _id: _id,
+          access_token: access_token,
         },
       });
     } catch (err) {
@@ -58,7 +61,7 @@ const ItemDetails = () => {
         const response = await fetch(`${urlItemPg}/${user}`, {
           headers: {
             'Content-Type': 'application/json',
-            _id: _id,
+            access_token: access_token,
           },
         });
         const data = await response.json();

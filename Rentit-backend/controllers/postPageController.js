@@ -5,7 +5,10 @@ exports.postItem = async (req, res) => {
   try {
     const user = await Users.findOne({ email: req.body.email });
 
-    if (String(user._id) === String(req.headers._id)) {
+    if (
+      req.headers.access_token &&
+      String(user.access_token) === String(req.headers.access_token)
+    ) {
       const newProduct = await Product.create(req.body);
       res.status(201).json({
         status: 'sucess',

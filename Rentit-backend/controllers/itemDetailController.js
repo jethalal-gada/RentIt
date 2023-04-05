@@ -6,7 +6,10 @@ exports.saveItem = async (req, res) => {
     const update = { savedProducts: id };
     const filter = { email: req.body.user };
     const user = await Users.findOne(filter);
-    if (req.headers._id && String(user._id) === String(req.headers._id)) {
+    if (
+      req.headers.access_token &&
+      String(user.access_token) === String(req.headers.access_token)
+    ) {
       const user = await Users.findOneAndUpdate(
         filter,
         { $addToSet: update },

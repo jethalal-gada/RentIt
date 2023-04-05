@@ -54,7 +54,8 @@ const Rent = () => {
         body: JSON.stringify(values),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
-          _id: JSON.parse(sessionStorage.getItem('userDetails'))._id,
+          access_token: JSON.parse(sessionStorage.getItem('userDetails'))
+            .access_token,
         },
       });
       setStatus(response.status);
