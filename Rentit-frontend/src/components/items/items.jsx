@@ -8,8 +8,7 @@ import { useGlobalContext } from '../../Context';
 const Items = () => {
   const [itemData, setItemData] = useState(null);
   const [user, setUser] = useState(null);
-  const { searchData } = useGlobalContext();
-  // const [test, setTest] = useState(false);
+  const { searchData, searching } = useGlobalContext();
   const [displayData, setDispayData] = useState(null);
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
@@ -46,7 +45,7 @@ const Items = () => {
     }
   }, [itemData]);
 
-  if (displayData === null)
+  if (displayData === null || searching)
     return (
       <>
         <div id='loader'>

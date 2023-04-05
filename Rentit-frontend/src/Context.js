@@ -11,6 +11,7 @@ const AppProvider = ({ children }) => {
   const [postsCount, setPostsCount] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchData, setSearchData] = useState(null);
+  const [searching, setSearching] = useState(false);
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
   const urlSaveUSer = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
@@ -40,9 +41,11 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     const search = async () => {
+      setSearching(true);
       const response = await fetch(`${url}/search/${searchTerm}`);
       const data = await response.json();
       setSearchData(data.data.items);
+      setSearching(false);
     };
 
     if (searchTerm) search();
@@ -63,6 +66,8 @@ const AppProvider = ({ children }) => {
         setSearchTerm,
         searchData,
         setSearchData,
+        searching,
+        setSearching,
       }}
     >
       {children}

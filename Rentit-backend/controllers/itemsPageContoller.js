@@ -31,7 +31,7 @@ exports.getSearchResults = async (req, res) => {
         items: results,
       },
     });
-  } catch (error) {
+  } catch (err) {
     console.log(err);
     res.status(404).json({
       status: 'fail',
