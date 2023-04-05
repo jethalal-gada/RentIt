@@ -4,15 +4,21 @@ import logo from '../../images/Logo.svg';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-// import { useGlobalContext } from '../../authContext';
+import { useRef } from 'react';
+import { useGlobalContext } from '../../Context';
 
 const Navbar = () => {
-  // const { loginObj } = useGlobalContext();
+  const { setSearchTerm, setSearchData } = useGlobalContext();
+  const searchText = useRef('');
   let user = null;
   let data = null;
   const navigate = useNavigate();
+  document.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter' && searchText.current.value.trim()) {
+      handleSearch();
+    }
+  });
   const checkLogin = () => {
-    // console.log(loginObj);
     if (sessionStorage.getItem('userDetails')) {
       data = JSON.parse(sessionStorage.getItem('userDetails'));
       user = 'Hi, ' + data.given_name;
@@ -27,19 +33,43 @@ const Navbar = () => {
     if (e.target.name === 'rent' && data) navigate('/rent');
   };
 
+  const handleSearch = (e) => {
+    if (e) e.preventDefault();
+    setSearchTerm(searchText.current.value.trim());
+  };
+
+  const handleGoHome = () => {
+    setSearchTerm(null);
+    setSearchData(null);
+    searchText.current.value = '';
+  };
   return (
     <>
       <div className='navbar'>
         <div id='logo'>
           <Link to='/'>
-            <img className='logo' src={logo} alt='logo' />
+            <img
+              className='logo'
+              src={logo}
+              alt='logo'
+              onClick={handleGoHome}
+            />
           </Link>
         </div>
         <div className='searchBox search'>
-          <button type='submit' className='searchBtn buttom search btn'>
+          <button
+            onClick={handleSearch}
+            type='submit'
+            className='searchBtn buttom search btn'
+          >
             <FaSearch className='search' size={18} />
           </button>
-          <input type='text' className='searchBar ' placeholder='Search' />
+          <input
+            type='text'
+            className='searchBar '
+            placeholder='Search'
+            ref={searchText}
+          />
         </div>
         <div className='navBtns'>
           <div className=' buttom'>

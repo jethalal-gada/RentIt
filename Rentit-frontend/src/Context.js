@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useContext, useEffect } from 'react';
 
 const AppContext = React.createContext();
@@ -8,12 +9,15 @@ const AppProvider = ({ children }) => {
   const [loginObj, setLoginObj] = useState(null);
   const [savesCount, setSavesCount] = useState(0);
   const [postsCount, setPostsCount] = useState(0);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchData, setSearchData] = useState(null);
+
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
   const urlSaveUSer = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
 
   useEffect(() => {
     const saveUser = async () => {
       console.log('storing details');
-      // console.log(loginObj);
       try {
         const response = await fetch(urlSaveUSer, {
           method: 'POST',
@@ -27,15 +31,23 @@ const AppProvider = ({ children }) => {
         const userDetails = JSON.parse(sessionStorage.getItem('userDetails'));
         userDetails._id = data.data._id;
         sessionStorage.setItem('userDetails', JSON.stringify(userDetails));
-        // console.log(data.data._id);
-        // navigate('/');
       } catch (err) {
         console.log(err, 'Fail');
       }
     };
     if (loginObj) saveUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginObj]);
+
+  useEffect(() => {
+    const search = async () => {
+      const response = await fetch(`${url}/search/${searchTerm}`);
+      const data = await response.json();
+      setSearchData(data.data.items);
+    };
+
+    if (searchTerm) search();
+  }, [searchTerm]);
+
   return (
     <AppContext.Provider
       value={{
@@ -47,6 +59,10 @@ const AppProvider = ({ children }) => {
         setSavesCount,
         postsCount,
         setPostsCount,
+        searchTerm,
+        setSearchTerm,
+        searchData,
+        setSearchData,
       }}
     >
       {children}

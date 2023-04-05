@@ -19,6 +19,27 @@ exports.getItems = async (req, res) => {
     });
   }
 };
+
+exports.getSearchResults = async (req, res) => {
+  try {
+    const results = await Product.find({
+      product: { $regex: new RegExp(req.params.id, 'i') },
+    });
+    res.status(200).json({
+      status: 'sucess',
+      data: {
+        items: results,
+      },
+    });
+  } catch (error) {
+    console.log(err);
+    res.status(404).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+};
+
 exports.getItemDetails = async (req, res) => {
   try {
     const item = await Product.findById(req.params.id);

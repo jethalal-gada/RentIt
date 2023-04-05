@@ -3,12 +3,14 @@ import './items.css';
 import { useEffect, useState } from 'react';
 import Loading from '../../images/loading.svg';
 import ItemCard from './itemCard';
-// import { useGlobalContext } from '../../authContext';
+import { useGlobalContext } from '../../Context';
 
 const Items = () => {
   const [itemData, setItemData] = useState(null);
   const [user, setUser] = useState(null);
-  // const { logIn } = useGlobalContext();
+  const { searchData } = useGlobalContext();
+  // const [test, setTest] = useState(false);
+  const [displayData, setDispayData] = useState(null);
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
 
@@ -30,7 +32,21 @@ const Items = () => {
 
     fetchData();
   }, []);
-  if (!itemData)
+
+  useEffect(() => {
+    console.log(searchData);
+    if (searchData && searchData.length) setDispayData(searchData);
+    else if (searchData === null) setDispayData(itemData);
+    else setDispayData('');
+  }, [searchData]);
+
+  useEffect(() => {
+    if (itemData) {
+      setDispayData(itemData);
+    }
+  }, [itemData]);
+
+  if (displayData === null)
     return (
       <>
         <div id='loader'>
@@ -38,13 +54,18 @@ const Items = () => {
         </div>
       </>
     );
+  if (displayData === '')
+    return (
+      <>
+        <div>No search Results found</div>
+      </>
+    );
   return (
     <>
       <div className='allItems'>
-        {itemData &&
-          itemData.map((data, index) => {
-            return <ItemCard key={index} data={data} user={user} />;
-          })}
+        {displayData.map((data, index) => {
+          return <ItemCard key={index} data={data} user={user} />;
+        })}
       </div>
     </>
   );
