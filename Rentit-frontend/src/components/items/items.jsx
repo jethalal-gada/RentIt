@@ -33,14 +33,13 @@ const Items = () => {
   }, []);
 
   useEffect(() => {
-    console.log(searchData);
     if (searchData && searchData.length) setDispayData(searchData);
     else if (searchData === null) setDispayData(itemData);
     else setDispayData('');
   }, [searchData]);
 
   useEffect(() => {
-    if (itemData) {
+    if (itemData && searchData === null) {
       setDispayData(itemData);
     }
   }, [itemData]);
