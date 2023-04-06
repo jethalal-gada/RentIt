@@ -56,10 +56,10 @@ const Items = () => {
   if (displayData === '')
     return (
       <>
-        <div className='searchMsg'>No search results found</div>
         <div className='unhappy'>
           <img id='unhappy' src={unhappy} alt='' />
         </div>
+        <div className='searchMsg'>No search results found</div>
       </>
     );
   return (
