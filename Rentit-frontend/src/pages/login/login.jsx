@@ -8,6 +8,7 @@ import Animation from '../../components/cssAnimation/animation';
 import { LoginSocialGoogle } from 'reactjs-social-login';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UserDetails from '../userDetails/userDetails';
 // import { useGlobalContext } from '../../authContext';
 
 const Login = () => {
@@ -15,13 +16,6 @@ const Login = () => {
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState(null);
   const url = 'http://127.0.0.1:2000/api-rentit/v1/login';
-
-  const handleLogOut = () => {
-    sessionStorage.removeItem('userDetails');
-    // setLogIn(false);
-    // console.log(logIn);
-    navigate('/');
-  };
 
   useEffect(() => {
     const saveUser = async () => {
@@ -48,13 +42,7 @@ const Login = () => {
 
   if (sessionStorage.getItem('userDetails')) {
     const data = JSON.parse(sessionStorage.getItem('userDetails'));
-    return (
-      <>
-        You are logged in
-        <div>Hi {data.given_name}</div>
-        <button onClick={handleLogOut}>Log Out</button>
-      </>
-    );
+    return <UserDetails props={data} />;
   }
 
   return (

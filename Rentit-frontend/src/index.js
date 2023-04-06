@@ -7,7 +7,7 @@ import ErrorPage from './pages/errorPage/errorPage';
 import Rent from './pages/rent/rent';
 import Login from './pages/login/login';
 import ItemDetail from './pages/itemDetail/itemDetai';
-import Profile from './pages/profile/profile';
+// import Profile from './pages/profile/profile';
 import Test from './pages/testPage/test';
 // import { AppProvider } from './authContext';
 import Navbar from './components/navbar/navbar';
@@ -19,8 +19,8 @@ root.render(
     <Navbar />
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='login' element={<Login />} />
-      <Route path='profile' element={<Profile />} />
+      <Route path='user' element={<Login />} />
+      {/* <Route path='profile' element={<Profile />} /> */}
       <Route path='rent' element={<Rent />} />
       <Route path='ItemDetail' element={<ItemDetail />} />
       <Route path='test' element={<Test />} />

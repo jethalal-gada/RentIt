@@ -1,12 +1,10 @@
-import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 // import { useGlobalContext } from '../../authContext';
 
-const Profile = () => {
-  // const { logIn, setLogIn } = useGlobalContext();
-  const location = useLocation();
-  const data = location.state;
+const UserDetails = (props) => {
   const navigate = useNavigate();
+
+  // const { logIn, setLogIn } = useGlobalContext();
 
   const handleLogOut = () => {
     sessionStorage.removeItem('userDetails');
@@ -14,13 +12,13 @@ const Profile = () => {
     // console.log(logIn);
     navigate('/');
   };
-
+  const data = props.data;
   return (
     <>
-      profile
+      You are logged in
       <div>Hi {data.given_name}</div>
       <button onClick={handleLogOut}>Log Out</button>
     </>
   );
 };
-export default Profile;
+export default UserDetails;

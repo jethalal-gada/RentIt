@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const handleBtnClick = (e) => {
     if (e.target.name === 'login' || (e.target.name === 'rent' && !data))
-      navigate('/login');
+      navigate('/user');
 
     if (e.target.name === 'rent' && data) navigate('/rent');
   };

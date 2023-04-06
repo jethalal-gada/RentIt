@@ -9,8 +9,31 @@ const ItemDetail = () => {
   const [product, setProduct] = useState(null);
   const [save, setSave] = useState(false);
   const url = `http://127.0.0.1:2000/api-rentit/v1/items/${id}`;
+  const urlSave = `http://127.0.0.1:2000/api-rentit/v1/itemDetail`;
+  const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
 
+  //Fuction to save the dava into saved items of user
+  const saveData = async () => {
+    console.log(JSON.stringify({ user }));
+    try {
+      const response = await fetch(`${urlSave}/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ user }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+      console.log(await response.json());
+    } catch (err) {
+      console.log('Error -', err);
+    }
+  };
+  //calling the function  to save item'data
   const saveItem = () => {
+    if (save !== 'saved') {
+      saveData();
+      console.log(id);
+    }
     setSave('saved');
   };
 

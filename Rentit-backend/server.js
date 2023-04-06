@@ -19,6 +19,7 @@ mongoose
   .catch((err) => console.log(err));
 
 const port = process.env.PORT;
-app.listen(port, () => {
-  console.log(`listening port ${port}...`);
+const host = process.env.LOCALHOST;
+app.listen(port, host, () => {
+  console.log(`listening host ${host} and port ${port}...`);
 });
