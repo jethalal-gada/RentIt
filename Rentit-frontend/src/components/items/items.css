@@ -26,7 +26,7 @@
   margin-bottom: 1px;
   cursor: pointer;
   overflow: hidden;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 .item:hover {
   border: 1px solid #ff5e03;
@@ -97,6 +97,34 @@ hr {
   color: black;
   width: 2px;
 }
+.searchMsg {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30vh;
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 18px;
+}
+.unhappy {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#unhappy {
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+}
 @media only screen and (max-width: 658px) {
   .item {
     display: flex;
@@ -113,5 +141,13 @@ hr {
     cursor: pointer;
     overflow: hidden;
     transition: 0.2s;
+  }
+  #unhappy {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
   }
 }

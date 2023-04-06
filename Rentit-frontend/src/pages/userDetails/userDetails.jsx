@@ -9,7 +9,6 @@ import ProductCard from './productCard';
 const UserDetails = (props) => {
   const navigate = useNavigate();
   const [savedProducts, setSavedProducts] = useState([]);
-  // const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [highlight, setHighlight] = useState(0);
   // const { logIn, setLogIn } = useGlobalContext();
@@ -21,8 +20,6 @@ const UserDetails = (props) => {
     sessionStorage.getItem('userDetails')
   ).access_token;
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
-
-  // const urlItem = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
 
   useEffect(() => {
     //Fetch the array of saved products

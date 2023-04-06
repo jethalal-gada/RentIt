@@ -2,10 +2,12 @@ import './itemDetails.css';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Loading from '../../images/loading.svg';
+import { useNavigate } from 'react-router-dom';
 
 const ItemDetails = () => {
   const location = useLocation();
   const id = location.state.id;
+  const navigate = useNavigate();
   const [count, setCount] = useState(0);
   const [product, setProduct] = useState(null);
   const [save, setSave] = useState(false);
@@ -42,7 +44,7 @@ const ItemDetails = () => {
         setSave('Saved');
         saveData();
       }
-    }
+    } else if (save === 'Saved') navigate('/user');
   };
 
   useEffect(() => {

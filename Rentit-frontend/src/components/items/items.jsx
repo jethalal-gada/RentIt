@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Loading from '../../images/loading.svg';
 import ItemCard from './itemCard';
 import { useGlobalContext } from '../../Context';
+import unhappy from '../../images/unhappy.svg';
 
 const Items = () => {
   const [itemData, setItemData] = useState(null);
@@ -55,7 +56,10 @@ const Items = () => {
   if (displayData === '')
     return (
       <>
-        <div>No search Results found</div>
+        <div className='searchMsg'>No search results found</div>
+        <div className='unhappy'>
+          <img id='unhappy' src={unhappy} alt='' />
+        </div>
       </>
     );
   return (

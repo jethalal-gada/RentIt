@@ -13,7 +13,7 @@
   font-family: 'Be Vietnam Pro';
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 22px;
   border-bottom: 1px solid #cecece;
 }
 .unactive:hover {
@@ -52,7 +52,7 @@
   font-family: 'Be Vietnam Pro';
   font-style: normal;
   font-weight: 400;
-  font-size: 21px;
+  font-size: 22px;
 }
 .hide {
   display: none;
@@ -170,11 +170,16 @@
   font-size: 13px;
 }
 .name {
-  font-family: 'Archivo';
-  font-weight: 600;
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
 }
 .price {
-  font-family: 'Libre Franklin';
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
 }
 .ver {
   height: 100%;
