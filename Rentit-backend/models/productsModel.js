@@ -43,6 +43,10 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  avaliable: {
+    type: Boolean,
+    default: true,
+  },
   // email: { type: mongoose.Schema.Types.String, ref: 'Users' },
 });
 

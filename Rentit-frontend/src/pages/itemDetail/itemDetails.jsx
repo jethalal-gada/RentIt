@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './itemDetails.css';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Loading from '../../images/loading.svg';
 import { useNavigate } from 'react-router-dom';
+import miniLoader from './../../images/miniLoader.svg';
 
 const ItemDetails = () => {
   const location = useLocation();
@@ -11,7 +13,9 @@ const ItemDetails = () => {
   const [count, setCount] = useState(0);
   const [product, setProduct] = useState(null);
   const [save, setSave] = useState(false);
-
+  const [avaliable, setAvaliable] = useState(true);
+  const [owner, setOwner] = useState(false);
+  const [loader, setLoader] = useState(false);
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items/${id}`;
 
   const urlItemPg = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/itemDetail`;
@@ -34,6 +38,21 @@ const ItemDetails = () => {
       });
     } catch (err) {
       console.log('Error -', err);
+    }
+  };
+  const handleAvaliable = async () => {
+    if (owner && !loader) {
+      setLoader(true);
+      const response = await fetch(`${urlItemPg}/${!avaliable}/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          email: user,
+        },
+      });
+      const data = await response.json();
+      setAvaliable(data.data.avaliable);
+      setLoader(false);
     }
   };
   //calling the function  to save item'data
@@ -67,8 +86,6 @@ const ItemDetails = () => {
         });
         const data = await response.json();
         const savedProducts = await data.saves;
-        // console.log(savedProducts);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         setCount(data.saves.length);
         if (savedProducts.find((i) => i === id)) setSave('Saved');
       } catch (error) {
@@ -79,6 +96,15 @@ const ItemDetails = () => {
     fetchUserDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+  useEffect(() => {
+    // console.log(product);
+    if (product) {
+      setAvaliable(product.avaliable);
+      if (product.email === user) {
+        setOwner(true);
+      }
+    }
+  }, [product]);
 
   if (!product)
     return (
@@ -94,14 +120,35 @@ const ItemDetails = () => {
         <div className='imgItemDetail itemDetailBox'>
           <img className='imgItemTag' src={product.image} alt='' />
         </div>
+
         <div className='infoItem itemDetailBox'>
-          <div className='info1'>
+          <div
+            className={owner ? 'info0 info owner' : 'info0 info'}
+            onClick={handleAvaliable}
+          >
+            {/* <div> */}
+            {loader ? (
+              <img src={miniLoader} className='miniLoader' alt='Loading...' />
+            ) : owner ? (
+              avaliable ? (
+                'Marked avaliable'
+              ) : (
+                'Marked unavaliable'
+              )
+            ) : avaliable ? (
+              'Avaliable'
+            ) : (
+              'Not Avaliable'
+            )}
+            {/* </div> */}
+          </div>
+          <div className='info1 info'>
             <p className='infoA br'>{product.product}</p>
             <p className='infoA br'>
               ₹{product.price} per {product.unit}
             </p>
           </div>
-          <div className='info2'>
+          <div className='info2 info'>
             <div className='txtA'>
               <p className='infoB br'>Owner: </p>
               <p className='infoB or' id='name'>
@@ -122,7 +169,7 @@ const ItemDetails = () => {
             </div>
           </div>
 
-          <div className='info3'>
+          <div className='info3 info'>
             <p className='infoC   '>{product.description}</p>
           </div>
         </div>
