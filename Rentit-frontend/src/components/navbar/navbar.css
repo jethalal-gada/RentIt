@@ -24,14 +24,14 @@
 }
 .rent {
   background: #ff5e03;
-  border-radius: 5px;
+  border-radius: 2px;
   border-style: hidden;
   width: 4.5em;
   height: 2.5rem;
   color: #ffffff;
-  font-family: 'Archivo';
+  font-family: 'Be Vietnam Pro';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 18px;
   margin-right: 2vw;
 }
@@ -44,6 +44,7 @@
   margin-right: 1.2rem;
   margin-left: 0.6rem;
   text-decoration: none;
+  text-transform: capitalize;
   border: none;
   border-bottom: 1px solid black;
   background: transparent;
@@ -77,7 +78,7 @@
   background-color: #ff5e03;
   border: none;
   color: #ffffff;
-  border-radius: 5px 0 0 5px;
+  border-radius: 2px 0 0 2px;
 }
 .searchBar {
   width: 100%;
@@ -87,7 +88,7 @@
   color: #343333fd;
   border: 0.3px solid #cbcaca;
   padding: 12px;
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 2px 2px 0;
 }
 .login:hover {
   color: #ff5e03;
@@ -113,8 +114,8 @@
     position: sticky;
   }
   .logo {
-    width: 5.3rem;
-    margin-left: 0.3rem;
+    width: 5.4rem;
+    margin-left: 0.35rem;
   }
 
   .navBtns {
@@ -124,24 +125,25 @@
   }
   .rent {
     background: #ff5e03;
-    border-radius: 5px;
+    border-radius: 2px;
     border-style: hidden;
-    width: 4em;
+    width: 4.1rem;
     height: 2rem;
     color: #ffffff;
-    font-family: 'Archivo';
+    font-family: 'Be Vietnam Pro';
     font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 400;
+    font-size: 14px;
     margin-right: 0.6rem;
   }
   .login {
     font-family: 'Libre Franklin';
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 400;
+    font-size: 13px;
     color: #222222fd;
     margin-right: 0.7rem;
+    margin-left: 0;
   }
   .searchBox {
     display: flex;
@@ -157,7 +159,7 @@
     background-color: #ff5e03;
     border: none;
     color: #ffffff;
-    border-radius: 5px 0 0 5px;
+    border-radius: 2px 0 0 2px;
   }
   .searchBar {
     width: 100%;
@@ -167,7 +169,7 @@
     color: #343333fd;
     border: 0.3px solid #cbcaca;
     padding: 12px;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 2px 2px 0;
   }
   .login:hover {
     color: #ff5e03;
