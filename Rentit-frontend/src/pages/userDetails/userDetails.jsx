@@ -23,12 +23,13 @@ const UserDetails = (props) => {
   const urlItem = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
 
   useEffect(() => {
+    //Fetch the array of saved products
     const fetchData = async () => {
-      //Fetch the array of saved products
       const response = await fetch(`${url}/${user}`);
       const data = await response.json();
       setSavedProducts(data[0].savedProducts);
     };
+    //Fetch the all posts with matching email
     const fetchPosts = async () => {
       const response = await fetch(`${url}/posts/${user}`);
       const data = await response.json();
