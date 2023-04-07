@@ -1,9 +1,9 @@
 const Product = require('../models/productsModel');
-const Users = require('../models/usersModel');
+const User = require('../models/usersModel');
 
 exports.postItem = async (req, res) => {
   try {
-    const user = await Users.findOne({ email: req.body.email });
+    const user = await User.findOne({ email: req.body.email });
 
     if (
       req.headers.access_token &&

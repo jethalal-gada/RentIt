@@ -57,6 +57,9 @@
   width: 9.5rem;
   margin-left: 10px;
 }
+.signInLogo:hover {
+  cursor: pointer;
+}
 .signInTxt {
   margin-bottom: 12px;
   font-size: 12px;

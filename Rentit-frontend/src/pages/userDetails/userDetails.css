@@ -21,7 +21,7 @@
 }
 .highlight {
   border-bottom: 2px solid #ff5e03;
-  box-shadow: 0 1px 0 0px #ff5e03;
+  box-shadow: 0px 1px 0px 0px #ff5e03;
 }
 
 .logInfo {
@@ -31,11 +31,9 @@
   justify-content: space-between;
   margin-top: 1rem;
   margin: 1rem 1rem;
+  margin-top: 2rem;
 }
-/* .wlcmMsg {
-  width: 100%;
-  display: flex;
-} */
+
 #userName {
   padding-left: 0.5rem;
   text-transform: capitalize;
@@ -66,8 +64,6 @@
   margin-top: 0.35rem;
 }
 #userPicName {
-  /* padding-top: 0.2rem; */
-  /* padding-left: 0.5rem; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,13 +78,11 @@
   border-style: hidden;
   width: 4rem;
   height: 2rem;
-  /* padding: 0 4rem; */
   color: #ffffff;
   font-family: 'Be Vietnam Pro';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  /* font-size: 14px; */
 }
 .saves {
   display: flex;
@@ -97,7 +91,6 @@
   margin-left: 5%;
   margin-top: 2.5rem;
   flex-wrap: wrap;
-  /* transition: 1s all ease-in-out; */
 }
 .Prod-Heading {
   margin-left: 1rem;
@@ -115,7 +108,6 @@
   border: 1px solid #cecece;
   border-radius: 2px;
   padding: 1rem 0;
-  /* cursor: pointer; */
   overflow: hidden;
   transition: 0.25s;
 }
@@ -144,13 +136,10 @@
   justify-content: center;
   padding: 0 0.5rem;
   min-width: 8rem;
-  /* width: 10rem; */
-  /* min-height: 5rem; */
   margin-top: auto;
   margin-bottom: auto;
 }
 .detailsBox {
-  /* padding-top: 1rem; */
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -330,20 +319,29 @@
     border: 1px solid #cecece;
     border-radius: 5px;
     padding: 1rem 0;
-    /* cursor: pointer; */
     overflow: hidden;
     transition: 0.25s;
   }
 
   .img {
-    /* width: 10rem; */
     max-width: 6.5rem;
     max-height: 4.5rem;
   }
   .BX {
     line-height: 1.75rem;
     margin-left: 1rem;
-
-    /* padding-bottom: 1rem; */
+  }
+  .logInfo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin: 1rem 1rem;
+    margin-top: 1rem;
+  }
+  .highlight {
+    border-bottom: 2px solid #ff5e03;
+    box-shadow: 0px 0px 0px 0px #ff5e03;
   }
 }
