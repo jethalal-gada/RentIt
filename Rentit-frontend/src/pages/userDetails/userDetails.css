@@ -1,3 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tab {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  font-size: 1.25rem;
+  transition: 0.1s;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid #cecece;
+}
+.unactive:hover {
+  border-bottom: 1px solid #ff5e03;
+}
+.highlight {
+  border-bottom: 2px solid #ff5e03;
+}
+
 .logInfo {
   display: flex;
   align-items: center;
@@ -25,6 +48,9 @@
   width: 100%;
   font-size: 1.5rem;
   font-weight: 600;
+}
+.hide {
+  display: none;
 }
 .userPic {
   width: 2rem;
@@ -62,9 +88,10 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: 1.5%;
-  margin-top: 1rem;
+  margin-left: 5%;
+  margin-top: 2.5rem;
   flex-wrap: wrap;
+  /* transition: 1s all ease-in-out; */
 }
 .Prod-Heading {
   margin-left: 1rem;
@@ -92,13 +119,13 @@
 .productBox:active {
   transform: scale(0.9);
 }
-.rise-shake:hover {
-  animation: jump-shaking 0.83s infinite;
-}
+
 .gentle-hover-shake:hover {
   animation: tilt-shaking 0.25s infinite;
 }
-
+.fade-in {
+  animation: fade-in 0.3s forwards;
+}
 .img {
   /* width: 10rem; */
   max-width: 7.25rem;
@@ -185,29 +212,6 @@
   align-items: center;
   justify-content: center;
 }
-@keyframes jump-shaking {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateY(-9px);
-  }
-  35% {
-    transform: translateY(-9px) rotate(17deg);
-  }
-  55% {
-    transform: translateY(-9px) rotate(-17deg);
-  }
-  65% {
-    transform: translateY(-9px) rotate(17deg);
-  }
-  75% {
-    transform: translateY(-9px) rotate(-17deg);
-  }
-  100% {
-    transform: translateY(0) rotate(0);
-  }
-}
 
 @keyframes tilt-shaking {
   0% {
@@ -226,7 +230,34 @@
     transform: rotate(0deg);
   }
 }
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media only screen and (max-width: 658px) {
+  .tab {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    font-size: 1rem;
+    transition: 0.1s;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid #cecece;
+  }
+  .unactive:hover {
+    border-bottom: 1px solid #ff5e03;
+  }
+  .highlight {
+    border-bottom: 2px solid #ff5e03;
+  }
+
   .wlcm {
     display: flex;
     justify-content: flex-start;

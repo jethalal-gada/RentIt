@@ -33,7 +33,6 @@ const ItemDetails = () => {
   //calling the function  to save item'data
   const saveItem = () => {
     if (save !== 'Saved') {
-      console.log(count, 'count');
       if (count >= 5) alert('cannot save more than 5 items');
       else {
         setSave('Saved');

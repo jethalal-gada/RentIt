@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     unique: [true, 'User already exists'],
     required: true,
   },
-  email_vrified: { type: Boolean, required: true },
+  email_verified: { type: Boolean, required: true },
   locale: String,
   name: { type: String, required: true },
   given_name: {
@@ -19,8 +19,8 @@ const userSchema = new mongoose.Schema({
   picture: { type: String, required: true },
   sub: String,
   token_type: { type: String, required: true },
-  savedProducts: [{ type: String }, { unique: true }],
-  postedProducts: [String],
+  savedProducts: [{ type: String }, { unique: true }, { required: false }],
+  postedProducts: [{ type: String }, { required: false }],
 });
 
 const Users = mongoose.model('Users', userSchema);

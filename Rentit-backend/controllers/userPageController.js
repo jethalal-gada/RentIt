@@ -2,6 +2,7 @@ const User = require('../models/usersModel');
 const Product = require('../models/productsModel');
 
 exports.userLogin = async (req, res) => {
+  console.log('login');
   try {
     const newUser = await User.create(req.body);
     res.status(201).json({
@@ -14,7 +15,7 @@ exports.userLogin = async (req, res) => {
     console.log(err);
     res.status(404).json({
       status: 'fail',
-      message: err,
+      message: `there is error:${err}`,
     });
   }
 };

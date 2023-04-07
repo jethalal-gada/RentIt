@@ -2,16 +2,15 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { CgRemove } from 'react-icons/cg';
 import { RiDeleteBinLine } from 'react-icons/ri';
-// import { useGlobalContext } from '../../authContext';
+import { useGlobalContext } from '../../Context';
 import axios from 'axios';
 
 const ProductCard = (props) => {
   const navigate = useNavigate();
   const [data, setData] = useState(props.data);
-  const [count, setCount] = useState(props.count);
-  // const { loginObj } = useGlobalContext();
+  const { savesCount, setSavesCount, postsCount, setPostsCount } =
+    useGlobalContext();
   const type = props.type;
-  // console.log(loginObj.email);
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
@@ -20,6 +19,11 @@ const ProductCard = (props) => {
     navigate('/itemDetails', { state: { id: id } });
   };
   const removeProduct = async (id, type) => {
+    const remove = () => {
+      setData(null);
+      if (type === 'posts') setPostsCount(postsCount - 1);
+      else setSavesCount(savesCount - 1);
+    };
     if (
       window.confirm(
         type === 'posts'
@@ -27,19 +31,11 @@ const ProductCard = (props) => {
           : 'Do you want to unsave this?'
       )
     ) {
-      await axios
-        .delete(`${url}/${id}/${user}/${type}`)
-        .then(() => setData(null), setCount(count - 1));
-      // setData(null);
-      // setCount(count - 1);
+      await axios.delete(`${url}/${id}/${user}/${type}`).then(remove());
     }
   };
 
-  if (!data) {
-    if (!count && type === 'posts') return <>No produts posted</>;
-    else if (!count && type === 'saves') return <>No products saved</>;
-    else return <></>;
-  }
+  if (!data) return <></>;
   return (
     <>
       <div className='cellBox'>

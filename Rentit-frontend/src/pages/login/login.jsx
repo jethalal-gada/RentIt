@@ -6,37 +6,40 @@ import { SiFacebook } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import Animation from '../../components/cssAnimation/animation';
 import { LoginSocialGoogle } from 'reactjs-social-login';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserDetails from '../userDetails/userDetails';
-// import { useGlobalContext } from '../../authContext';
+import { useGlobalContext } from '../../Context';
 
 const Login = () => {
   // const { logIn, setLogIn } = useGlobalContext();
-  // const { loginObj, setLoginObj } = useGlobalContext();
+  const { setLoginObj } = useGlobalContext();
   const navigate = useNavigate();
-  const [loginData, setLoginData] = useState(null);
+  // const [loginData, setLoginData] = useState(null);
 
-  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/login`;
+  // const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
+  // console.log(url);
 
-  useEffect(() => {
-    const saveUser = async () => {
-      console.log('storing details');
-      try {
-        await fetch(url, {
-          method: 'POST',
-          body: JSON.stringify(loginData),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
-        });
-      } catch (err) {
-        console.log(err, 'Fail');
-      }
-    };
-    if (loginData) saveUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loginData]);
+  // useEffect(() => {
+  //   console.log(loginData);
+  //   const saveUser = async () => {
+  //     console.log('storing details');
+  //     try {
+  //       await fetch(url, {
+  //         method: 'POST',
+  //         body: JSON.stringify(loginData),
+  //         headers: {
+  //           'Content-type': 'application/json; charset=UTF-8',
+  //         },
+  //       });
+  //       navigate('/');
+  //     } catch (err) {
+  //       console.log(err, 'Fail');
+  //     }
+  //   };
+  //   if (loginData) saveUser();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [loginData]);
 
   if (sessionStorage.getItem('userDetails')) {
     const data = JSON.parse(sessionStorage.getItem('userDetails'));
@@ -66,12 +69,8 @@ const Login = () => {
             access_type='offline'
             onResolve={({ provider, data }) => {
               // setLogIn(true);
-              // console.log(logIn);
-              // setLoader(true);
-              navigate('/');
-              // setLoginObj({ ...data });
-              // console.log(loginObj);
-              setLoginData({ ...data });
+              setLoginObj(data);
+              // setLoginData(data);
               sessionStorage.setItem(
                 'userDetails',
                 JSON.stringify({
@@ -82,6 +81,7 @@ const Login = () => {
                   picture: data.picture,
                 })
               );
+              navigate('/');
             }}
             onReject={(err) => {
               console.log(err, 'Failed');

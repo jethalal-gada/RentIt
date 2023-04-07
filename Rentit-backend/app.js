@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
-const app = express();
 const cors = require('cors');
+const app = express();
 
 const itemsRouter = require('./routes/itemsRoute');
 const postRouter = require('./routes/postRoute');
@@ -10,7 +10,7 @@ const itemDetailsRouter = require('./routes/itemDetailsRoute');
 
 //Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors()); //cors({origin: ['http://example.com', 'http://localhost:3000']
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
