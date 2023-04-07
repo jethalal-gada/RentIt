@@ -1,20 +1,24 @@
 const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   // acess_token: String,
-  authuser: String,
-  email: { type: String, unique: [true, 'User already exists'] },
-  email_vrified: Boolean,
+  authuser: { type: String, required: true },
+  email: {
+    type: String,
+    unique: [true, 'User already exists'],
+    required: true,
+  },
+  email_vrified: { type: Boolean, required: true },
   locale: String,
-  name: String,
+  name: { type: String, required: true },
   given_name: {
     type: String,
   },
   family_name: {
     type: String,
   },
-  picture: String,
+  picture: { type: String, required: true },
   sub: String,
-  token_type: String,
+  token_type: { type: String, required: true },
   savedProducts: [{ type: String }, { unique: true }],
   postedProducts: [String],
 });

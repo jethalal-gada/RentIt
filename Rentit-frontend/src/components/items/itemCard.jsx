@@ -6,9 +6,8 @@ const ItemCard = (props) => {
 
   const data = props.data;
   const user = props.user;
-
   const handleClick = (id) => {
-    user ? navigate('/itemDetail', { state: { id: id } }) : navigate('/user');
+    user ? navigate('/itemDetails', { state: { id: id } }) : navigate('/user');
   };
 
   return (

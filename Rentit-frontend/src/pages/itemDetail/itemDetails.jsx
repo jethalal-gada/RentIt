@@ -1,22 +1,22 @@
-import './itemDetail.css';
+import './itemDetails.css';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Loading from '../../images/loading.svg';
 
-const ItemDetail = () => {
+const ItemDetails = () => {
   const location = useLocation();
   const id = location.state.id;
   const [product, setProduct] = useState(null);
   const [save, setSave] = useState(false);
   const url = `http://127.0.0.1:2000/api-rentit/v1/items/${id}`;
-  const urlSave = `http://127.0.0.1:2000/api-rentit/v1/itemDetail`;
+  const urlItemPg = `http://127.0.0.1:2000/api-rentit/v1/itemDetail`;
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
-
+  console.log(user);
   //Fuction to save the dava into saved items of user
   const saveData = async () => {
     console.log(JSON.stringify({ user }));
     try {
-      const response = await fetch(`${urlSave}/${id}`, {
+      const response = await fetch(`${urlItemPg}/${id}`, {
         method: 'PATCH',
         body: JSON.stringify({ user }),
         headers: {
@@ -30,15 +30,15 @@ const ItemDetail = () => {
   };
   //calling the function  to save item'data
   const saveItem = () => {
-    if (save !== 'saved') {
+    if (save !== 'Saved') {
       saveData();
       console.log(id);
     }
-    setSave('saved');
+    setSave('Saved');
   };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchItemData = async () => {
       try {
         const response = await fetch(url);
         const data = await response.json();
@@ -47,8 +47,18 @@ const ItemDetail = () => {
         console.log('error', error);
       }
     };
-    fetchData();
-
+    const fetchUserDetails = async () => {
+      try {
+        const response = await fetch(`${urlItemPg}/${user}`);
+        const data = await response.json();
+        const savedProducts = data[0].savedProducts;
+        if (savedProducts.find((i) => i === id)) setSave('Saved');
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchItemData();
+    fetchUserDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
@@ -108,4 +118,4 @@ const ItemDetail = () => {
   );
 };
 
-export default ItemDetail;
+export default ItemDetails;
