@@ -1,7 +1,10 @@
+/* eslint-disable array-callback-return */
 import { useNavigate } from 'react-router-dom';
 // import { useGlobalContext } from '../../authContext';
+import './userDetails.css';
 import { useEffect, useState } from 'react';
-import ItemCard from '../../components/items/itemCard';
+import ProductCard from './productCard';
+
 const UserDetails = (props) => {
   const navigate = useNavigate();
   const [savedProducts, setSavedProducts] = useState([]);
@@ -42,25 +45,66 @@ const UserDetails = (props) => {
       setProducts(responses);
     };
     fetchData();
-    console.log(posts);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [savedProducts]);
   const handleLogOut = () => {
-    // setLogIn(false);
     // console.log(logIn);
     sessionStorage.removeItem('userDetails');
     navigate('/');
   };
   return (
     <>
-      You are logged in
-      <div>Hi {props.given_name}</div>
-      <button onClick={handleLogOut}>Log Out</button>
-      <div className='allItems'>
-        {products &&
-          products.map((data, index) => {
-            return <ItemCard key={index} data={data.data.item} user={user} />;
-          })}
+      <div className='logInfo'>
+        <div className='wlcm'>
+          <div className='wlcmMsg'>
+            <p>Logged in as</p>
+          </div>
+          <div id='userPicName'>
+            <p className='or' id='userName'>
+              {props.name}
+            </p>
+            <div id='userPic'>
+              <img className='userPic' src={props.picture} alt='' />
+            </div>
+          </div>
+        </div>
+        <div id='logOut'>
+          <button className='logOut' onClick={handleLogOut}>
+            Log Out
+          </button>
+        </div>
+      </div>
+      <div className='Prod-Heading br'> Saved Products :</div>
+      <div className='saves'>
+        {products.length > 0
+          ? products.map((data, index) => {
+              if (data.data.item)
+                return (
+                  <ProductCard
+                    key={index}
+                    data={data.data.item}
+                    count={data.data.item.length}
+                    type={'saves'}
+                  />
+                );
+            })
+          : 'No products saved'}
+      </div>
+      <div className='Prod-Heading br'> Posted Products :</div>
+      <div className='saves'>
+        {posts.length > 0
+          ? posts.map((data, index) => {
+              if (data)
+                return (
+                  <ProductCard
+                    key={index}
+                    data={data}
+                    count={data.length}
+                    type={'posts'}
+                  />
+                );
+            })
+          : 'No products posted'}
       </div>
     </>
   );
