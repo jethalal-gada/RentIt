@@ -10,12 +10,13 @@ const ItemDetails = () => {
   const location = useLocation();
   const id = location.state.id;
   const navigate = useNavigate();
-  const [count, setCount] = useState(0);
-  const [product, setProduct] = useState(null);
-  const [save, setSave] = useState(false);
-  const [avaliable, setAvaliable] = useState(true);
-  const [owner, setOwner] = useState(false);
-  const [loader, setLoader] = useState(false);
+  const [count, setCount] = useState(0); //Count user's saved products
+  const [product, setProduct] = useState(null); //Store product's data
+  const [save, setSave] = useState(false); //Sontroll save button
+  const [available, setAvailable] = useState(true); //Mark product's availablity
+  const [owner, setOwner] = useState(false); //Check if current user is owner or not
+  const [loader, setLoader] = useState(false); //To display loader
+
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items/${id}`;
 
   const urlItemPg = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/itemDetail`;
@@ -40,10 +41,12 @@ const ItemDetails = () => {
       console.log('Error -', err);
     }
   };
-  const handleAvaliable = async () => {
+
+  //Check and mark product's availability
+  const handleAvailable = async () => {
     if (owner && !loader) {
       setLoader(true);
-      const response = await fetch(`${urlItemPg}/${!avaliable}/${id}`, {
+      const response = await fetch(`${urlItemPg}/${!available}/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
@@ -51,7 +54,7 @@ const ItemDetails = () => {
         },
       });
       const data = await response.json();
-      setAvaliable(data.data.avaliable);
+      setAvailable(data.data.available);
       setLoader(false);
     }
   };
@@ -66,6 +69,7 @@ const ItemDetails = () => {
     } else if (save === 'Saved') navigate('/user');
   };
 
+  //To fetch product data and user's details as soon as the app has prod id from state
   useEffect(() => {
     const fetchItemData = async () => {
       try {
@@ -94,12 +98,12 @@ const ItemDetails = () => {
     };
     fetchItemData();
     fetchUserDetails();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+
+  //Mark product's avaliablity as soon as we get the data
   useEffect(() => {
-    // console.log(product);
     if (product) {
-      setAvaliable(product.avaliable);
+      setAvailable(product.available);
       if (product.email === user) {
         setOwner(true);
       }
@@ -124,23 +128,21 @@ const ItemDetails = () => {
         <div className='infoItem itemDetailBox'>
           <div
             className={owner ? 'info0 info owner' : 'info0 info'}
-            onClick={handleAvaliable}
+            onClick={handleAvailable}
           >
-            {/* <div> */}
             {loader ? (
               <img src={miniLoader} className='miniLoader' alt='Loading...' />
-            ) : owner ? (
-              avaliable ? (
-                'Marked avaliable'
+            ) : owner ? ( //If currnet user is the owner then -
+              available ? (
+                'Marked available'
               ) : (
-                'Marked unavaliable'
+                'Marked unavailable'
               )
-            ) : avaliable ? (
-              'Avaliable'
+            ) : available ? ( //If current user is not the owner then
+              'Available'
             ) : (
-              'Not Avaliable'
+              'Not Available'
             )}
-            {/* </div> */}
           </div>
           <div className='info1 info'>
             <p className='infoA br'>{product.product}</p>

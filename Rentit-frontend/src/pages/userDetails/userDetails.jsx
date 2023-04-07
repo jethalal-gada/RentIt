@@ -5,12 +5,15 @@ import { useGlobalContext } from '../../Context';
 import './userDetails.css';
 import { useEffect, useState } from 'react';
 import ProductCard from './productCard';
+import Loading from '../../images/loading.svg';
 
+//This component is child of login.jsx
 const UserDetails = (props) => {
   const navigate = useNavigate();
-  const [savedProducts, setSavedProducts] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const [highlight, setHighlight] = useState(0);
+  const [savedProducts, setSavedProducts] = useState([]); //Storing array of saves
+  const [posts, setPosts] = useState([]); //Storing the array of posts
+  const [highlight, setHighlight] = useState(0); //Adding highlight to active Tab
+  const [loader, setLoader] = useState(false); //To display loader
   // const { logIn, setLogIn } = useGlobalContext();
   const { savesCount, setSavesCount, postsCount, setPostsCount } =
     useGlobalContext();
@@ -21,9 +24,11 @@ const UserDetails = (props) => {
   ).access_token;
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
 
+  //When page loads fetch all saved and posted products
   useEffect(() => {
-    //Fetch the array of saved products
+    //Fetch the array of saved products with matching
     const fetchSaves = async () => {
+      setLoader(true);
       const response = await fetch(`${url}/${user}`, {
         headers: {
           'Content-Type': 'application/json',
@@ -32,6 +37,7 @@ const UserDetails = (props) => {
       });
       const data = await response.json();
       setSavedProducts(data.saves);
+      setLoader(false);
     };
     //Fetch the all posts with matching email
     const fetchPosts = async () => {
@@ -39,24 +45,29 @@ const UserDetails = (props) => {
       const data = await response.json();
       setPosts(data.data.posts);
     };
-
-    fetchSaves();
-    fetchPosts();
+    fetchSaves().then(fetchPosts()); //Fetch saved prods then remove loader and fetch posts
   }, []);
 
   useEffect(() => {
     savedProducts ? setSavesCount(savedProducts.length) : setSavesCount(null);
-    posts ? setPostsCount(posts.length) : setPosts(null);
   }, [savedProducts]);
-
+  useEffect(() => {
+    posts ? setPostsCount(posts.length) : setPosts(null);
+  }, [posts]);
   const handleLogOut = (e) => {
     e.preventDefault();
-    // setLoginObj(null);
-    // setLogIn(false);
     sessionStorage.removeItem('userDetails');
     navigate('/');
   };
-  const addHighlight = (index) => setHighlight(index);
+  const addHighlight = (index) => setHighlight(index); //Highlight the active tab
+  if (loader)
+    return (
+      <>
+        <div id='loader'>
+          <img className='loader' src={Loading} alt='loaing...' />
+        </div>
+      </>
+    );
   return (
     <>
       <div className='logInfo'>
@@ -80,6 +91,7 @@ const UserDetails = (props) => {
         </div>
       </div>
       <div className='container'>
+        {/* tab-1 */}
         <div
           className={
             highlight === 0 ? `box-1 tab highlight` : `box-1 tab unactive`
@@ -88,6 +100,8 @@ const UserDetails = (props) => {
         >
           Saved Products
         </div>
+        {/* tab-1 */}
+        {/* tab-2 */}
         <div
           className={
             highlight === 1 ? `box-2 tab highlight` : `box-2 tab unactive`
@@ -96,19 +110,13 @@ const UserDetails = (props) => {
         >
           Posted Products
         </div>
+        {/* tab-2 */}
       </div>
       <div className={highlight === 0 ? 'saves fade-in' : 'hide'}>
         {savesCount > 0 && savesCount !== null
           ? savedProducts.map((data, index) => {
               if (data)
-                return (
-                  <ProductCard
-                    key={index}
-                    data={data}
-                    // count={products.length}
-                    type={'saves'}
-                  />
-                );
+                return <ProductCard key={index} data={data} type={'saves'} />;
             })
           : 'No products saved'}
       </div>
@@ -117,14 +125,7 @@ const UserDetails = (props) => {
         {postsCount > 0 && postsCount !== null
           ? posts.map((data, index) => {
               if (data)
-                return (
-                  <ProductCard
-                    key={index}
-                    data={data}
-                    // count={posts.length}
-                    type={'posts'}
-                  />
-                );
+                return <ProductCard key={index} data={data} type={'posts'} />;
             })
           : 'No products posted'}
       </div>

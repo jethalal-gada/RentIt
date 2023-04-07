@@ -18,6 +18,7 @@ const Items = () => {
     setUser(JSON.parse(sessionStorage.getItem('userDetails')));
   };
 
+  //Fetch all products on pags load
   useEffect(() => {
     const fetchData = async () => {
       checkLogin();
@@ -33,18 +34,24 @@ const Items = () => {
     fetchData();
   }, []);
 
+  //Change the data which is getting displayed after we get search data
   useEffect(() => {
+    //If search data is not null and length not is not empty ('')
     if (searchData && searchData.length) setDispayData(searchData);
+    //If search data is set null; This will be used to show all prodcuts again
     else if (searchData === null) setDispayData(itemData);
+    //This will be used to show no results
     else setDispayData('');
   }, [searchData]);
 
+  //When we have all products's data
   useEffect(() => {
+    //If nothing is searched then display all products
     if (itemData && searchData === null) {
       setDispayData(itemData);
     }
   }, [itemData]);
-
+  //To activate loading screen when data is not there to display or search is going on
   if (displayData === null || searching)
     return (
       <>
@@ -53,6 +60,7 @@ const Items = () => {
         </div>
       </>
     );
+  //To show empty search
   if (displayData === '')
     return (
       <>

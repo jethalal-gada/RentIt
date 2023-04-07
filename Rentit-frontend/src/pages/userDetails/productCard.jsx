@@ -5,12 +5,13 @@ import { RiDeleteBinLine } from 'react-icons/ri';
 import { useGlobalContext } from '../../Context';
 import axios from 'axios';
 
+//This component is child of userDetail.jsx
 const ProductCard = (props) => {
   const navigate = useNavigate();
   const [data, setData] = useState(props.data);
   const { savesCount, setSavesCount, postsCount, setPostsCount } =
     useGlobalContext();
-  const type = props.type;
+  const type = props.type; //To check if the product is saved one or a posted one
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
@@ -19,11 +20,13 @@ const ProductCard = (props) => {
     navigate('/itemDetails', { state: { id: id } });
   };
   const removeProduct = async (id, type) => {
+    //After sending delete req reduce the total count
     const remove = () => {
       setData(null);
       if (type === 'posts') setPostsCount(postsCount - 1);
       else setSavesCount(savesCount - 1);
     };
+    //Confirm the remove req
     if (
       window.confirm(
         type === 'posts'
@@ -34,8 +37,7 @@ const ProductCard = (props) => {
       await axios.delete(`${url}/${id}/${user}/${type}`).then(remove());
     }
   };
-
-  if (!data) return <></>;
+  if (!data) return <></>; //Show nothing
   return (
     <>
       <div className='cellBox'>
@@ -51,7 +53,6 @@ const ProductCard = (props) => {
               ₹{data.price} per {data.unit}
             </div>
             <div className='description BX'>{data.description}</div>
-            {/* <div className='line divide'></div> */}
           </div>
         </div>
         <div

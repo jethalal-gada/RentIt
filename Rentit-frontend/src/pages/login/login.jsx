@@ -12,13 +12,15 @@ import { useGlobalContext } from '../../Context';
 
 const Login = () => {
   // const { logIn, setLogIn } = useGlobalContext();
-  const { setLoginObj } = useGlobalContext();
+  const { setLoginObj } = useGlobalContext(); //To store user's detials after Login
   const navigate = useNavigate();
+
+  //If the user is Logged in then return the user detail page
   if (sessionStorage.getItem('userDetails')) {
     const data = JSON.parse(sessionStorage.getItem('userDetails'));
     return <UserDetails {...data} />;
   }
-
+  //If the user is not logged in then return the Login page
   return (
     <>
       <div className='loginBox'>
@@ -35,15 +37,12 @@ const Login = () => {
         </div>
         <Animation />
         <div className='signIn'>
-          <LoginSocialGoogle
+          <LoginSocialGoogle //Google login uising LoginSocialGoogle(npm package)
             client_id={`${process.env.REACT_APP_CLIENT_ID}`}
             scope='openid profile email'
             discoveryDocs='claims_supported'
             access_type='offline'
-            // typeResponse='idToken'
             onResolve={({ provider, data }) => {
-              // setLogIn(true);
-              // setLoginData(data);
               setLoginObj(data);
               sessionStorage.setItem(
                 'userDetails',
@@ -56,8 +55,7 @@ const Login = () => {
                   sub: data.sub,
                 })
               );
-              // setLogIn(true)
-              navigate('/');
+              navigate('/'); //navigate to home page after sucessfull login
             }}
             onReject={(err) => {
               alert('Failed to login');

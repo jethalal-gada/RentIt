@@ -5,17 +5,18 @@ const AppContext = React.createContext();
 
 //Defining provider function to provide data to any components wrapped inside it
 const AppProvider = ({ children }) => {
-  const [logIn, setLogIn] = useState(false);
+  const [logIn, setLogIn] = useState(false); //Current user's login data
   const [loginObj, setLoginObj] = useState(null);
   const [savesCount, setSavesCount] = useState(0);
   const [postsCount, setPostsCount] = useState(0);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchData, setSearchData] = useState(null);
-  const [searching, setSearching] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(''); //Store the searched term
+  const [searchData, setSearchData] = useState(null); //Store search results
+  const [searching, setSearching] = useState(false); //To handle loader while search
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
   const urlSaveUSer = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
 
+  //To store the user's data in DB after login
   useEffect(() => {
     const saveUser = async () => {
       try {
@@ -28,6 +29,7 @@ const AppProvider = ({ children }) => {
           },
         });
         const data = await response.json();
+        //Get user's login data from session storage and add access token and user's DB id to it
         const userDetails = JSON.parse(sessionStorage.getItem('userDetails'));
         userDetails._id = data.data._id;
         userDetails.access_token = loginObj.access_token;
@@ -36,9 +38,11 @@ const AppProvider = ({ children }) => {
         console.log(err, 'Fail');
       }
     };
+    //After getting user's data give a call to save it
     if (loginObj) saveUser();
   }, [loginObj]);
 
+  //After getting the searched term send it to DB
   useEffect(() => {
     const search = async () => {
       setSearching(true);
@@ -51,6 +55,7 @@ const AppProvider = ({ children }) => {
     if (searchTerm) search();
   }, [searchTerm]);
 
+  //Pass all states as props to all child components
   return (
     <AppContext.Provider
       value={{
@@ -74,7 +79,7 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
-
+//This fuction will be used by children to get current app context
 export const useGlobalContext = () => {
   return useContext(AppContext);
 };

@@ -45,12 +45,12 @@ exports.upateItem = async (req, res) => {
     const update = req.params.update;
     const product = await Product.findOne({ _id: id });
     if (product.email === req.headers.email) {
-      product.avaliable = update;
+      product.available = update;
       await product.save();
       return res.status(200).json({
         status: 'sucess',
         data: {
-          avaliable: product.avaliable,
+          available: product.available,
         },
       });
     } else {
