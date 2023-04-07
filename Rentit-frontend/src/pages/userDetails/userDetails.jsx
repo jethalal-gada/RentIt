@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable array-callback-return */
 import { useNavigate } from 'react-router-dom';
-import { useGlobalContext } from '../../authContext';
+// import { useGlobalContext } from '../../authContext';
 import './userDetails.css';
 import { useEffect, useState } from 'react';
 import ProductCard from './productCard';
@@ -11,13 +11,15 @@ const UserDetails = (props) => {
   const [savedProducts, setSavedProducts] = useState([]);
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
+  // const { logIn, setLogIn } = useGlobalContext();
+  // const { loginObj, setLoginObj } = useGlobalContext();
+
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
+  // console.log(loginObj);
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
 
   const urlItem = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
-
-  const { logIn, setLogIn } = useGlobalContext();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,7 +55,9 @@ const UserDetails = (props) => {
 
   const handleLogOut = (e) => {
     e.preventDefault();
-    // console.log(logIn);
+    // setLoginObj(null);
+    // setLogIn(false);
+    // console.log(logIn, loginObj);
     sessionStorage.removeItem('userDetails');
     navigate('/');
   };

@@ -9,12 +9,14 @@ import { LoginSocialGoogle } from 'reactjs-social-login';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserDetails from '../userDetails/userDetails';
-import { useGlobalContext } from '../../authContext';
+// import { useGlobalContext } from '../../authContext';
 
 const Login = () => {
-  const { logIn, setLogIn } = useGlobalContext();
+  // const { logIn, setLogIn } = useGlobalContext();
+  // const { loginObj, setLoginObj } = useGlobalContext();
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState(null);
+
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/login`;
 
   useEffect(() => {
@@ -63,13 +65,23 @@ const Login = () => {
             discoveryDocs='claims_supported'
             access_type='offline'
             onResolve={({ provider, data }) => {
-              // console.log(data);
-              setLogIn(true);
+              // setLogIn(true);
               // console.log(logIn);
               // setLoader(true);
               navigate('/');
+              // setLoginObj({ ...data });
+              // console.log(loginObj);
               setLoginData({ ...data });
-              sessionStorage.setItem('userDetails', JSON.stringify(data));
+              sessionStorage.setItem(
+                'userDetails',
+                JSON.stringify({
+                  email: data.email,
+                  name: data.name,
+                  family_name: data.family_name,
+                  given_name: data.given_name,
+                  picture: data.picture,
+                })
+              );
             }}
             onReject={(err) => {
               console.log(err, 'Failed');
