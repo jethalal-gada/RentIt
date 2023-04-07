@@ -9,13 +9,13 @@ import { LoginSocialGoogle } from 'reactjs-social-login';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserDetails from '../userDetails/userDetails';
-// import { useGlobalContext } from '../../authContext';
+import { useGlobalContext } from '../../authContext';
 
 const Login = () => {
-  // const { logIn, setLogIn } = useGlobalContext();
+  const { logIn, setLogIn } = useGlobalContext();
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState(null);
-  const url = 'http://127.0.0.1:2000/api-rentit/v1/login';
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/login`;
 
   useEffect(() => {
     const saveUser = async () => {
@@ -28,8 +28,6 @@ const Login = () => {
             'Content-type': 'application/json; charset=UTF-8',
           },
         });
-        // setLogIn(true);
-        // console.log(logIn);
       } catch (err) {
         console.log(err, 'Fail');
       }
@@ -60,13 +58,14 @@ const Login = () => {
         <Animation />
         <div className='signIn'>
           <LoginSocialGoogle
-            client_id={
-              '980638331446-9io0sa1et63bgfsqu2n0282dbag0062g.apps.googleusercontent.com'
-            }
+            client_id={`${process.env.REACT_APP_CLIENT_ID}`}
             scope='openid profile email'
             discoveryDocs='claims_supported'
             access_type='offline'
             onResolve={({ provider, data }) => {
+              // console.log(data);
+              setLogIn(true);
+              // console.log(logIn);
               // setLoader(true);
               navigate('/');
               setLoginData({ ...data });
