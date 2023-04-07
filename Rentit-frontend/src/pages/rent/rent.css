@@ -2,14 +2,14 @@
 @import url('https://fonts.cdnfonts.com/css/lohit-tamil');
 .post {
   background: #ff5e03;
-  border-radius: 5px;
+  border-radius: 2px;
   border-style: hidden;
   width: 5em;
   height: 2.5rem;
   color: #ffffff;
-  font-family: 'Archivo';
+  font-family: 'Be Vietnam Pro';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 18px;
   margin-right: 0.8rem;
   margin-bottom: 1%;
@@ -39,7 +39,7 @@ form {
   box-sizing: border-box;
   background: #ffffff;
   border: 1px solid #cdcdcd;
-  border-radius: 10px;
+  border-radius: 2px;
 }
 .titles {
   font-family: 'Libre Franklin';
@@ -81,7 +81,7 @@ form {
   height: 36px;
   background: #ffffff;
   border: 1px solid #cdcdcd;
-  border-radius: 5px;
+  border-radius: 2px;
   padding: 8px;
   outline: none;
 }
@@ -110,7 +110,7 @@ form {
   padding-bottom: 4px;
   background: #ffffff;
   border: 2px solid #ff5e03;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-left: 0.2rem;
 }
 .upload:hover {
@@ -136,10 +136,10 @@ textarea {
   font-weight: 200;
   font-size: 13px;
   border-left: none;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 2px 2px 0px;
 }
 .priceBox {
-  border-radius: 5px 0px 0px 5px;
+  border-radius: 2px 0px 0px 2px;
 }
 .imgBox {
   margin-left: 1rem;
@@ -154,15 +154,15 @@ textarea {
 @media only screen and (max-width: 668px) {
   .post {
     background: #ff5e03;
-    border-radius: 5px;
+    border-radius: 2px;
     border-style: hidden;
-    width: 4em;
-    height: 2rem;
+    width: 4.5em;
+    height: 2.25rem;
     color: #ffffff;
-    font-family: 'Archivo';
+    font-family: 'Be Vietnam Pro';
     font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 17px;
     margin-right: 0.8rem;
     margin-bottom: 1%;
   }
@@ -191,7 +191,7 @@ textarea {
     box-sizing: border-box;
     background: #ffffff;
     border: 1px solid #cdcdcd;
-    border-radius: 10px;
+    border-radius: 5px;
   }
   .titles {
     font-family: 'Libre Franklin';
@@ -233,7 +233,7 @@ textarea {
     height: 36px;
     background: #ffffff;
     border: 1px solid #cdcdcd;
-    border-radius: 5px;
+    border-radius: 2px;
     padding: 8px;
     outline: none;
   }
@@ -280,10 +280,10 @@ textarea {
     font-weight: 200;
     font-size: 13px;
     border-left: none;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 2px 2px 0px;
   }
   .priceBox {
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 2px 0px 0px 2px;
   }
   .imgBox {
     margin-left: 1rem;
@@ -298,14 +298,14 @@ textarea {
 @media only screen and (max-width: 512px) {
   .post {
     background: #ff5e03;
-    border-radius: 5px;
+    border-radius: 2px;
     border-style: hidden;
-    width: 4.6em;
-    height: 2.3rem;
+    width: 4.5em;
+    height: 2.25rem;
     color: #ffffff;
-    font-family: 'Archivo';
+    font-family: 'Be Vietnam Pro';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 18px;
     margin-right: 0.8rem;
     margin-bottom: 1%;
@@ -335,7 +335,7 @@ textarea {
     box-sizing: border-box;
     background: #ffffff;
     border: 1px solid #cdcdcd;
-    border-radius: 10px;
+    border-radius: 2px;
   }
   .titles {
     font-family: 'Libre Franklin';
@@ -377,7 +377,7 @@ textarea {
     height: 36px;
     background: #ffffff;
     border: 1px solid #cdcdcd;
-    border-radius: 5px;
+    border-radius: 2px;
     padding: 8px;
     outline: none;
   }
@@ -425,10 +425,10 @@ textarea {
     font-weight: 200;
     font-size: 13px;
     border-left: none;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 2px 2px 0px;
   }
   .priceBox {
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 2px 0px 0px 2px;
   }
   .imgBox {
     margin-left: 1rem;

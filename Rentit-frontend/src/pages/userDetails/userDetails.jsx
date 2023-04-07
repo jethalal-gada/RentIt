@@ -9,7 +9,6 @@ import ProductCard from './productCard';
 const UserDetails = (props) => {
   const navigate = useNavigate();
   const [savedProducts, setSavedProducts] = useState([]);
-  // const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [highlight, setHighlight] = useState(0);
   // const { logIn, setLogIn } = useGlobalContext();
@@ -21,8 +20,6 @@ const UserDetails = (props) => {
     sessionStorage.getItem('userDetails')
   ).access_token;
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
-
-  // const urlItem = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
 
   useEffect(() => {
     //Fetch the array of saved products
@@ -48,8 +45,8 @@ const UserDetails = (props) => {
   }, []);
 
   useEffect(() => {
-    setSavesCount(savedProducts.length);
-    setPostsCount(posts.length);
+    savedProducts ? setSavesCount(savedProducts.length) : setSavesCount(null);
+    posts ? setPostsCount(posts.length) : setPosts(null);
   }, [savedProducts]);
 
   const handleLogOut = (e) => {
@@ -101,7 +98,7 @@ const UserDetails = (props) => {
         </div>
       </div>
       <div className={highlight === 0 ? 'saves fade-in' : 'hide'}>
-        {!(savesCount <= 0)
+        {savesCount > 0 && savesCount !== null
           ? savedProducts.map((data, index) => {
               if (data)
                 return (
@@ -117,7 +114,7 @@ const UserDetails = (props) => {
       </div>
 
       <div className={highlight === 1 ? 'saves fade-in' : 'hide'}>
-        {!(postsCount <= 0)
+        {postsCount > 0 && postsCount !== null
           ? posts.map((data, index) => {
               if (data)
                 return (
