@@ -15,6 +15,7 @@ const ItemDetails = () => {
   const urlItemPg = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/itemDetail`;
 
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
+  const _id = JSON.parse(sessionStorage.getItem('userDetails'))._id;
 
   //Fuction to save the dava into saved items of user
   const saveData = async () => {
@@ -53,11 +54,17 @@ const ItemDetails = () => {
     };
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch(`${urlItemPg}/${user}`);
+        const response = await fetch(`${urlItemPg}/${user}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            _id: _id,
+          },
+        });
         const data = await response.json();
-        const savedProducts = await data[0].savedProducts;
+        const savedProducts = await data.saves;
+        // console.log(savedProducts);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        setCount(data[0].savedProducts.length);
+        setCount(data.saves.length);
         if (savedProducts.find((i) => i === id)) setSave('Saved');
       } catch (error) {
         console.log(error);

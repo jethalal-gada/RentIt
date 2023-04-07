@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import './rent.css';
 import { TbCameraPlus } from 'react-icons/tb';
@@ -19,6 +20,11 @@ const Rent = () => {
   });
   const [status, setStatus] = useState(null);
   const [loader, setLoader] = useState(false);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem('userDetails')) navigate('/');
+  }, []);
+
   const handleChange = (e) => {
     setValues({
       ...values,
@@ -48,6 +54,7 @@ const Rent = () => {
         body: JSON.stringify(values),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
+          _id: JSON.parse(sessionStorage.getItem('userDetails'))._id,
         },
       });
       setStatus(response.status);
