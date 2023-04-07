@@ -41,7 +41,12 @@ const UserDetails = (props) => {
     };
     //Fetch the all posts with matching email
     const fetchPosts = async () => {
-      const response = await fetch(`${url}/posts/${user}`);
+      const response = await fetch(`${url}/posts/${user}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          access_token: access_token,
+        },
+      });
       const data = await response.json();
       setPosts(data.data.posts);
     };

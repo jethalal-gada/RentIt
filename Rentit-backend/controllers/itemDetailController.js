@@ -6,10 +6,11 @@ exports.saveItem = async (req, res) => {
     const id = req.params.id;
     const update = { savedProducts: id };
     const filter = { email: req.body.user };
-    const user = await Users.findOne(filter);
+    const userCheck = await Users.findOne(filter);
     if (
       req.headers.access_token &&
-      String(user.access_token) === String(req.headers.access_token)
+      String(userCheck.access_token) === String(req.headers.access_token) &&
+      userCheck.savedProducts.length < 5
     ) {
       const user = await Users.findOneAndUpdate(
         filter,

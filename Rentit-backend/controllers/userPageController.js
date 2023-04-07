@@ -64,13 +64,24 @@ exports.userLogin = async (req, res) => {
 exports.getPostedProducts = async (req, res) => {
   try {
     const email = req.params.id;
-    const posts = await Product.find({ email: email });
-    res.status(201).json({
-      status: 'sucess',
-      data: {
-        posts: posts,
-      },
-    });
+    const user = await User.findOne({ email: email });
+    if (
+      req.headers.access_token &&
+      String(user.access_token) === String(req.headers.access_token)
+    ) {
+      const posts = await Product.find({ email: email });
+      res.status(201).json({
+        status: 'sucess',
+        data: {
+          posts: posts,
+        },
+      });
+    } else {
+      res.status(409).json({
+        status: 'fail',
+        message: 'Autherisation failed',
+      });
+    }
   } catch (error) {
     console.log(error);
     res.status(404).json({
