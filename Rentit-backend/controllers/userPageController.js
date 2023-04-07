@@ -27,11 +27,14 @@ exports.userLogin = async (req, res) => {
     try {
       const existingUser = await User.findOne({ email: req.body.email });
       if (existingUser) {
-        return res.status(403).json({
+        existingUser.access_token = req.headers.authorization.split(' ')[1];
+        await existingUser.save();
+        return res.status(200).json({
           status: 'sucess',
           message: 'User with this email already exists',
           data: {
             _id: existingUser._id,
+            access_token: existingUser.access_token,
           },
         });
       }

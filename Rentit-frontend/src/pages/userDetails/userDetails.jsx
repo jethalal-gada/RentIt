@@ -17,7 +17,9 @@ const UserDetails = (props) => {
     useGlobalContext();
 
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
-  const _id = JSON.parse(sessionStorage.getItem('userDetails'))._id;
+  const access_token = JSON.parse(
+    sessionStorage.getItem('userDetails')
+  ).access_token;
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
 
   // const urlItem = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
@@ -28,7 +30,7 @@ const UserDetails = (props) => {
       const response = await fetch(`${url}/${user}`, {
         headers: {
           'Content-Type': 'application/json',
-          _id: _id,
+          access_token: access_token,
         },
       });
       const data = await response.json();

@@ -43,6 +43,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  // email: { type: mongoose.Schema.Types.String, ref: 'Users' },
 });
 
 const Product = mongoose.model('product', productSchema);

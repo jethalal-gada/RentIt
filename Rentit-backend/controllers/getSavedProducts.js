@@ -3,10 +3,11 @@ const Users = require('../models/usersModel');
 exports.getSavedProducts = async (req, res) => {
   try {
     const userEmail = req.params.id;
-
     const user = await Users.findOne({ email: userEmail });
-
-    if (String(user._id) === String(req.headers._id)) {
+    if (
+      req.headers.access_token &&
+      String(user.access_token) === String(req.headers.access_token)
+    ) {
       const savedProducts = await user.populate('savedProducts').execPopulate();
       res.status(201).json({
         status: 'sucess',
@@ -31,7 +32,7 @@ exports.getSavedProductsList = async (req, res) => {
   try {
     const userEmail = req.params.id;
     const user = await Users.findOne({ email: userEmail });
-    if (String(user._id) === String(req.headers._id)) {
+    if (String(user.access_token) === String(req.headers.access_token)) {
       const savedProducts = await user.savedProducts;
       res.status(201).json({
         status: 'sucess',

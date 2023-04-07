@@ -39,12 +39,12 @@ const Login = () => {
             client_id={`${process.env.REACT_APP_CLIENT_ID}`}
             scope='openid profile email'
             discoveryDocs='claims_supported'
-            // access_type='offline'
+            access_type='offline'
             // typeResponse='idToken'
             onResolve={({ provider, data }) => {
               // setLogIn(true);
-              setLoginObj(data);
               // setLoginData(data);
+              setLoginObj(data);
               sessionStorage.setItem(
                 'userDetails',
                 JSON.stringify({
@@ -56,6 +56,7 @@ const Login = () => {
                   sub: data.sub,
                 })
               );
+              // setLogIn(true)
               navigate('/');
             }}
             onReject={(err) => {
