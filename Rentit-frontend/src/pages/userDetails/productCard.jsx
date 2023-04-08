@@ -14,7 +14,7 @@ const ProductCard = (props) => {
   const type = props.type; //To check if the product is saved one or a posted one
   const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
 
-  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/items`;
 
   const handleClick = (id) => {
     navigate('/itemDetails', { state: { id: id } });

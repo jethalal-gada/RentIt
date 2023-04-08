@@ -12,7 +12,7 @@ const Items = () => {
   const { searchData, searching } = useGlobalContext();
   const [displayData, setDispayData] = useState(null);
 
-  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/items`;
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/items`;
 
   const checkLogin = () => {
     setUser(JSON.parse(sessionStorage.getItem('userDetails')));
