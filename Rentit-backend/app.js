@@ -1,3 +1,4 @@
+const compression = require('compression');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -11,6 +12,7 @@ const itemDetailsRouter = require('./routes/itemDetailsRoute');
 //Middlewares
 app.use(express.json());
 app.use(cors()); //cors({origin: ['http://example.com', 'http://localhost:3000']
+app.use(compression());
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 

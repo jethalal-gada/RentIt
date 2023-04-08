@@ -22,7 +22,7 @@ const UserDetails = (props) => {
   const access_token = JSON.parse(
     sessionStorage.getItem('userDetails')
   ).access_token;
-  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/user`;
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/user`;
 
   //When page loads fetch all saved and posted products
   useEffect(() => {
