@@ -7,7 +7,7 @@ import Loading from '../../images/loading.svg';
 import User from '../login/login';
 const Rent = () => {
   const navigate = useNavigate();
-  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_ADDRESS}/rent`;
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/rent`;
   const [values, setValues] = useState({
     owner: '',
     product: '',
@@ -47,8 +47,8 @@ const Rent = () => {
 
   const handlePost = async (e) => {
     e.preventDefault();
-    setLoader(true);
     try {
+      setLoader(true);
       const response = await fetch(url, {
         method: 'POST',
         body: JSON.stringify(values),
@@ -58,6 +58,7 @@ const Rent = () => {
             .access_token,
         },
       });
+      setLoader(false);
       setStatus(response.status);
     } catch (err) {
       console.log('Error -', err);
