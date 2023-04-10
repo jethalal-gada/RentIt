@@ -103,7 +103,6 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30vh;
   font-family: 'Be Vietnam Pro';
   font-style: normal;
   font-weight: 200;
@@ -115,6 +114,7 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10vh;
 }
 #unhappy {
   margin-top: 2rem;
