@@ -100,6 +100,10 @@
 .user:hover {
   cursor: pointer;
 }
+.buttonName {
+  display: grid;
+  align-items: center;
+}
 @media only screen and (max-width: 668px) {
   .navbar {
     display: flex;

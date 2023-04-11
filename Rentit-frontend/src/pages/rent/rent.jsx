@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import Loading from '../../images/loading.svg';
 import User from '../login/login';
 import { CiCircleRemove } from 'react-icons/ci';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Rent = () => {
   const navigate = useNavigate();
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/rent`;
@@ -39,9 +41,6 @@ const Rent = () => {
       alert('Posted sucesfully');
       setStatus(null);
       navigate('/');
-    } else if (status === 404) {
-      alert('Failed to post, image already exists');
-      setStatus(null);
     } else if (status) {
       alert('Failed to post due to some issue');
       setStatus(null);
@@ -52,11 +51,15 @@ const Rent = () => {
   const handleFileUpload = (e) => {
     const image = e.target.files[0];
     if (!/^image\/(jpeg|png)$/.test(image.type)) {
-      alert('Please upload a JPEG or PNG image.');
+      toast.error('Please upload a JPEG or PNG image.', {
+        position: 'bottom-right',
+      });
       return;
     }
     if (image.size > 1097152) {
-      alert('Please upload an image that is less than 2MB.');
+      toast.error('Please upload an image that is less than 2MB.', {
+        position: 'bottom-right',
+      });
       return;
     }
     const reader = new FileReader();
@@ -77,7 +80,10 @@ const Rent = () => {
   const handlePost = async (e) => {
     e.preventDefault();
     if (!values.image) {
-      alert('Please add a image');
+      toast.error('Please add an image', {
+        position: 'bottom-right',
+        // theme: 'colored',
+      });
       return;
     }
     try {
@@ -117,6 +123,7 @@ const Rent = () => {
   }
   return (
     <>
+      <ToastContainer />
       <div className='rentHeading or heading'>What do you want to rent ?</div>
       <form onSubmit={handlePost}>
         <div className='rentForm'>
