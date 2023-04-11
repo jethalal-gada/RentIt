@@ -73,7 +73,7 @@ const Navbar = () => {
           />
         </div>
         <div className='navBtns'>
-          <div className=' buttom'>
+          <div className='buttonName'>
             <button className='login' name='login' onClick={handleBtnClick}>
               {checkLogin()}
             </button>{' '}
