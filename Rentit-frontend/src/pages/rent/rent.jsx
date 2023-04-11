@@ -128,10 +128,10 @@ const Rent = () => {
                 <input
                   className='rentBox'
                   onChange={handleChange}
-                  maxLength={20}
+                  maxLength={25}
                   minLength={3}
                   name='product'
-                  title='Minimum 3 and maximun 20 words'
+                  title='Minimum 3 and maximun 25 words'
                   required
                 />
               </div>

@@ -11,7 +11,7 @@ const userRouter = require('./routes/userRoute');
 const itemDetailsRouter = require('./routes/itemDetailsRoute');
 
 //Middlewares
-app.use(express.json({ limit: '10mb' }));
+app.use(express.json({ limit: '4mb' }));
 app.use(cors()); //cors({origin: ['http://example.com', 'http://localhost:3000']
 app.use(compression());
 
