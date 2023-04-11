@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
   image: {
-    type: String,
-    required: [true, 'Image feild is required'],
-    unique: [true, 'Image already exists'],
-    trim: true,
+    image: {
+      type: String,
+      required: true,
+    },
+    public_id: {
+      type: String,
+      required: true,
+    },
   },
   owner: {
     type: String,
