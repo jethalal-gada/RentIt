@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
   image: {
-    type: String,
-    required: [true, 'Image feild is required'],
-    unique: [true, 'Image already exists'],
-    trim: true,
+    image: {
+      type: String,
+      required: true,
+    },
+    public_id: {
+      type: String,
+      required: true,
+    },
   },
   owner: {
     type: String,
@@ -16,6 +20,13 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, 'name is required'],
     trim: true,
+    validate: {
+      validator: function (value) {
+        const wordCount = value.trim().length;
+        return wordCount >= 3 && wordCount <= 25;
+      },
+      message: 'Description must be 230 words or fewer',
+    },
   },
   price: {
     type: Number,
@@ -38,6 +49,13 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Description feild is required'],
     trim: true,
+    validate: {
+      validator: function (value) {
+        const wordCount = value.trim().length;
+        return wordCount >= 10 && wordCount <= 230;
+      },
+      message: 'Description must be 230 words or fewer',
+    },
   },
   email: {
     type: String,

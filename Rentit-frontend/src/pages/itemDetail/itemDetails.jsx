@@ -123,7 +123,7 @@ const ItemDetails = () => {
     <>
       <div className='items'>
         <div className='imgItemDetail itemDetailBox'>
-          <img className='imgItemTag' src={product.image} alt='' />
+          <img className='imgItemTag' src={product.image.image} alt='' />
         </div>
 
         <div className='infoItem itemDetailBox'>

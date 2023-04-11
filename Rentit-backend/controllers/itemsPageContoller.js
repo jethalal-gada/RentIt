@@ -1,5 +1,11 @@
 const Product = require('../models/productsModel');
 const User = require('../models/usersModel');
+const cloudinary = require('cloudinary').v2;
+cloudinary.config({
+  cloud_name: `${process.env.CLOUD_NAME}`,
+  api_key: `${process.env.API_KEY}`,
+  api_secret: `${process.env.API_SECRET}`,
+});
 
 exports.getItems = async (req, res) => {
   try {
@@ -64,8 +70,9 @@ exports.deleteItem = async (req, res) => {
     //Check the post type
     if (type === 'posts') {
       const product = await Product.findById(req.params.id);
-      console.log(product, product.email);
       if (product.email === user) {
+        //Delete the product's image from cloudinary
+        cloudinary.uploader.destroy(product.image.public_id);
         //First delete the post's document
         await Product.findByIdAndDelete(req.params.id);
         //Then if any user has saved it then delete it from there too

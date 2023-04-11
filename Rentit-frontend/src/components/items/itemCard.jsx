@@ -14,7 +14,7 @@ const ItemCard = (props) => {
     <>
       <div className='item' onClick={() => handleClick(data._id)} key={data.id}>
         <div id='itemImgBox'>
-          <img className='imgItem' src={data.image} alt='cover' />
+          <img className='imgItem' src={data.image.image} alt='cover' />
         </div>
         <div className='line lineItems'></div>
         <div className='itemInfo'>

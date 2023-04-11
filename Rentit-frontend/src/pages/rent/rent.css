@@ -150,7 +150,34 @@ textarea {
   align-items: center;
   justify-content: center;
 }
-
+.uploadImg {
+  display: grid;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 5px;
+  transition: 0.25s;
+}
+.uploadImg:hover {
+  /* opacity: 50%; */
+  border: 1px solid #ff5e03;
+  /* cursor: pointer; */
+  transform: scale(2.25);
+}
+.imgUploadSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.removeImg {
+  margin: 0.4rem;
+  transition: 0.25s;
+}
+.removeImg:hover {
+  cursor: pointer;
+  color: #ff5e03;
+  transform: scale(1.1);
+}
 @media only screen and (max-width: 668px) {
   .post {
     background: #ff5e03;

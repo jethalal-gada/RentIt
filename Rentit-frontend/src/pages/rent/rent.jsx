@@ -5,6 +5,7 @@ import { TbCameraPlus } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../images/loading.svg';
 import User from '../login/login';
+import { CiCircleRemove } from 'react-icons/ci';
 const Rent = () => {
   const navigate = useNavigate();
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/rent`;
@@ -16,7 +17,7 @@ const Rent = () => {
     contact: '',
     lpuid: '',
     description: '',
-    image: '',
+    image: null,
   });
   const [status, setStatus] = useState(null);
   const [loader, setLoader] = useState(false);
@@ -41,12 +42,44 @@ const Rent = () => {
     } else if (status === 404) {
       alert('Failed to post, image already exists');
       setStatus(null);
+    } else if (status) {
+      alert('Failed to post due to some issue');
+      setStatus(null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
+  const handleFileUpload = (e) => {
+    const image = e.target.files[0];
+    if (!/^image\/(jpeg|png)$/.test(image.type)) {
+      alert('Please upload a JPEG or PNG image.');
+      return;
+    }
+    if (image.size > 1097152) {
+      alert('Please upload an image that is less than 2MB.');
+      return;
+    }
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onload = () => {
+      const base64Image = reader.result;
+      setValues({
+        ...values,
+        image: base64Image,
+      });
+    };
+
+    reader.onerror = (error) => {
+      console.log('Error: ', error);
+    };
+  };
+
   const handlePost = async (e) => {
     e.preventDefault();
+    if (!values.image) {
+      alert('Please add a image');
+      return;
+    }
     try {
       setLoader(true);
       const response = await fetch(url, {
@@ -64,6 +97,13 @@ const Rent = () => {
       console.log('Error -', err);
       setLoader(false);
     }
+  };
+  //To remove the uploaded image on front-end
+  const handleImg = () => {
+    setValues({
+      ...values,
+      image: null,
+    });
   };
   if (!sessionStorage.getItem('userDetails')) return <User />;
   else if (loader) {
@@ -88,10 +128,10 @@ const Rent = () => {
                 <input
                   className='rentBox'
                   onChange={handleChange}
-                  maxLength={20}
+                  maxLength={25}
                   minLength={3}
                   name='product'
-                  title='Minimum 3 and maximun 20 words'
+                  title='Minimum 3 and maximun 25 words'
                   required
                 />
               </div>
@@ -100,7 +140,7 @@ const Rent = () => {
               Description*
               <div className='rentDes wrapBox'>
                 <textarea
-                  maxLength={200}
+                  maxLength={230}
                   minLength={10}
                   className='rentBox des'
                   onChange={handleChange}
@@ -113,17 +153,28 @@ const Rent = () => {
             <div className='detailImg'>
               <label className='detailA upload'>
                 <TbCameraPlus in className='camera' size={28} />
-                <input id='input' type='file' accept='image/*'></input>
+                <input
+                  id='input'
+                  type='file'
+                  accept='/^image\/(jpeg|png)'
+                  onChange={handleFileUpload}
+                  name='image'
+                  title='Uploading image is compulsory'
+                ></input>
               </label>
               <div className='urlImg wrapBox imgBox '>
-                <input
-                  name='image'
-                  onChange={handleChange}
-                  type='url'
-                  className='rentBox'
-                  placeholder='Paste image url here'
-                  required
-                />
+                {values.image && (
+                  <>
+                    <div className='imgUploadSection'>
+                      <img className='uploadImg' src={values.image} alt='' />
+                      <CiCircleRemove
+                        className='removeImg'
+                        onClick={handleImg}
+                        size={20}
+                      />
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>

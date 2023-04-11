@@ -43,7 +43,7 @@ const ProductCard = (props) => {
       <div className='cellBox'>
         <div className='productBox' onClick={() => handleClick(data._id)}>
           <div id='img'>
-            <img className='img' src={data.image} alt='' />
+            <img className='img' src={data.image.image} alt='' />
           </div>
           <div className='line ver'></div>
           <div className='detailsBox'>
