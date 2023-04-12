@@ -22,7 +22,6 @@ root.render(
         <Route path='rent' element={<Rent />} />
         <Route path='ItemDetails' element={<ItemDetails />} />
         <Route path='*' element={<ErrorPage />} />
-        <Route path='error' element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   </AppProvider>
