@@ -19,10 +19,10 @@ root.render(
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='user' element={<Login />} />
-        {/* <Route path='profile' element={<Profile />} /> */}
         <Route path='rent' element={<Rent />} />
         <Route path='ItemDetails' element={<ItemDetails />} />
         <Route path='*' element={<ErrorPage />} />
+        <Route path='error' element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   </AppProvider>
