@@ -7,7 +7,6 @@ import ErrorPage from './pages/errorPage/errorPage';
 import Rent from './pages/rent/rent';
 import Login from './pages/login/login';
 import ItemDetails from './pages/itemDetail/itemDetails';
-// import Profile from './pages/profile/profile';
 import { AppProvider } from './Context';
 import Navbar from './components/navbar/navbar';
 
