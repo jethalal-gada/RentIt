@@ -9,7 +9,7 @@ import unhappy from '../../images/unhappy.svg';
 const Items = () => {
   const [itemData, setItemData] = useState(null);
   const [user, setUser] = useState(null);
-  const { searchData, searching } = useGlobalContext();
+  const { searchData, searching, filteredData } = useGlobalContext();
   const [displayData, setDispayData] = useState(null);
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/items`;
@@ -44,10 +44,16 @@ const Items = () => {
     else setDispayData('');
   }, [searchData]);
 
+  //Change the data getting dispyed after getting filtered data
+  useEffect(() => {
+    if (filteredData) setDispayData(filteredData);
+    else setDispayData(itemData);
+  }, [filteredData]);
+
   //When we have all products's data
   useEffect(() => {
     //If nothing is searched then display all products
-    if (itemData && searchData === null) {
+    if (itemData && searchData === null && filteredData === null) {
       setDispayData(itemData);
     }
   }, [itemData]);

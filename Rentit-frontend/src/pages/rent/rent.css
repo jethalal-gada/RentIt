@@ -49,6 +49,9 @@ form {
   margin-bottom: 8px;
   margin-top: 2px;
 }
+.type {
+  margin-right: 1rem !important;
+}
 .heading {
   font-family: 'Lexend Deca';
   font-style: normal;
@@ -57,7 +60,8 @@ form {
 }
 .detail1,
 .detail2,
-.detail3 {
+.detail3,
+.detail4 {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -74,6 +78,9 @@ form {
   /* line-height: 19px; */
 
   color: #675c55d1;
+}
+.detail4 {
+  flex-direction: row !important;
 }
 .rentBox {
   box-sizing: border-box;
@@ -372,6 +379,7 @@ textarea {
     margin-bottom: 9px;
     margin-top: 2px;
   }
+
   .heading {
     font-family: 'Lexend Deca';
     font-style: normal;

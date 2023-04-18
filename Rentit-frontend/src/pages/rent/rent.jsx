@@ -20,6 +20,7 @@ const Rent = () => {
     lpuid: '',
     description: '',
     image: null,
+    type: '',
   });
   const [status, setStatus] = useState(null);
   const [loader, setLoader] = useState(false);
@@ -228,6 +229,34 @@ const Rent = () => {
                   required
                 />
               </div>
+            </div>
+          </div>
+          <div className='line' id='lineRent'></div>
+          <div className='detail4'>
+            <div className=' or titles type'>Product Category</div>
+            <div className='unitBox chargeBox '>
+              <select
+                name='type'
+                id='type'
+                className='rentBox unitBox'
+                onChange={handleChange}
+              >
+                <option className='option' value='accessories'>
+                  Accessory
+                </option>
+                <option className='option' value='electronics'>
+                  Electronics
+                </option>
+                <option className='option' value='sports'>
+                  Sports
+                </option>
+                <option className='option' value='clothes'>
+                  Clothes
+                </option>
+                <option className='option' value='hardware'>
+                  Hardware
+                </option>
+              </select>
             </div>
           </div>
           <div className='line' id='lineRent'></div>

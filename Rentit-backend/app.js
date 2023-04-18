@@ -1,5 +1,5 @@
+// const cloudinary = require('cloudinary').v2;
 const compression = require('compression');
-const cloudinary = require('cloudinary').v2;
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -17,7 +17,7 @@ app.use(compression());
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
-//Mouting
+//Mounting
 app.use('/api-rentit/v1/items', itemsRouter);
 app.use('/api-rentit/v1/rent', postRouter);
 app.use('/api-rentit/v1/user', userRouter);
