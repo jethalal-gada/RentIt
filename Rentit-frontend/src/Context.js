@@ -12,6 +12,8 @@ const AppProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState(''); //Store the searched term
   const [searchData, setSearchData] = useState(null); //Store search results
   const [searching, setSearching] = useState(false); //To handle loader while search
+  const [selectedOption, setSelectedOption] = useState('all'); //To handle filter
+  const [filteredData, setFilteredData] = useState(null);
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/items`;
   const urlSaveUSer = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/user`;
@@ -54,7 +56,18 @@ const AppProvider = ({ children }) => {
 
     if (searchTerm) search();
   }, [searchTerm]);
-
+  //After applying filter
+  useEffect(() => {
+    const filter = async () => {
+      setSearching(true);
+      const response = await fetch(`${url}/filter/${selectedOption}`);
+      const data = await response.json();
+      setFilteredData(data.data.items);
+      setSearching(false);
+    };
+    if (selectedOption === 'all') setFilteredData(null);
+    else filter();
+  }, [selectedOption]);
   //Pass all states as props to all child components
   return (
     <AppContext.Provider
@@ -73,6 +86,10 @@ const AppProvider = ({ children }) => {
         setSearchData,
         searching,
         setSearching,
+        selectedOption,
+        setSelectedOption,
+        filteredData,
+        setFilteredData,
       }}
     >
       {children}

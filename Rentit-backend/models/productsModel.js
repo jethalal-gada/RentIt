@@ -65,6 +65,10 @@ const productSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  type: {
+    type: String,
+    required: true,
+  },
   // email: { type: mongoose.Schema.Types.String, ref: 'Users' },
 });
 

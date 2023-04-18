@@ -8,7 +8,8 @@ import { useRef } from 'react';
 import { useGlobalContext } from '../../Context';
 
 const Navbar = () => {
-  const { setSearchTerm, setSearchData } = useGlobalContext();
+  const { setSearchTerm, setSearchData, setSelectedOption, setFilteredData } =
+    useGlobalContext();
   const searchText = useRef('');
   let user = null;
   let data = null;
@@ -42,6 +43,8 @@ const Navbar = () => {
   const handleGoHome = () => {
     setSearchTerm(null);
     setSearchData(null);
+    setFilteredData(null);
+    setSelectedOption('all');
     searchText.current.value = '';
   };
   return (
@@ -68,7 +71,7 @@ const Navbar = () => {
           <input
             type='text'
             className='searchBar '
-            placeholder='Search'
+            placeholder='Search by name'
             ref={searchText}
           />
         </div>
