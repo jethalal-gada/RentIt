@@ -242,7 +242,7 @@ const Rent = () => {
                 onChange={handleChange}
               >
                 <option className='option' value='accessories'>
-                  Accessorary
+                  Accessory
                 </option>
                 <option className='option' value='electronics'>
                   Electronics
