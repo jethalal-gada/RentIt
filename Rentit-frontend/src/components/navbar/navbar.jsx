@@ -71,7 +71,7 @@ const Navbar = () => {
           <input
             type='text'
             className='searchBar '
-            placeholder='Search by name'
+            placeholder='Search'
             ref={searchText}
           />
         </div>
