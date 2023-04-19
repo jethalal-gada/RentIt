@@ -7,6 +7,7 @@
   font-size: 14px;
   outline: none;
   border: none;
+  background-color: transparent;
 }
 .dropDown {
   display: flex;
@@ -14,5 +15,6 @@
   justify-content: center;
   margin-bottom: -1.25rem;
   margin-top: 0.5rem;
+  background-color: transparent;
   /* padding-left: 4rem; */
 }
