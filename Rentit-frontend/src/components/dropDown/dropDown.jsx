@@ -30,6 +30,9 @@ function Dropdown() {
           <option className='option' value='accessories'>
             Accessories
           </option>
+          <option className='option' value='others'>
+            Others
+          </option>
         </select>
       </div>
     </>

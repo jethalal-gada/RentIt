@@ -46,8 +46,10 @@ const Items = () => {
 
   //Change the data getting dispyed after getting filtered data
   useEffect(() => {
-    if (filteredData) setDispayData(filteredData);
-    else setDispayData(itemData);
+    console.log(filteredData);
+    if (filteredData && filteredData.length) setDispayData(filteredData);
+    else if (filteredData === null) setDispayData(itemData);
+    else setDispayData('');
   }, [filteredData]);
 
   //When we have all products's data
@@ -73,7 +75,7 @@ const Items = () => {
         <div className='unhappy'>
           <img id='unhappy' src={unhappy} alt='' />
         </div>
-        <div className='searchMsg'>No search results found</div>
+        <div className='searchMsg'>No results found</div>
       </>
     );
   return (
