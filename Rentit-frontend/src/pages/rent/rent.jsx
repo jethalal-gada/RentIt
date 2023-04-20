@@ -256,6 +256,9 @@ const Rent = () => {
                 <option className='option' value='hardware'>
                   Hardware
                 </option>
+                <option className='option' value='others'>
+                  Others
+                </option>
               </select>
             </div>
           </div>
