@@ -20,7 +20,7 @@ const Rent = () => {
     lpuid: '',
     description: '',
     image: null,
-    type: '',
+    type: 'accessories',
   });
   const [status, setStatus] = useState(null);
   const [loader, setLoader] = useState(false);
