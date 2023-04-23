@@ -42,10 +42,6 @@
   max-height: 10rem;
   transition: 0.1s;
 }
-.unavb {
-  position: absolute;
-  opacity: 75%;
-}
 /* #itemImgBox:hover {
   transform: scale(1.01);
 } */
