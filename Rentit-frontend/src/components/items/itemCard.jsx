@@ -1,11 +1,11 @@
 import './items.css';
 import { useNavigate } from 'react-router-dom';
+// import unavailable from '../../images/unavailable.svg';
+import unavb from '../../images/unavb.svg';
 
-const ItemCard = (props) => {
+const ItemCard = ({ data, user }) => {
   const navigate = useNavigate();
 
-  const data = props.data;
-  const user = props.user;
   const handleClick = (id) => {
     user ? navigate('/itemDetails', { state: { id: id } }) : navigate('/user');
   };
@@ -14,6 +14,9 @@ const ItemCard = (props) => {
     <>
       <div className='item' onClick={() => handleClick(data._id)} key={data.id}>
         <div id='itemImgBox'>
+          {!data.available && (
+            <img className='imgItem unavb' src={unavb} alt='unavaliable' /> //Overlay to show unavailablity
+          )}
           <img className='imgItem' src={data.image.image} alt='cover' />
         </div>
         <div className='line lineItems'></div>

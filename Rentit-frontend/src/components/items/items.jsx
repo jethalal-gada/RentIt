@@ -46,7 +46,6 @@ const Items = () => {
 
   //Change the data getting dispyed after getting filtered data
   useEffect(() => {
-    console.log(filteredData);
     if (filteredData && filteredData.length) setDispayData(filteredData);
     else if (filteredData === null) setDispayData(itemData);
     else setDispayData('');

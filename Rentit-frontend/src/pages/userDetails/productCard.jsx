@@ -4,6 +4,7 @@ import { CgRemove } from 'react-icons/cg';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { useGlobalContext } from '../../Context';
 import axios from 'axios';
+import unavb from '../../images/unavb.svg';
 
 //This component is child of userDetail.jsx
 const ProductCard = (props) => {
@@ -43,6 +44,9 @@ const ProductCard = (props) => {
       <div className='cellBox'>
         <div className='productBox' onClick={() => handleClick(data._id)}>
           <div id='img'>
+            {!data.available && (
+              <img className='img unavb' src={unavb} alt='unavaliable' /> //Overlay to show unavailablity
+            )}
             <img className='img' src={data.image.image} alt='' />
           </div>
           <div className='line ver'></div>
