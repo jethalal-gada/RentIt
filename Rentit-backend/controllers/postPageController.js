@@ -27,7 +27,7 @@ exports.postItem = async (req, res) => {
         },
       });
     } else {
-      res.status(409).json({
+      res.status(403).json({
         status: 'fail',
         message: 'Autherisation failed',
       });
