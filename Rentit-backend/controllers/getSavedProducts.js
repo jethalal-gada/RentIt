@@ -34,9 +34,11 @@ exports.getSavedProductsList = async (req, res) => {
     const user = await Users.findOne({ email: userEmail });
     if (String(user.access_token) === String(req.headers.access_token)) {
       const savedProducts = await user.savedProducts;
+      const likes = await user.likedProducts;
       res.status(201).json({
         status: 'sucess',
         saves: savedProducts,
+        likes: likes,
       });
     } else {
       res.status(403).json({

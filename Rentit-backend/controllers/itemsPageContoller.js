@@ -99,6 +99,10 @@ exports.deleteItem = async (req, res) => {
           { savedProducts: id },
           { $pull: { savedProducts: id } }
         );
+        await User.updateMany(
+          { likedProducts: id },
+          { $pull: { likedProducts: id } }
+        );
         res.status(204).json({
           status: 'sucess',
           data: null,

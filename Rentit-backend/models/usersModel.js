@@ -24,6 +24,11 @@ const userSchema = new mongoose.Schema({
     { unique: true },
     { required: false },
   ],
+  likedProducts: [
+    { type: mongoose.Schema.Types.ObjectId, ref: 'product' },
+    { unique: true },
+    { required: false },
+  ],
   postedProducts: [{ type: String }, { required: false }],
 });
 

@@ -89,10 +89,12 @@
   margin-bottom: 7px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
   flex-wrap: wrap;
 }
 .itemInfo {
+  width: 100%;
   padding: 10px;
   padding-top: 0;
   padding-bottom: 0;
@@ -128,6 +130,14 @@ hr {
   align-items: center;
   justify-content: center;
   width: 10rem;
+}
+.likesCount {
+  font-size: 0.8rem;
+}
+.likeItemCard {
+  margin-left: 0.5rem;
+  margin-right: 0.1rem;
+  margin-top: 0.1rem;
 }
 @media only screen and (max-width: 658px) {
   .item {
