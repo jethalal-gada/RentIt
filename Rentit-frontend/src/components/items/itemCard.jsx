@@ -1,5 +1,6 @@
 import './items.css';
 import { useNavigate } from 'react-router-dom';
+import { BsHeartFill } from 'react-icons/bs';
 // import unavailable from '../../images/unavailable.svg';
 import unavb from '../../images/unavb.svg';
 
@@ -22,7 +23,13 @@ const ItemCard = ({ data, user }) => {
         <div className='line lineItems'></div>
         <div className='itemInfo'>
           <div className='itemName'>
-            <span>{data.product}</span>
+            <div>
+              <span>{data.product}</span>
+            </div>
+            <div>
+              <BsHeartFill size={10} className='likeItemCard' />
+              <span className='likesCount'>{data.likes}</span>
+            </div>
           </div>
           <div className='itemDetail'>{data.description}</div>
         </div>

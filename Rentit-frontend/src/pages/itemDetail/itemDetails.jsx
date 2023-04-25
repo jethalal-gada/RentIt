@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import Loading from '../../images/loading.svg';
 import { useNavigate } from 'react-router-dom';
 import miniLoader from './../../images/miniLoader.svg';
+import { BsHeartFill } from 'react-icons/bs';
+import { AiOutlineHeart } from 'react-icons/ai';
 
 const ItemDetails = () => {
   const location = useLocation();
@@ -13,9 +15,11 @@ const ItemDetails = () => {
   const [count, setCount] = useState(0); //Count user's saved products
   const [product, setProduct] = useState(null); //Store product's data
   const [save, setSave] = useState(null); //Sontroll save button
+  const [like, setLike] = useState(false);
   const [available, setAvailable] = useState(true); //Mark product's availablity
   const [owner, setOwner] = useState(false); //Check if current user is owner or not
   const [loader, setLoader] = useState(false); //To display loader
+  const [likeProgress, setLikeProgress] = useState(false);
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/items/${id}`;
 
@@ -26,7 +30,7 @@ const ItemDetails = () => {
     sessionStorage.getItem('userDetails')
   ).access_token;
 
-  //Fuction to save the dava into saved items of user
+  //Fuction to save the data into saved items of user
   const saveData = async () => {
     try {
       await fetch(`${urlItemPg}/${id}`, {
@@ -40,6 +44,35 @@ const ItemDetails = () => {
     } catch (err) {
       console.log('Error -', err);
     }
+  };
+
+  //Function to like or unlike
+
+  const handleLike = async () => {
+    // if (!likeProgress) {
+    setLikeProgress(true);
+    console.log('like');
+    try {
+      console.log(like);
+      // const response =
+      await fetch(`${urlItemPg}/like/${!like}/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ user }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          access_token: access_token,
+        },
+      });
+      setLike(!like);
+      // const data = await response.json();
+      // console.log(data);
+      // console.log(like);
+      setLikeProgress(false);
+    } catch (error) {
+      console.log(error, 'err');
+      setLikeProgress(false);
+    }
+    // }
   };
 
   //Check and mark product's availability
@@ -89,10 +122,14 @@ const ItemDetails = () => {
           },
         });
         const data = await response.json();
+        console.log(data);
         const savedProducts = await data.saves;
+        const likedProducts = await data.likes;
         setCount(data.saves.length);
         if (savedProducts.find((i) => i === id)) setSave('Saved');
         else setSave('Save');
+        if (likedProducts.find((i) => i === id)) setLike(true);
+        else setLike(false);
       } catch (error) {
         console.log(error);
       }
@@ -127,24 +164,40 @@ const ItemDetails = () => {
         </div>
 
         <div className='infoItem itemDetailBox'>
-          <div
-            className={owner ? 'info0 info owner' : 'info0 info'}
-            onClick={handleAvailable}
-          >
-            {loader ? (
-              <img src={miniLoader} className='miniLoader' alt='Loading...' />
-            ) : owner ? ( //If currnet user is the owner then -
-              available ? (
-                'Marked available'
+          <div className='wrapInteractive'>
+            <div
+              className={owner ? 'info0 info owner' : 'info0 info'}
+              onClick={handleAvailable}
+            >
+              {loader ? (
+                <img src={miniLoader} className='miniLoader' alt='Loading...' />
+              ) : owner ? ( //If currnet user is the owner then -
+                available ? (
+                  'Marked available'
+                ) : (
+                  'Marked unavailable'
+                )
+              ) : available ? ( //If current user is not the owner then
+                'Available'
               ) : (
-                'Marked unavailable'
-              )
-            ) : available ? ( //If current user is not the owner then
-              'Available'
-            ) : (
-              'Not Available'
-            )}
+                'Not Available'
+              )}
+            </div>
+            <div id='like'>
+              {likeProgress ? (
+                <img src={miniLoader} className='miniLoader' alt='liking' />
+              ) : like ? (
+                <BsHeartFill size={20} className='like' onClick={handleLike} />
+              ) : (
+                <AiOutlineHeart
+                  size={22}
+                  className='like'
+                  onClick={handleLike}
+                />
+              )}
+            </div>
           </div>
+
           <div className='info1 info'>
             <p className='infoA br'>{product.product}</p>
             <p className='infoA br'>
@@ -187,6 +240,7 @@ const ItemDetails = () => {
             'Save'
           )}
         </button>
+        {/* <button onClick={handleLike}>Like</button> */}
       </div>
     </>
   );

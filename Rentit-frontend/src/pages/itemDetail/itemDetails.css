@@ -139,7 +139,22 @@
   font-weight: 400;
   font-size: 18px;
 }
-
+.like {
+  margin-left: 1rem;
+  color: #ff5f03ef;
+}
+.like:hover {
+  cursor: pointer;
+}
+#like {
+  margin-bottom: 0.5rem;
+}
+.wrapInteractive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 @media only screen and (max-width: 868px) {
   .imgItemDetail {
     width: 18rem;
@@ -206,5 +221,8 @@
     font-size: 19px;
     line-height: 26px;
     /* margin-left: 10px; */
+  }
+  #like {
+    margin-bottom: 1rem;
   }
 }
