@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import './itemDetails.css';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Loading from '../../images/loading.svg';
 import { useNavigate } from 'react-router-dom';
@@ -9,8 +9,7 @@ import { BsHeartFill } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
 
 const ItemDetails = () => {
-  const location = useLocation();
-  const id = location.state.id;
+  const { id } = useParams();
   const navigate = useNavigate();
   const [count, setCount] = useState(0); //Count user's saved products
   const [product, setProduct] = useState(null); //Store product's data
@@ -29,8 +28,6 @@ const ItemDetails = () => {
   const access_token = JSON.parse(
     sessionStorage.getItem('userDetails')
   ).access_token;
-
-  //Fuction to save the data into saved items of user
   const saveData = async () => {
     try {
       await fetch(`${urlItemPg}/${id}`, {
@@ -47,9 +44,7 @@ const ItemDetails = () => {
   };
 
   //Function to like or unlike
-
   const handleLike = async () => {
-    // if (!likeProgress) {
     setLikeProgress(true);
     console.log('like');
     try {
@@ -64,9 +59,6 @@ const ItemDetails = () => {
         },
       });
       setLike(!like);
-      // const data = await response.json();
-      // console.log(data);
-      // console.log(like);
       setLikeProgress(false);
     } catch (error) {
       console.log(error, 'err');
@@ -122,7 +114,6 @@ const ItemDetails = () => {
           },
         });
         const data = await response.json();
-        console.log(data);
         const savedProducts = await data.saves;
         const likedProducts = await data.likes;
         setCount(data.saves.length);
