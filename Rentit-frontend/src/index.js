@@ -17,9 +17,9 @@ root.render(
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='user' element={<Login />} />
+        <Route path='user/:userId?' element={<Login />} />
         <Route path='rent' element={<Rent />} />
-        <Route path='ItemDetails' element={<ItemDetails />} />
+        <Route path='ItemDetails/:id' element={<ItemDetails />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

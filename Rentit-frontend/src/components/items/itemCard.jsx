@@ -8,7 +8,7 @@ const ItemCard = ({ data, user }) => {
   const navigate = useNavigate();
 
   const handleClick = (id) => {
-    user ? navigate('/itemDetails', { state: { id: id } }) : navigate('/user');
+    user ? navigate(`/itemDetails/${id}`) : navigate('/user');
   };
 
   return (

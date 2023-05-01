@@ -18,7 +18,7 @@ const ProductCard = (props) => {
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/items`;
 
   const handleClick = (id) => {
-    navigate('/itemDetails', { state: { id: id } });
+    navigate(`/itemDetails/${id}`);
   };
   const removeProduct = async (id, type) => {
     //After sending delete req reduce the total count
