@@ -31,7 +31,7 @@ const ProductCard = (props) => {
     if (
       window.confirm(
         type === 'posts'
-          ? 'Do you want do delete this post?'
+          ? 'Do you want to delete this post?'
           : 'Do you want to unsave this?'
       )
     ) {
