@@ -60,7 +60,7 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     const filter = async () => {
       setSearching(true);
-      const response = await fetch(`${url}/filter/${selectedOption}`);
+      const response = await fetch(`${url}?type=${selectedOption}`);
       const data = await response.json();
       setFilteredData(data.data.items);
       setSearching(false);
