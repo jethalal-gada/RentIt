@@ -9,7 +9,8 @@ import unhappy from '../../images/unhappy.svg';
 const Items = () => {
   const [itemData, setItemData] = useState(null);
   const [user, setUser] = useState(null);
-  const { searchData, searching, filteredData } = useGlobalContext();
+  const { searchData, searching, filteredData, selectedSort } =
+    useGlobalContext();
   const [displayData, setDispayData] = useState(null);
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/items`;
@@ -58,6 +59,7 @@ const Items = () => {
       setDispayData(itemData);
     }
   }, [itemData]);
+
   //To activate loading screen when data is not there to display or search is going on
   if (displayData === null || searching)
     return (
@@ -79,11 +81,23 @@ const Items = () => {
     );
   return (
     <>
-      <div className='allItems'>
-        {displayData.map((data, index) => {
-          return <ItemCard key={index} data={data} user={user} />;
-        })}
-      </div>
+      {selectedSort === 'true' ? (
+        <div className='allItems'>
+          {displayData
+            .sort((a, b) => b.likes - a.likes)
+            .map((data, index) => {
+              return <ItemCard key={index} data={data} user={user} />;
+            })}
+        </div>
+      ) : (
+        <div className='allItems'>
+          {displayData
+            .sort((a, b) => a.likes - b.likes)
+            .map((data, index) => {
+              return <ItemCard key={index} data={data} user={user} />;
+            })}
+        </div>
+      )}
     </>
   );
 };

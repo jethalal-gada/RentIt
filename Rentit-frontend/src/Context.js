@@ -13,6 +13,7 @@ const AppProvider = ({ children }) => {
   const [searchData, setSearchData] = useState(null); //Store search results
   const [searching, setSearching] = useState(false); //To handle loader while search
   const [selectedOption, setSelectedOption] = useState('all'); //To handle filter
+  const [selectedSort, setSelectedSort] = useState('true');
   const [filteredData, setFilteredData] = useState(null);
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/items`;
@@ -90,6 +91,8 @@ const AppProvider = ({ children }) => {
         setSelectedOption,
         filteredData,
         setFilteredData,
+        selectedSort,
+        setSelectedSort,
       }}
     >
       {children}

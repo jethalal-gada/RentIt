@@ -2,7 +2,7 @@
   width: 1rem;
 } */
 #category {
-  width: 7rem;
+  width: 6rem;
   height: 2rem;
   font-size: 14px;
   outline: none;
@@ -16,5 +16,6 @@
   margin-bottom: -1.25rem;
   margin-top: 0.5rem;
   background-color: transparent;
+  margin-left: 10%;
   /* padding-left: 4rem; */
 }
