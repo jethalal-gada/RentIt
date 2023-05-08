@@ -46,10 +46,7 @@ const ItemDetails = () => {
   //Function to like or unlike
   const handleLike = async () => {
     setLikeProgress(true);
-    console.log('like');
     try {
-      console.log(like);
-      // const response =
       await fetch(`${urlItemPg}/like/${!like}/${id}`, {
         method: 'PATCH',
         body: JSON.stringify({ user }),
@@ -64,7 +61,6 @@ const ItemDetails = () => {
       console.log(error, 'err');
       setLikeProgress(false);
     }
-    // }
   };
 
   //Check and mark product's availability

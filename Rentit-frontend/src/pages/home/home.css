@@ -1,0 +1,8 @@
+#dropdowns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2rem;
+  justify-content: space-between;
+}
