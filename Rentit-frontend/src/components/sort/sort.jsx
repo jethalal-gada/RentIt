@@ -18,6 +18,12 @@ function DropdownSort() {
           <option className='option' value={false}>
             Likes: low to high
           </option>
+          <option className='option' value={'Date: latest'}>
+            Date: latest
+          </option>
+          <option className='option' value={'Date: oldest'}>
+            Date: oldest
+          </option>
         </select>
       </div>
     </>
