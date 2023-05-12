@@ -160,7 +160,11 @@ const Rent = () => {
             </div>
             <div className='detailImg'>
               <label className='detailA upload'>
-                <TbCameraPlus in className='camera' size={28} />
+                <TbCameraPlus
+                  title='Upload image'
+                  className='camera'
+                  size={28}
+                />
                 <input
                   id='input'
                   type='file'

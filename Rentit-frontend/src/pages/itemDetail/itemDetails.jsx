@@ -174,9 +174,15 @@ const ItemDetails = () => {
               {likeProgress ? (
                 <img src={miniLoader} className='miniLoader' alt='liking' />
               ) : like ? (
-                <BsHeartFill size={20} className='like' onClick={handleLike} />
+                <BsHeartFill
+                  title='Unlike'
+                  size={20}
+                  className='like'
+                  onClick={handleLike}
+                />
               ) : (
                 <AiOutlineHeart
+                  title='I like this'
                   size={22}
                   className='like'
                   onClick={handleLike}
@@ -218,7 +224,11 @@ const ItemDetails = () => {
         </div>
       </div>
       <div id='save'>
-        <button className='save btn' onClick={saveItem}>
+        <button
+          title={save === 'Saved' ? 'Go to saves' : 'Save this product'}
+          className='save btn'
+          onClick={saveItem}
+        >
           {save === null ? (
             <img src={miniLoader} className='miniLoader' alt='Loading...' />
           ) : save === 'Saved' ? (

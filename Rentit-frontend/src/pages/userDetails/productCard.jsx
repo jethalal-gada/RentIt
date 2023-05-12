@@ -65,9 +65,18 @@ const ProductCard = (props) => {
           onClick={() => removeProduct(data._id, type)}
         >
           {type === 'posts' ? (
-            <RiDeleteBinLine in className='remove ' size={22} />
+            <RiDeleteBinLine
+              title='Delete this post'
+              in
+              className='remove '
+              size={22}
+            />
           ) : (
-            <CgRemove in className='remove ' size={22} />
+            <CgRemove
+              title='Remove from my saves'
+              className='remove '
+              size={22}
+            />
           )}
         </div>
       </div>
