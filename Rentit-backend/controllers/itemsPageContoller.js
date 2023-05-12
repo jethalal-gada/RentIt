@@ -46,27 +46,6 @@ exports.getSearchResults = async (req, res) => {
     });
   }
 };
-// exports.getFilteredResults = async (req, res) => {
-//   try {
-//     const results = await Product.find({
-//       type: req.params.id,
-//     });
-//     res.status(200).json({
-//       status: 'sucess',
-//       data: {
-//         items: results,
-//       },
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(404).json({
-//       status: 'fail',
-//       message: err,
-//     });
-//   }
-// };
-
-// 9,81,43,62,486
 
 exports.getItemDetails = async (req, res) => {
   try {

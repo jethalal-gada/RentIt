@@ -18,8 +18,8 @@ mongoose
   .then((con) => console.log('DB connction established'))
   .catch((err) => console.log(err));
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 const host = process.env.LOCALHOST;
-app.listen(port, host, () => {
+app.listen(port, () => {
   console.log(`listening host ${host} and port ${port}...`);
 });

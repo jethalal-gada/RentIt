@@ -15,8 +15,7 @@ app.use(express.json({ limit: '4mb' }));
 app.use(cors()); //cors({origin: ['http://example.com', 'http://localhost:3000']
 app.use(compression());
 
-// if (process.env.NODE_ENV === 'development')
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
 //Mounting
 app.use('/api-rentit/v1/items', itemsRouter);
