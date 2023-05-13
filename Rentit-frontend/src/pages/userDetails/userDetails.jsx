@@ -18,7 +18,7 @@ const UserDetails = (props) => {
   const { savesCount, setSavesCount, postsCount, setPostsCount } =
     useGlobalContext();
 
-  const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
+  const user = JSON.parse(sessionStorage.getItem('userDetails')).sub;
   const access_token = JSON.parse(
     sessionStorage.getItem('userDetails')
   ).access_token;
@@ -54,11 +54,14 @@ const UserDetails = (props) => {
   }, []);
 
   useEffect(() => {
-    savedProducts ? setSavesCount(savedProducts.length) : setSavesCount(null);
+    savedProducts
+      ? setSavesCount(savedProducts.length)
+      : setSavedProducts(null);
   }, [savedProducts]);
   useEffect(() => {
     posts ? setPostsCount(posts.length) : setPosts(null);
   }, [posts]);
+
   const handleLogOut = (e) => {
     e.preventDefault();
     sessionStorage.removeItem('userDetails');

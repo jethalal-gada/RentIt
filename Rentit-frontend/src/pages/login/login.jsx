@@ -53,6 +53,7 @@ const Login = () => {
                   given_name: data.given_name,
                   picture: data.picture,
                   sub: data.sub,
+                  access_token: data.access_token,
                 })
               );
               navigate('/'); //navigate to home page after sucessfull login

@@ -24,7 +24,7 @@ const ItemDetails = () => {
 
   const urlItemPg = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/itemDetail`;
 
-  const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
+  const user = JSON.parse(sessionStorage.getItem('userDetails')).sub;
   const access_token = JSON.parse(
     sessionStorage.getItem('userDetails')
   ).access_token;
@@ -71,7 +71,7 @@ const ItemDetails = () => {
         method: 'PATCH',
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
-          email: user,
+          sub: user,
         },
       });
       const data = await response.json();
@@ -129,7 +129,7 @@ const ItemDetails = () => {
   useEffect(() => {
     if (product) {
       setAvailable(product.available);
-      if (product.email === user) {
+      if (product.sub === user) {
         setOwner(true);
       }
     }

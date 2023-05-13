@@ -35,7 +35,6 @@ const AppProvider = ({ children }) => {
         //Get user's login data from session storage and add access token and user's DB id to it
         const userDetails = JSON.parse(sessionStorage.getItem('userDetails'));
         userDetails._id = data.data._id;
-        userDetails.access_token = loginObj.access_token;
         sessionStorage.setItem('userDetails', JSON.stringify(userDetails));
       } catch (err) {
         console.log(err, 'Fail');

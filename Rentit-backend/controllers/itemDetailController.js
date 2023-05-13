@@ -5,7 +5,7 @@ exports.saveItem = async (req, res) => {
   try {
     const id = req.params.id;
     const update = { savedProducts: id };
-    const filter = { email: req.body.user };
+    const filter = { sub: req.body.user };
     const userCheck = await Users.findOne(filter);
     if (
       req.headers.access_token &&
@@ -45,7 +45,7 @@ exports.upateItem = async (req, res) => {
     const id = req.params.id;
     const update = req.params.update;
     const product = await Product.findOne({ _id: id });
-    if (product.email === req.headers.email) {
+    if (product.sub === req.headers.sub) {
       product.available = update;
       await product.save();
       return res.status(200).json({
@@ -72,7 +72,7 @@ exports.updateLikes = async (req, res) => {
   try {
     const id = req.params.id;
     const like = req.params.like;
-    const userCheck = await Users.findOne({ email: req.body.user });
+    const userCheck = await Users.findOne({ sub: req.body.user });
     if (
       req.headers.access_token &&
       String(userCheck.access_token) === String(req.headers.access_token)
@@ -82,13 +82,12 @@ exports.updateLikes = async (req, res) => {
       const update = { likedProducts: id };
       if (like === 'true') {
         const user = await Users.findOneAndUpdate(
-          { email: req.body.user },
+          { sub: req.body.user },
           { $addToSet: update },
           (err) => {
             if (err) console.log(err);
           }
         );
-
         product.likes++;
         await product.save();
         return res.status(200).json({
@@ -100,7 +99,7 @@ exports.updateLikes = async (req, res) => {
         });
       } else if (like === 'false') {
         await Users.findOneAndUpdate(
-          { email: req.body.user },
+          { sub: req.body.user },
           { $pull: { likedProducts: id } },
           { new: true }
         );
@@ -110,7 +109,6 @@ exports.updateLikes = async (req, res) => {
           status: 'sucess',
           data: {
             likes: product.likes,
-            // user: user
           },
         });
       } else {
@@ -129,7 +127,7 @@ exports.updateLikes = async (req, res) => {
     console.log(error);
     res.status(404).json({
       status: 'fail',
-      message: err,
+      message: error,
     });
   }
 };

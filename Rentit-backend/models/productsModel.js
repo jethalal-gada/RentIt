@@ -57,7 +57,7 @@ const productSchema = new mongoose.Schema({
       message: 'Description must be 230 words or fewer',
     },
   },
-  email: {
+  sub: {
     type: String,
     required: true,
   },

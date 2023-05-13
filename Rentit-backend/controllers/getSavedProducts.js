@@ -2,8 +2,8 @@ const Users = require('../models/usersModel');
 
 exports.getSavedProducts = async (req, res) => {
   try {
-    const userEmail = req.params.id;
-    const user = await Users.findOne({ email: userEmail });
+    const sub = req.params.id;
+    const user = await Users.findOne({ sub: sub });
     if (
       req.headers.access_token &&
       String(user.access_token) === String(req.headers.access_token)
@@ -30,8 +30,8 @@ exports.getSavedProducts = async (req, res) => {
 
 exports.getSavedProductsList = async (req, res) => {
   try {
-    const userEmail = req.params.id;
-    const user = await Users.findOne({ email: userEmail });
+    const userSub = req.params.id;
+    const user = await Users.findOne({ sub: userSub });
     if (String(user.access_token) === String(req.headers.access_token)) {
       const savedProducts = await user.savedProducts;
       const likes = await user.likedProducts;
