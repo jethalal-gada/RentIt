@@ -11,7 +11,6 @@ import UserDetails from '../userDetails/userDetails';
 import { useGlobalContext } from '../../Context';
 
 const Login = () => {
-  // const { logIn, setLogIn } = useGlobalContext();
   const { setLoginObj } = useGlobalContext(); //To store user's detials after Login
   const navigate = useNavigate();
 

@@ -14,7 +14,6 @@ const UserDetails = (props) => {
   const [posts, setPosts] = useState([]); //Storing the array of posts
   const [highlight, setHighlight] = useState(0); //Adding highlight to active Tab
   const [loader, setLoader] = useState(false); //To display loader
-  // const { logIn, setLogIn } = useGlobalContext();
   const { savesCount, setSavesCount, postsCount, setPostsCount } =
     useGlobalContext();
 
@@ -72,7 +71,7 @@ const UserDetails = (props) => {
     return (
       <>
         <div id='loader'>
-          <img className='loader' src={Loading} alt='loaing...' />
+          <img className='loader' src={Loading} alt='loading...' />
         </div>
       </>
     );

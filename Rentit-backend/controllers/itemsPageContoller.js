@@ -30,7 +30,10 @@ exports.getItems = async (req, res) => {
 exports.getSearchResults = async (req, res) => {
   try {
     const results = await Product.find({
-      product: { $regex: new RegExp(req.params.id, 'i') },
+      $or: [
+        { product: { $regex: new RegExp(req.params.id, 'i') } },
+        { description: { $regex: new RegExp(req.params.id, 'i') } },
+      ],
     });
     res.status(200).json({
       status: 'sucess',

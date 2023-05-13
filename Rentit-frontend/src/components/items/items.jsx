@@ -65,7 +65,7 @@ const Items = () => {
     return (
       <>
         <div id='loader'>
-          <img className='loader' src={Loading} alt='loaing...' />
+          <img className='loader' src={Loading} alt='loading...' />
         </div>
       </>
     );
