@@ -9,7 +9,7 @@ cloudinary.config({
 
 exports.postItem = async (req, res) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({ sub: req.body.sub });
     if (
       req.headers.access_token &&
       String(user.access_token) === String(req.headers.access_token)

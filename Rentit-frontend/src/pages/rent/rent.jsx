@@ -33,7 +33,7 @@ const Rent = () => {
     setValues({
       ...values,
       [e.target.name]: e.target.value,
-      email: JSON.parse(sessionStorage.getItem('userDetails')).email,
+      sub: JSON.parse(sessionStorage.getItem('userDetails')).sub,
     });
   };
   useEffect(() => {

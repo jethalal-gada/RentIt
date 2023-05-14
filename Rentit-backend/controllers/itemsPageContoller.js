@@ -74,7 +74,7 @@ exports.deleteItem = async (req, res) => {
     //Check the post type
     if (type === 'posts') {
       const product = await Product.findById(req.params.id);
-      if (product.email === user) {
+      if (product.sub === user) {
         //Delete the product's image from cloudinary
         cloudinary.uploader.destroy(product.image.public_id);
         //First delete the post's document
@@ -95,7 +95,7 @@ exports.deleteItem = async (req, res) => {
       }
     } else if (type === 'saves') {
       await User.findOneAndUpdate(
-        { email: user },
+        { sub: user },
         { $pull: { savedProducts: id } },
         { new: true }
       );
