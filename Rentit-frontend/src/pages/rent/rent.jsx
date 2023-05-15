@@ -15,9 +15,9 @@ const Rent = () => {
   const [status, setStatus] = useState(null);
   const [loader, setLoader] = useState(false);
 
-  useEffect(() => {
-    if (!sessionStorage.getItem('userDetails')) navigate('/');
-  }, []);
+  // useEffect(() => {
+  //   if (!sessionStorage.getItem('userDetails')) navigate('/');
+  // }, []);
 
   const handleChange = (e) => {
     setValues({

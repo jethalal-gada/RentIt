@@ -25,16 +25,6 @@ const EditPost = () => {
   const [status, setStatus] = useState(null);
   const [loader, setLoader] = useState(false);
   const location = useLocation();
-  const { state } = location;
-  // Check if state exists and contains the required data
-
-  useEffect(() => {
-    if (!sessionStorage.getItem('userDetails') || !state || !state.data) {
-      navigate('/');
-      return <></>;
-    }
-  }, [[navigate, state]]);
-
   useEffect(() => {
     if (location.state?.data) {
       setValues({
@@ -141,6 +131,14 @@ const EditPost = () => {
         </div>
       </>
     );
+  }
+  if (
+    !sessionStorage.getItem('userDetails') ||
+    !location.state ||
+    !location.state.data
+  ) {
+    navigate('/');
+    return <></>;
   }
   return (
     <>
