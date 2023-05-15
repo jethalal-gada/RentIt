@@ -40,3 +40,76 @@ exports.postItem = async (req, res) => {
     });
   }
 };
+
+exports.updateItem = async (req, res) => {
+  try {
+    const user = await User.findOne({ sub: req.headers.sub });
+    if (
+      req.headers.access_token &&
+      String(user.access_token) === String(req.headers.access_token)
+    ) {
+      const item = await Product.findById(req.params.id);
+      //check if the user is owner or not
+      if (item.sub === user.sub) {
+        let update = { ...req.body };
+        //if update request has a new image then delete old from cloudinary
+        if (update.image) {
+          cloudinary.uploader.destroy(item.image.public_id);
+          const response = await cloudinary.uploader.upload(update.image, {
+            folder: 'RentIt',
+          });
+          const image = { image: response.url, public_id: response.public_id };
+          update.image = image;
+        }
+        //Allow only the updates which user can chnage
+        const allowedFields = [
+          'owner',
+          'product',
+          'price',
+          'unit',
+          'contact',
+          'lpuid',
+          'description',
+          'image',
+          'type',
+        ];
+
+        Object.keys(update).forEach((key) => {
+          if (!allowedFields.includes(key)) {
+            delete update[key];
+          }
+        });
+        //Push all the updates
+        const updatedItem = await Product.findByIdAndUpdate(
+          req.params.id,
+          update,
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+        res.status(200).json({
+          status: 'sucess',
+          data: {
+            item: updatedItem,
+          },
+        });
+      } else {
+        res.status(403).json({
+          status: 'fail',
+          message: 'Autherisation failed',
+        });
+      }
+    } else {
+      res.status(403).json({
+        status: 'fail',
+        message: 'Autherisation failed',
+      });
+    }
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+};

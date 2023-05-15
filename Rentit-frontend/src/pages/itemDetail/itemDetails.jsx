@@ -89,7 +89,26 @@ const ItemDetails = () => {
       }
     } else if (save === 'Saved') navigate('/user');
   };
-
+  const editItem = () => {
+    navigate(`/rent/edit/${id}`, {
+      state: {
+        data: {
+          owner: product.owner,
+          price: product.price,
+          unit: product.unit,
+          type: product.type,
+          image: product.image.image,
+          description: product.description,
+          contact: product.contact,
+          lpuid: product.lpuid,
+          product: product.product,
+        },
+        id: {
+          id,
+        },
+      },
+    });
+  };
   //To fetch product data and user's details as soon as the app has prod id from state
   useEffect(() => {
     const fetchItemData = async () => {
@@ -224,19 +243,25 @@ const ItemDetails = () => {
         </div>
       </div>
       <div id='save'>
-        <button
-          title={save === 'Saved' ? 'Go to saves' : 'Save this product'}
-          className='save btn'
-          onClick={saveItem}
-        >
-          {save === null ? (
-            <img src={miniLoader} className='miniLoader' alt='Loading...' />
-          ) : save === 'Saved' ? (
-            'Saved'
-          ) : (
-            'Save'
-          )}
-        </button>
+        {owner ? (
+          <button title={'Edit'} className='save btn' onClick={editItem}>
+            Edit
+          </button>
+        ) : (
+          <button
+            title={save === 'Saved' ? 'Go to saves' : 'Save this product'}
+            className='save btn'
+            onClick={saveItem}
+          >
+            {save === null ? (
+              <img src={miniLoader} className='miniLoader' alt='Loading...' />
+            ) : save === 'Saved' ? (
+              'Saved'
+            ) : (
+              'Save'
+            )}
+          </button>
+        )}
         {/* <button onClick={handleLike}>Like</button> */}
       </div>
     </>
