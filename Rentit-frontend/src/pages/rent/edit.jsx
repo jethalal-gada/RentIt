@@ -12,16 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const EditPost = () => {
   const navigate = useNavigate();
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/rent/edit`;
-  const [values, setValues] = useState({
-    owner: '',
-    price: '',
-    unit: '',
-    type: '',
-    description: '',
-    contact: '',
-    lpuid: '',
-    product: '',
-  });
+  const [values, setValues] = useState({});
   const [status, setStatus] = useState(null);
   const [loader, setLoader] = useState(false);
   const location = useLocation();
@@ -51,7 +42,7 @@ const EditPost = () => {
     if (status === 200) {
       alert('Edited sucesfully');
       setStatus(null);
-      navigate('/');
+      navigate(`/itemDetails/${location.state.id.id}`);
     } else if (status) {
       alert('Failed to edit due to some issue');
       setStatus(null);

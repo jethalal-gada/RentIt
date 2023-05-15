@@ -60,6 +60,16 @@ const Items = () => {
     }
   }, [itemData]);
 
+  // const acendingSort=(data,sortby)=>{
+  //   data.sort((a,b)=>a.sortby-b.sortby)
+  //   return data
+  // }
+
+  // const decendingSort=(data,sortby)=>{
+  //   data.sort((a,b)=>b.sortby-a.sortby)
+  //   return data
+  // }
+
   //To activate loading screen when data is not there to display or search is going on
   if (displayData === null || searching)
     return (
