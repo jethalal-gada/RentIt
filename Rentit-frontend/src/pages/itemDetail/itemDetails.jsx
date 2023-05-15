@@ -24,7 +24,7 @@ const ItemDetails = () => {
 
   const urlItemPg = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/itemDetail`;
 
-  const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
+  const user = JSON.parse(sessionStorage.getItem('userDetails')).sub;
   const access_token = JSON.parse(
     sessionStorage.getItem('userDetails')
   ).access_token;
@@ -71,7 +71,7 @@ const ItemDetails = () => {
         method: 'PATCH',
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
-          email: user,
+          sub: user,
         },
       });
       const data = await response.json();
@@ -89,7 +89,26 @@ const ItemDetails = () => {
       }
     } else if (save === 'Saved') navigate('/user');
   };
-
+  const editItem = () => {
+    navigate(`/rent/edit/${id}`, {
+      state: {
+        data: {
+          owner: product.owner,
+          price: product.price,
+          unit: product.unit,
+          type: product.type,
+          image: product.image.image,
+          description: product.description,
+          contact: product.contact,
+          lpuid: product.lpuid,
+          product: product.product,
+        },
+        id: {
+          id,
+        },
+      },
+    });
+  };
   //To fetch product data and user's details as soon as the app has prod id from state
   useEffect(() => {
     const fetchItemData = async () => {
@@ -129,7 +148,7 @@ const ItemDetails = () => {
   useEffect(() => {
     if (product) {
       setAvailable(product.available);
-      if (product.email === user) {
+      if (product.sub === user) {
         setOwner(true);
       }
     }
@@ -174,9 +193,15 @@ const ItemDetails = () => {
               {likeProgress ? (
                 <img src={miniLoader} className='miniLoader' alt='liking' />
               ) : like ? (
-                <BsHeartFill size={20} className='like' onClick={handleLike} />
+                <BsHeartFill
+                  title='Unlike'
+                  size={20}
+                  className='like'
+                  onClick={handleLike}
+                />
               ) : (
                 <AiOutlineHeart
+                  title='I like this'
                   size={22}
                   className='like'
                   onClick={handleLike}
@@ -218,15 +243,25 @@ const ItemDetails = () => {
         </div>
       </div>
       <div id='save'>
-        <button className='save btn' onClick={saveItem}>
-          {save === null ? (
-            <img src={miniLoader} className='miniLoader' alt='Loading...' />
-          ) : save === 'Saved' ? (
-            'Saved'
-          ) : (
-            'Save'
-          )}
-        </button>
+        {owner ? (
+          <button title={'Edit'} className='save btn' onClick={editItem}>
+            Edit
+          </button>
+        ) : (
+          <button
+            title={save === 'Saved' ? 'Go to saves' : 'Save this product'}
+            className='save btn'
+            onClick={saveItem}
+          >
+            {save === null ? (
+              <img src={miniLoader} className='miniLoader' alt='Loading...' />
+            ) : save === 'Saved' ? (
+              'Saved'
+            ) : (
+              'Save'
+            )}
+          </button>
+        )}
         {/* <button onClick={handleLike}>Like</button> */}
       </div>
     </>

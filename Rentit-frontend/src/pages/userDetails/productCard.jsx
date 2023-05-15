@@ -13,7 +13,7 @@ const ProductCard = (props) => {
   const { savesCount, setSavesCount, postsCount, setPostsCount } =
     useGlobalContext();
   const type = props.type; //To check if the product is saved one or a posted one
-  const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
+  const user = JSON.parse(sessionStorage.getItem('userDetails')).sub;
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/items`;
 
@@ -65,9 +65,18 @@ const ProductCard = (props) => {
           onClick={() => removeProduct(data._id, type)}
         >
           {type === 'posts' ? (
-            <RiDeleteBinLine in className='remove ' size={22} />
+            <RiDeleteBinLine
+              title='Delete this post'
+              in
+              className='remove '
+              size={22}
+            />
           ) : (
-            <CgRemove in className='remove ' size={22} />
+            <CgRemove
+              title='Remove from my saves'
+              className='remove '
+              size={22}
+            />
           )}
         </div>
       </div>

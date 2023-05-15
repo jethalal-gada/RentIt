@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './rent.css';
 import { TbCameraPlus } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
@@ -8,35 +9,53 @@ import User from '../login/login';
 import { CiCircleRemove } from 'react-icons/ci';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const Rent = () => {
+const EditPost = () => {
   const navigate = useNavigate();
-  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/rent`;
-  const [values, setValues] = useState({});
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/rent/edit`;
+  const [values, setValues] = useState({
+    owner: '',
+    price: '',
+    unit: '',
+    type: '',
+    description: '',
+    contact: '',
+    lpuid: '',
+    product: '',
+  });
   const [status, setStatus] = useState(null);
   const [loader, setLoader] = useState(false);
-
-  // useEffect(() => {
-  //   if (!sessionStorage.getItem('userDetails')) navigate('/');
-  // }, []);
+  const location = useLocation();
+  useEffect(() => {
+    if (location.state?.data) {
+      setValues({
+        owner: location.state.data.owner,
+        price: location.state.data.price,
+        unit: location.state.data.unit,
+        type: location.state.data.type,
+        description: location.state.data.description,
+        contact: location.state.data.contact,
+        lpuid: location.state.data.lpuid,
+        product: location.state.data.product,
+      });
+    } else navigate('/');
+  }, []);
 
   const handleChange = (e) => {
     setValues({
       ...values,
       [e.target.name]: e.target.value,
-      sub: JSON.parse(sessionStorage.getItem('userDetails')).sub,
     });
   };
   useEffect(() => {
     setLoader(false);
-    if (status === 201) {
-      alert('Posted sucesfully');
+    if (status === 200) {
+      alert('Edited sucesfully');
       setStatus(null);
       navigate('/');
     } else if (status) {
-      alert('Failed to post due to some issue');
+      alert('Failed to edit due to some issue');
       setStatus(null);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
   const handleFileUpload = (e) => {
@@ -70,22 +89,22 @@ const Rent = () => {
 
   const handlePost = async (e) => {
     e.preventDefault();
-    if (!values.image) {
+    if (!values.image && !location.state.data.image) {
       toast.error('Please add an image', {
         position: 'bottom-right',
-        // theme: 'colored',
       });
       return;
     }
     try {
       setLoader(true);
-      const response = await fetch(url, {
-        method: 'POST',
+      const response = await fetch(`${url}/${location.state.id.id}`, {
+        method: 'PATCH',
         body: JSON.stringify(values),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
           access_token: JSON.parse(sessionStorage.getItem('userDetails'))
             .access_token,
+          sub: JSON.parse(sessionStorage.getItem('userDetails')).sub,
         },
       });
       setLoader(false);
@@ -101,6 +120,7 @@ const Rent = () => {
       ...values,
       image: null,
     });
+    location.state.data.image = null;
   };
   if (!sessionStorage.getItem('userDetails')) return <User />;
   else if (loader) {
@@ -111,6 +131,14 @@ const Rent = () => {
         </div>
       </>
     );
+  }
+  if (
+    !sessionStorage.getItem('userDetails') ||
+    !location.state ||
+    !location.state.data
+  ) {
+    navigate('/');
+    return <></>;
   }
   return (
     <>
@@ -130,6 +158,7 @@ const Rent = () => {
                   minLength={3}
                   name='product'
                   title='Minimum 3 and maximun 25 words'
+                  defaultValue={values.product}
                   required
                 />
               </div>
@@ -144,6 +173,7 @@ const Rent = () => {
                   onChange={handleChange}
                   name='description'
                   title='Minimum 10 and maximun 100 words'
+                  defaultValue={values.description}
                   required
                 />
               </div>
@@ -165,18 +195,26 @@ const Rent = () => {
                 ></input>
               </label>
               <div className='urlImg wrapBox imgBox '>
-                {values.image && (
-                  <>
+                <>
+                  {(values.image || location.state.data.image) && (
                     <div className='imgUploadSection'>
-                      <img className='uploadImg' src={values.image} alt='' />
+                      <img
+                        className='uploadImg'
+                        src={
+                          values.image
+                            ? values.image
+                            : location.state.data.image
+                        }
+                        alt=''
+                      />
                       <CiCircleRemove
                         className='removeImg'
                         onClick={handleImg}
                         size={20}
                       />
                     </div>
-                  </>
-                )}
+                  )}
+                </>
               </div>
             </div>
           </div>
@@ -195,6 +233,7 @@ const Rent = () => {
                   required
                   name='owner'
                   title='Minimum 3 and maximun 25 words'
+                  defaultValue={values.owner}
                 />
               </div>
             </div>
@@ -207,6 +246,7 @@ const Rent = () => {
                   name='lpuid'
                   pattern='[0-9]{8}'
                   title='Eight digit numeric ID only'
+                  defaultValue={values.lpuid}
                   required
                 />
               </div>
@@ -220,6 +260,7 @@ const Rent = () => {
                   name='contact'
                   pattern='[0-9]{10}'
                   title='10 digit mobile number'
+                  defaultValue={values.contact}
                   required
                 />
               </div>
@@ -235,6 +276,7 @@ const Rent = () => {
                 className='rentBox unitBox'
                 onChange={handleChange}
                 required
+                value={values.type}
                 title='choose category'
               >
                 <option value=''>Select an option</option>
@@ -272,6 +314,7 @@ const Rent = () => {
                   name='price'
                   pattern='[0-9]{1,4}'
                   title='Price shoud be between 1-9999'
+                  defaultValue={values.price}
                   required
                 />
               </div>
@@ -282,6 +325,7 @@ const Rent = () => {
                   className='rentBox unitBox'
                   onChange={handleChange}
                   title='choose charge type'
+                  value={values.unit}
                   required
                 >
                   <option value=''>Select an option</option>
@@ -293,10 +337,10 @@ const Rent = () => {
           </div>
         </div>
         <div id='post'>
-          <button className='post btn'>Post</button>
+          <button className='post btn'>Save</button>
         </div>
       </form>
     </>
   );
 };
-export default Rent;
+export default EditPost;

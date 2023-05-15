@@ -9,6 +9,7 @@ import Login from './pages/login/login';
 import ItemDetails from './pages/itemDetail/itemDetails';
 import { AppProvider } from './Context';
 import Navbar from './components/navbar/navbar';
+import EditPost from './pages/rent/edit';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
         <Route path='/' element={<Home />} />
         <Route path='user/:userId?' element={<Login />} />
         <Route path='rent' element={<Rent />} />
+        <Route path='rent/edit/:id' element={<EditPost />} />
         <Route path='ItemDetails/:id' element={<ItemDetails />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>

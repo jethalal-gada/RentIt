@@ -14,11 +14,10 @@ const UserDetails = (props) => {
   const [posts, setPosts] = useState([]); //Storing the array of posts
   const [highlight, setHighlight] = useState(0); //Adding highlight to active Tab
   const [loader, setLoader] = useState(false); //To display loader
-  // const { logIn, setLogIn } = useGlobalContext();
   const { savesCount, setSavesCount, postsCount, setPostsCount } =
     useGlobalContext();
 
-  const user = JSON.parse(sessionStorage.getItem('userDetails')).email;
+  const user = JSON.parse(sessionStorage.getItem('userDetails')).sub;
   const access_token = JSON.parse(
     sessionStorage.getItem('userDetails')
   ).access_token;
@@ -54,11 +53,14 @@ const UserDetails = (props) => {
   }, []);
 
   useEffect(() => {
-    savedProducts ? setSavesCount(savedProducts.length) : setSavesCount(null);
+    savedProducts
+      ? setSavesCount(savedProducts.length)
+      : setSavedProducts(null);
   }, [savedProducts]);
   useEffect(() => {
     posts ? setPostsCount(posts.length) : setPosts(null);
   }, [posts]);
+
   const handleLogOut = (e) => {
     e.preventDefault();
     sessionStorage.removeItem('userDetails');
@@ -69,7 +71,7 @@ const UserDetails = (props) => {
     return (
       <>
         <div id='loader'>
-          <img className='loader' src={Loading} alt='loaing...' />
+          <img className='loader' src={Loading} alt='loading...' />
         </div>
       </>
     );

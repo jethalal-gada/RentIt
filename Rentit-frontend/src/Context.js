@@ -5,8 +5,7 @@ const AppContext = React.createContext();
 
 //Defining provider function to provide data to any components wrapped inside it
 const AppProvider = ({ children }) => {
-  const [logIn, setLogIn] = useState(false); //Current user's login data
-  const [loginObj, setLoginObj] = useState(null);
+  const [loginObj, setLoginObj] = useState(null); //Current user's login data
   const [savesCount, setSavesCount] = useState(0);
   const [postsCount, setPostsCount] = useState(0);
   const [searchTerm, setSearchTerm] = useState(''); //Store the searched term
@@ -35,7 +34,6 @@ const AppProvider = ({ children }) => {
         //Get user's login data from session storage and add access token and user's DB id to it
         const userDetails = JSON.parse(sessionStorage.getItem('userDetails'));
         userDetails._id = data.data._id;
-        userDetails.access_token = loginObj.access_token;
         sessionStorage.setItem('userDetails', JSON.stringify(userDetails));
       } catch (err) {
         console.log(err, 'Fail');
@@ -73,8 +71,6 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        logIn,
-        setLogIn,
         loginObj,
         setLoginObj,
         savesCount,

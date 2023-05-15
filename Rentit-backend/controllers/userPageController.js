@@ -25,13 +25,13 @@ exports.userLogin = async (req, res) => {
 
   if (validToken) {
     try {
-      const existingUser = await User.findOne({ email: req.body.email });
+      const existingUser = await User.findOne({ sub: req.body.sub });
       if (existingUser) {
         existingUser.access_token = req.headers.authorization.split(' ')[1];
         await existingUser.save();
         return res.status(200).json({
           status: 'sucess',
-          message: 'User with this email already exists',
+          message: 'Loggedin sucessfully',
           data: {
             _id: existingUser._id,
             access_token: existingUser.access_token,
@@ -63,13 +63,13 @@ exports.userLogin = async (req, res) => {
 
 exports.getPostedProducts = async (req, res) => {
   try {
-    const email = req.params.id;
-    const user = await User.findOne({ email: email });
+    const sub = req.params.id;
+    const user = await User.findOne({ sub: sub });
     if (
       req.headers.access_token &&
       String(user.access_token) === String(req.headers.access_token)
     ) {
-      const posts = await Product.find({ email: email });
+      const posts = await Product.find({ sub: sub });
       res.status(201).json({
         status: 'sucess',
         data: {

@@ -11,7 +11,6 @@ import UserDetails from '../userDetails/userDetails';
 import { useGlobalContext } from '../../Context';
 
 const Login = () => {
-  // const { logIn, setLogIn } = useGlobalContext();
   const { setLoginObj } = useGlobalContext(); //To store user's detials after Login
   const navigate = useNavigate();
 
@@ -53,6 +52,7 @@ const Login = () => {
                   given_name: data.given_name,
                   picture: data.picture,
                   sub: data.sub,
+                  access_token: data.access_token,
                 })
               );
               navigate('/'); //navigate to home page after sucessfull login
