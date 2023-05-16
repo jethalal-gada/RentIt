@@ -10,12 +10,14 @@ import { CiCircleRemove } from 'react-icons/ci';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const EditPost = () => {
+  const [values, setValues] = useState({}); //To store the form inputs
+  const [loader, setLoader] = useState(false);
+
   const navigate = useNavigate();
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/rent/edit`;
-  const [values, setValues] = useState({});
-  const [status, setStatus] = useState(null);
-  const [loader, setLoader] = useState(false);
   const location = useLocation();
+
+  //Set the feilds to existing values when the page loads
   useEffect(() => {
     if (location.state?.data) {
       setValues({
@@ -37,17 +39,6 @@ const EditPost = () => {
       [e.target.name]: e.target.value,
     });
   };
-  useEffect(() => {
-    setLoader(false);
-    if (status === 200) {
-      alert('Edited sucesfully');
-      setStatus(null);
-      navigate(`/itemDetails/${location.state.id.id}`);
-    } else if (status) {
-      alert('Failed to edit due to some issue');
-      setStatus(null);
-    }
-  }, [status]);
 
   const handleFileUpload = (e) => {
     const image = e.target.files[0];
@@ -78,6 +69,7 @@ const EditPost = () => {
     };
   };
 
+  //To post the edited post
   const handlePost = async (e) => {
     e.preventDefault();
     if (!values.image && !location.state.data.image) {
@@ -99,7 +91,12 @@ const EditPost = () => {
         },
       });
       setLoader(false);
-      setStatus(response.status);
+      if (response.status === 200) {
+        alert('Edited sucesfully');
+        navigate(`/itemDetails/${location.state.id.id}`);
+      } else if (response.status) {
+        alert('Failed to edit due to some issue');
+      }
     } catch (err) {
       console.log('Error -', err);
       setLoader(false);

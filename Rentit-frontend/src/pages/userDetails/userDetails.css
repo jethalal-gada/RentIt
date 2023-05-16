@@ -112,6 +112,7 @@
 .productBox:hover {
   border: 1px solid #ff5e03;
   box-shadow: 0px 0px 0px 1px #ff5e03;
+  cursor: pointer;
 }
 .productBox:active {
   transform: scale(0.9);

@@ -15,7 +15,7 @@
 }
 .logo {
   width: 8rem;
-  margin-left: 1.25rem;
+  margin-left: 4rem;
 }
 .navBtns {
   display: flex;
@@ -33,7 +33,20 @@
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  margin-right: 2vw;
+  margin-right: 4rem;
+  margin-left: 1.5rem;
+}
+.profile {
+  width: 2rem;
+  margin-left: 1rem;
+  border: 2px #ff5e03;
+  margin-top: 2px;
+  border-style: solid;
+  border-radius: 50%;
+}
+.profile:hover {
+  cursor: pointer;
+  transition: 0.25s;
 }
 .login {
   font-family: 'Libre Franklin';
@@ -41,13 +54,17 @@
   font-weight: 500;
   font-size: 16px;
   color: #222222fd;
-  margin-right: 1.2rem;
   margin-left: 0.6rem;
   text-decoration: none;
   text-transform: capitalize;
   border: none;
   border-bottom: 1px solid black;
   background: transparent;
+}
+.login-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .user {
   color: #222222fd;
@@ -119,7 +136,7 @@
   }
   .logo {
     width: 5.4rem;
-    margin-left: 0.35rem;
+    margin-left: 0.4rem;
   }
 
   .navBtns {
@@ -131,7 +148,7 @@
     background: #ff5e03;
     border-radius: 2px;
     border-style: hidden;
-    width: 4.1rem;
+    width: 4rem;
     height: 2rem;
     color: #ffffff;
     font-family: 'Be Vietnam Pro';
@@ -139,6 +156,7 @@
     font-weight: 400;
     font-size: 14px;
     margin-right: 0.6rem;
+    margin-left: 0.6rem;
   }
   .login {
     font-family: 'Libre Franklin';
@@ -174,6 +192,14 @@
     border: 0.3px solid #cbcaca;
     padding: 12px;
     border-radius: 0 2px 2px 0;
+  }
+  .profile {
+    width: 1.85rem;
+    margin-left: 0.5rem;
+    border: 2px #ff5e03;
+    border-style: double;
+    border-radius: 50%;
+    margin-top: 2px;
   }
   .login:hover {
     color: #ff5e03;

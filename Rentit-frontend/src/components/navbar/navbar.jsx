@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import { useGlobalContext } from '../../Context';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const { setSearchTerm, setSearchData, setSelectedOption, setFilteredData } =
     useGlobalContext();
   const searchText = useRef('');
-  let user = null;
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  // let user = null;
   let data = null;
   const navigate = useNavigate();
   document.addEventListener('keyup', (event) => {
@@ -19,19 +21,25 @@ const Navbar = () => {
       handleSearch();
     }
   });
+
+  useEffect(() => {
+    function handleResize() {
+      console.log('its being resised');
+      console.log(window.innerWidth);
+      setScreenWidth(window.innerWidth);
+    }
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const checkLogin = () => {
     if (sessionStorage.getItem('userDetails')) {
       data = JSON.parse(sessionStorage.getItem('userDetails'));
-      user = 'Hi, ' + data.given_name;
-    } else user = 'Login';
-    return user;
-  };
-
-  const handleBtnClick = (e) => {
-    if (e.target.name === 'login' || (e.target.name === 'rent' && !data))
-      navigate('/user');
-
-    if (e.target.name === 'rent' && data) navigate('/rent');
+      return true;
+    } else return false;
   };
 
   const handleSearch = (e) => {
@@ -77,14 +85,42 @@ const Navbar = () => {
         </div>
         <div className='navBtns'>
           <div className='buttonName'>
-            <button className='login' name='login' onClick={handleBtnClick}>
-              {checkLogin()}
-            </button>{' '}
+            <div className='login-box' name='login'>
+              {checkLogin() ? (
+                <>
+                  <img
+                    name='login'
+                    className='profile'
+                    src={data.picture}
+                    alt='profile'
+                    onClick={() => navigate('/user')}
+                  />
+                  {screenWidth >= 768 ? (
+                    <div
+                      className='login'
+                      onClick={() => navigate('/user')}
+                    >{`Hi, ${data.given_name}`}</div>
+                  ) : (
+                    <></>
+                  )}
+                </>
+              ) : (
+                <div
+                  className='login'
+                  name='login'
+                  onClick={() => navigate('/user')}
+                >
+                  Login
+                </div>
+              )}
+            </div>
           </div>
           <button
             className='rent btn button'
             name='rent'
-            onClick={handleBtnClick}
+            onClick={() =>
+              checkLogin() ? navigate('/rent') : navigate('/user')
+            }
           >
             Rent
           </button>
