@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './rent.css';
 import { TbCameraPlus } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
@@ -9,15 +9,11 @@ import { CiCircleRemove } from 'react-icons/ci';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Rent = () => {
-  const navigate = useNavigate();
-  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/rent`;
-  const [values, setValues] = useState({});
-  const [status, setStatus] = useState(null);
+  const [values, setValues] = useState({}); //To store the form inputs
   const [loader, setLoader] = useState(false);
 
-  // useEffect(() => {
-  //   if (!sessionStorage.getItem('userDetails')) navigate('/');
-  // }, []);
+  const navigate = useNavigate();
+  const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/rent`;
 
   const handleChange = (e) => {
     setValues({
@@ -26,18 +22,6 @@ const Rent = () => {
       sub: JSON.parse(sessionStorage.getItem('userDetails')).sub,
     });
   };
-  useEffect(() => {
-    setLoader(false);
-    if (status === 201) {
-      alert('Posted sucesfully');
-      setStatus(null);
-      navigate('/');
-    } else if (status) {
-      alert('Failed to post due to some issue');
-      setStatus(null);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [status]);
 
   const handleFileUpload = (e) => {
     const image = e.target.files[0];
@@ -73,7 +57,6 @@ const Rent = () => {
     if (!values.image) {
       toast.error('Please add an image', {
         position: 'bottom-right',
-        // theme: 'colored',
       });
       return;
     }
@@ -89,7 +72,12 @@ const Rent = () => {
         },
       });
       setLoader(false);
-      setStatus(response.status);
+      if (response.status === 201) {
+        alert('Posted sucesfully');
+        navigate('/');
+      } else if (response.status) {
+        alert('Failed to post due to some issue');
+      }
     } catch (err) {
       console.log('Error -', err);
       setLoader(false);

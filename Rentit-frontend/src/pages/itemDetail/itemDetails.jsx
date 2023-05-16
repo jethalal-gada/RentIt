@@ -244,7 +244,11 @@ const ItemDetails = () => {
       </div>
       <div id='save'>
         {owner ? (
-          <button title={'Edit'} className='save btn' onClick={editItem}>
+          <button
+            title={'Edit your post'}
+            className='save btn'
+            onClick={editItem}
+          >
             Edit
           </button>
         ) : (
