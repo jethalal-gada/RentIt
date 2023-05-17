@@ -93,7 +93,7 @@ const Navbar = () => {
                     alt='profile'
                     onClick={() => navigate('/user')}
                   />
-                  {screenWidth >= 768 ? (
+                  {screenWidth >= 858 ? (
                     <div
                       className='login'
                       onClick={() => navigate('/user')}
