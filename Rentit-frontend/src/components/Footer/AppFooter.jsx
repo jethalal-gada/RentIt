@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './AppFooter.css';
@@ -47,13 +48,16 @@ const AppFooter = () => {
             <h1>Social Media</h1>
             <div class='sociallogos'>
               <div class='logobox'>
-                <a href='https://www.linkedin.com/in/akash-singh-171227255/'>
+                <a
+                  href='https://www.linkedin.com/in/akash-singh-171227255/'
+                  target='_blank'
+                >
                   <AiOutlineLinkedin className='icon in' size={25} />
                 </a>
-                <a href='https://github.com/a5h101'>
+                <a href='https://github.com/a5h101' target='_blank'>
                   <AiOutlineGithub className='icon git' size={25} />
                 </a>
-                <a href='https://www.instagram.com/aka5hhere/'>
+                <a href='https://www.instagram.com/aka5hhere/' target='_blank'>
                   <AiOutlineInstagram className='icon insta' size={25} />
                 </a>
               </div>
