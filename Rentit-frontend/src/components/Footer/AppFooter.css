@@ -1,20 +1,3 @@
-/* footer {
-  position: relative;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 5rem;
-  background-color: #cecece;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 10vh;
-  z-index: -5;
-  border-top: 2px solid #ff5e03;
-} */
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -23,10 +6,7 @@
 
 #footer {
   font-family: 'Montserrat', sans-serif;
-  margin-top: 10%;
-}
-.icon:hover {
-  cursor: pointer;
+  margin-top: 7.5%;
 }
 .main-footer {
   padding: 70px 0;
@@ -40,7 +20,7 @@
 }
 
 .main-footer h1 {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 117%;
   color: #ffffff;
   margin-bottom: 10px;
@@ -55,6 +35,11 @@
 .main-footer ul li a {
   color: #ffffffcc;
   text-decoration: none;
+}
+.main-footer ul li a:hover {
+  color: #ffffff;
+  /* color: #ff5e03; */
+  cursor: pointer;
 }
 
 footer {
@@ -105,24 +90,38 @@ footer a {
   text-decoration: none;
   color: #ffffff;
   font-size: 22px;
+  transition: 0.2s;
 }
-
+.sociallogos .logobox a:hover {
+  cursor: pointer;
+  color: #ff5e03;
+}
 .com ul li {
   padding: 5px 0;
 }
 
 @media only screen and (max-width: 749px) {
+  #footer {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 15%;
+  }
   .main-footer {
+    font-size: 15px;
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    text-align: center;
   }
   .socialinfo {
-    padding: 20px 0;
+    padding: 10px 0;
   }
 }
 
 @media (max-width: 480px) {
+  #footer {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20%;
+  }
   .main-footer {
     grid-template-columns: 1fr;
   }

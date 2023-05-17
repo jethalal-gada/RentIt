@@ -12,18 +12,20 @@
   font-weight: 400;
   font-size: 18px;
   margin-right: 0.8rem;
-  margin-bottom: 1%;
+  /* margin-bottom: 1%; */
 }
 #post {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: -2%;
+  margin-top: 3%;
 }
 .rentHeading {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.5%;
+  margin-top: 1rem;
   margin-bottom: 0;
 }
 form {
@@ -198,18 +200,20 @@ textarea {
     font-weight: 400;
     font-size: 17px;
     margin-right: 0.8rem;
-    margin-bottom: 1%;
+    /* margin-bottom: 1%; */
   }
   #post {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: -2%;
+    margin-top: 2rem;
   }
   .rentHeading {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1.5%;
+    margin-top: 1.5rem;
     margin-bottom: 0;
   }
   form {
@@ -342,12 +346,14 @@ textarea {
     font-weight: 400;
     font-size: 18px;
     margin-right: 0.8rem;
-    margin-bottom: 1%;
+    /* margin-bottom: 1%; */
   }
   #post {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: -2%;
+    margin-top: 2rem;
   }
   .rentHeading {
     display: flex;

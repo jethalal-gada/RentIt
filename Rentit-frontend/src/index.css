@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;600&family=Libre+Franklin:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alike&family=Archivo:wght@100;600&family=Asap:wght@400;500&family=Be+Vietnam+Pro:wght@500&family=Exo+2:wght@500&family=Libre+Franklin:ital,wght@0,500;1,400&family=Noto+Sans+HK&family=Ubuntu:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -19,6 +19,32 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body::-webkit-scrollbar-track {
+  background-color: #000000;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #ff5e03;
+  border-radius: 5px;
+  height: 5px;
+}
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 12px;
+  background-color: #f1f1f1;
+}
+/* body::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 5px;
+  height: 5px;
+}
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 12px;
+  background-color: #f1f1f1;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -44,6 +70,7 @@ a {
 .line {
   width: 100%;
   border: 1px solid #cdcdcd9f;
+  /* border: 1px solid #ffffff; */
   border-bottom: none;
   height: 0;
 }

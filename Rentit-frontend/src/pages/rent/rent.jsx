@@ -7,6 +7,7 @@ import Loading from '../../images/loading.svg';
 import User from '../login/login';
 import { CiCircleRemove } from 'react-icons/ci';
 import { ToastContainer, toast } from 'react-toastify';
+import AppFooter from '../../components/Footer/AppFooter';
 import 'react-toastify/dist/ReactToastify.css';
 const Rent = () => {
   const [values, setValues] = useState({}); //To store the form inputs
@@ -284,6 +285,7 @@ const Rent = () => {
           <button className='post btn'>Post</button>
         </div>
       </form>
+      <AppFooter />
     </>
   );
 };

@@ -26,9 +26,11 @@ const ItemCard = ({ data, user }) => {
             <div>
               <span>{data.product}</span>
             </div>
-            <div>
-              <BsHeartFill size={10} className='likeItemCard' />
-              <span className='likesCount'>{data.likes}</span>
+            <div id='likesCount'>
+              <div>
+                <BsHeartFill size={9} className='likeItemCard' />
+              </div>
+              <div className='likesCount'> {data.likes}</div>
             </div>
           </div>
           <div className='itemDetail'>{data.description}</div>

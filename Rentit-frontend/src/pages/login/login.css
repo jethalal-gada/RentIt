@@ -14,6 +14,7 @@
   border-style: solid;
   margin-top: 8vh;
   border-radius: 10px;
+  background: linear-gradient(to bottom, #ffffff, #ff5e00f9);
 }
 .lineLogin {
   border-color: #ff5e03;

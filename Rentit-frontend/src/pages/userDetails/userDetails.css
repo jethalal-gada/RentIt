@@ -30,7 +30,7 @@
   justify-content: flex-start;
   justify-content: space-between;
   margin-top: 1rem;
-  margin: 1rem 1rem;
+  margin: 1rem 5%;
   margin-top: 2rem;
 }
 
@@ -71,7 +71,7 @@
 
 .logOut {
   margin-left: 3rem;
-  background: #ff5e03;
+  background: #000000;
   border-radius: 2px;
   border-style: hidden;
   width: 4rem;
@@ -81,6 +81,10 @@
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
+}
+.logOut:hover {
+  background: #282828;
+  /* color: #000000; */
 }
 .saves {
   display: flex;

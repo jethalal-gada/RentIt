@@ -72,7 +72,7 @@ const Navbar = () => {
             type='submit'
             className='searchBtn buttom search btn'
           >
-            <FaSearch className='search' size={18} />
+            <FaSearch className='search' size={19} />
           </button>
           <input
             type='text'
