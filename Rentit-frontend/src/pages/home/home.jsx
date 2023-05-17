@@ -2,7 +2,7 @@ import Items from '../../components/Items/Items';
 import Backtotop from '../../components/Backtotop/Backtotop';
 import Dropdown from '../../components/Filter/DropDown';
 import DropdownSort from '../../components/Sort/Sort';
-import Footer from '../../components/Footer/Footer';
+import AppFooter from '../../components/Footer/AppFooter';
 import './home.css';
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
         <Backtotop />
         <Items />
       </main>
-      <Footer />
+      <AppFooter />
     </>
   );
 };
