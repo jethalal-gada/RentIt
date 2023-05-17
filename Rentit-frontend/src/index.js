@@ -10,7 +10,7 @@ import ItemDetails from './pages/itemDetail/itemDetails';
 import { AppProvider } from './Context';
 import Navbar from './components/Navbar/Navbar';
 import EditPost from './pages/rent/edit';
-
+import AppFooter from './components/Footer/AppFooter';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AppProvider>
@@ -24,6 +24,7 @@ root.render(
         <Route path='ItemDetails/:id' element={<ItemDetails />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
+      <AppFooter />
     </BrowserRouter>
   </AppProvider>
 );

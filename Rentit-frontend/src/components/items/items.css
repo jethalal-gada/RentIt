@@ -20,7 +20,14 @@
   width: 16rem;
   height: 18rem;
   background: #ffffff;
-  border: 1px solid #ffffff;
+
+  /* border: 1px solid #ffffff; */
+
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px dashed #cecece;
+  border-left: 1px dashed #cecece;
+
   /* border: 1px dashed #cecece; */
   border-radius: 2px;
   margin: 33px;
@@ -46,7 +53,7 @@
 .unavb {
   position: absolute;
   opacity: 75%;
-  box-shadow: 0px 2px 6px 8px #ffffff;
+  box-shadow: 0px 0px 2px 4px #ffffff;
 }
 /* #itemImgBox:hover {
   transform: scale(1.01);

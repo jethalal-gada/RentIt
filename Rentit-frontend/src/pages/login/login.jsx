@@ -9,7 +9,7 @@ import { LoginSocialGoogle } from 'reactjs-social-login';
 import { useNavigate } from 'react-router-dom';
 import UserDetails from '../userDetails/userDetails';
 import { useGlobalContext } from '../../Context';
-import AppFooter from '../../components/Footer/AppFooter';
+// import AppFooter from '../../components/Footer/AppFooter';
 const Login = () => {
   const { setLoginObj } = useGlobalContext(); //To store user's detials after Login
   const navigate = useNavigate();
@@ -81,7 +81,7 @@ const Login = () => {
           All you personl detials are safe with us.
         </div>
       </div>
-      <AppFooter />
+      {/* <AppFooter /> */}
     </>
   );
 };

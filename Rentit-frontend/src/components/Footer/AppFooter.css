@@ -6,7 +6,7 @@
 
 #footer {
   font-family: 'Montserrat', sans-serif;
-  margin-top: 7.5%;
+  margin-top: 10%;
 }
 .main-footer {
   padding: 70px 0;
@@ -103,7 +103,7 @@ footer a {
 @media only screen and (max-width: 749px) {
   #footer {
     font-family: 'Montserrat', sans-serif;
-    margin-top: 15%;
+    margin-top: 20%;
   }
   .main-footer {
     font-size: 15px;
@@ -120,7 +120,7 @@ footer a {
 @media (max-width: 480px) {
   #footer {
     font-family: 'Montserrat', sans-serif;
-    margin-top: 20%;
+    margin-top: 25%;
   }
   .main-footer {
     grid-template-columns: 1fr;

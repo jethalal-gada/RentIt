@@ -30,10 +30,15 @@
   justify-content: flex-start;
   justify-content: space-between;
   margin-top: 1rem;
-  margin: 1rem 5%;
-  margin-top: 2rem;
+  margin: 2rem 0;
+  margin-top: 0rem;
+  padding: 5px 5rem;
+  background-color: #000000;
+  box-shadow: 0px -1px 2px 1px black;
 }
-
+.wlcmMsg {
+  color: #ffffff;
+}
 #userName {
   padding-left: 0.5rem;
   text-transform: capitalize;
@@ -58,6 +63,9 @@
 .userPic {
   width: 2rem;
   border-radius: 50%;
+  border-color: #ffffff;
+  border-style: solid;
+  border-width: 2px;
 }
 #userPic {
   margin-left: 0.6rem;
@@ -71,7 +79,7 @@
 
 .logOut {
   margin-left: 3rem;
-  background: #000000;
+  background: #ff5e03;
   border-radius: 2px;
   border-style: hidden;
   width: 4rem;
@@ -80,11 +88,12 @@
   font-family: 'Be Vietnam Pro';
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 13px;
+  transition: 0.2s;
 }
 .logOut:hover {
-  background: #282828;
-  /* color: #000000; */
+  background: #ffffff;
+  color: #ff5e03;
 }
 .saves {
   display: flex;
@@ -107,7 +116,19 @@
   height: 8rem;
   margin: 0.5rem 0rem;
   margin-left: 1.2rem;
-  border: 1px solid #cecece;
+
+  /* border: 1px dotted #cecece; */
+
+  /* border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px dashed #cecece;
+  border-left: 1px dashed #cecece; */
+
+  border-right: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-top: 1px dashed #cecece;
+  border-bottom: 1px dashed #cecece;
+
   border-radius: 2px;
   padding: 1rem 0;
   overflow: hidden;
@@ -160,6 +181,7 @@
   display: -webkit-box;
   overflow: hidden;
   font-size: 13px;
+  padding: 0 1px;
 }
 .name {
   font-family: 'Be Vietnam Pro';
@@ -270,21 +292,21 @@
     font-family: 'Be Vietnam Pro';
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 12px;
   }
   .logOut {
     margin-left: 3rem;
     background: #ff5e03;
     border-radius: 2px;
     border-style: hidden;
-    width: 3.75rem;
-    height: 1.85rem;
+    width: 3.5rem;
+    height: 1.65rem;
     /* padding: 0 4rem; */
     color: #ffffff;
     font-family: 'Be Vietnam Pro';
     font-style: normal;
     font-weight: 400;
-    font-size: 11px;
+    font-size: 10px;
     /* font-size: 14px; */
   }
   .userPic {
@@ -340,9 +362,15 @@
     align-items: center;
     justify-content: flex-start;
     justify-content: space-between;
-    margin-top: 1rem;
-    margin: 1rem 1rem;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
+    /* margin: 1rem 1rem; */
+    /* margin-top: 1rem; */
+
+    margin: 1rem 0;
+    margin-top: 0rem;
+    padding: 3px 0.5rem;
+    background-color: #000000;
+    box-shadow: 0px -1px 2px 1px black;
   }
   .highlight {
     border-bottom: 2px solid #ff5e03;
