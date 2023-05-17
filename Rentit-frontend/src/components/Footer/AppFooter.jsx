@@ -64,7 +64,7 @@ const AppFooter = () => {
             </div>
           </div>
         </div>
-        <footer>© Rentit Copyright 2021 All Rights Reserved</footer>
+        <footer>© Rentit Copyright 2023 All Rights Reserved</footer>
       </section>
     </>
   );
