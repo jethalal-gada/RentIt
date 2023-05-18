@@ -1,5 +1,5 @@
 import React from 'react';
-import './Navbar.css';
+import './navbar.css';
 import logo from '../../images/Logo.svg';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -70,7 +70,7 @@ const Navbar = () => {
           <button
             onClick={handleSearch}
             type='submit'
-            className='searchBtn buttom search btn'
+            className='searchBtn buttom search'
           >
             <FaSearch className='search' size={19} />
           </button>
@@ -93,7 +93,7 @@ const Navbar = () => {
                     alt='profile'
                     onClick={() => navigate('/user')}
                   />
-                  {screenWidth >= 768 ? (
+                  {screenWidth >= 858 ? (
                     <div
                       className='login'
                       onClick={() => navigate('/user')}

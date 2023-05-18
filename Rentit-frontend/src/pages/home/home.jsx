@@ -1,8 +1,7 @@
-import Items from '../../components/Items/Items';
-import Backtotop from '../../components/Backtotop/Backtotop';
-import Dropdown from '../../components/Filter/DropDown';
-import DropdownSort from '../../components/Sort/Sort';
-import AppFooter from '../../components/Footer/AppFooter';
+import Items from '../../components/items/items';
+import Backtotop from '../../components/backtotop/backtotop';
+import DropdownSort from '../../components/sort/sort';
+import Dropdown from '../../components/dropDown/dropDown';
 import './home.css';
 
 const Home = () => {
@@ -16,7 +15,6 @@ const Home = () => {
         <Backtotop />
         <Items />
       </main>
-      <AppFooter />
     </>
   );
 };

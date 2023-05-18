@@ -6,7 +6,7 @@
   /* justify-content: center; */
   justify-content: space-around;
   background: #ffffff;
-  box-shadow: 0px -2px 11px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.25);
   width: 100%;
   height: 5rem;
   top: 0;
@@ -52,7 +52,7 @@
   font-family: 'Libre Franklin';
   font-style: normal;
   font-weight: 500;
-  font-size: 17px;
+  font-size: 16px;
   color: #060606fd;
   margin-left: 0.6rem;
   text-decoration: none;
@@ -86,7 +86,7 @@
 .searchBox {
   display: flex;
   background: #ffffff;
-  width: 40%;
+  width: 30%;
   height: 2.9rem;
   padding: 0;
   border: 1px solid #ffffff;
