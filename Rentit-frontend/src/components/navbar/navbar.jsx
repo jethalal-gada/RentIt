@@ -1,5 +1,5 @@
 import React from 'react';
-import './navbar.css';
+import './Navbar.css';
 import logo from '../../images/Logo.svg';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -24,8 +24,6 @@ const Navbar = () => {
 
   useEffect(() => {
     function handleResize() {
-      console.log('its being resised');
-      console.log(window.innerWidth);
       setScreenWidth(window.innerWidth);
     }
     window.addEventListener('resize', handleResize);
@@ -74,7 +72,7 @@ const Navbar = () => {
             type='submit'
             className='searchBtn buttom search btn'
           >
-            <FaSearch className='search' size={18} />
+            <FaSearch className='search' size={19} />
           </button>
           <input
             type='text'

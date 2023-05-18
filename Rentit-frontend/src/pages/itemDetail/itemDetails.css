@@ -28,7 +28,7 @@
 .imgItemDetail {
   width: 23rem;
   height: 18rem;
-  padding: 1rem;
+  /* padding: 1rem; */
   border: 1px solid #cdcdcd;
   border-radius: 10px;
   display: flex;
@@ -159,7 +159,7 @@
   .imgItemDetail {
     width: 18rem;
     height: 16rem;
-    padding: 1rem;
+    /* padding: 1rem; */
     border: 1px solid #cdcdcd;
     border-radius: 10px;
     display: flex;

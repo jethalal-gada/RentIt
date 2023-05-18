@@ -1,9 +1,10 @@
-import Items from '../../components/items/items';
-import Backtotop from '../../components/backtotop/backtotop';
-import Dropdown from '../../components/filter/dropDown';
-import DropdownSort from '../../components/sort/sort';
-// import Footer from '../../components/footer/footer';
+import Items from '../../components/Items/Items';
+import Backtotop from '../../components/Backtotop/Backtotop';
+import Dropdown from '../../components/Filter/DropDown';
+import DropdownSort from '../../components/Sort/Sort';
+import AppFooter from '../../components/Footer/AppFooter';
 import './home.css';
+
 const Home = () => {
   return (
     <>
@@ -15,7 +16,7 @@ const Home = () => {
         <Backtotop />
         <Items />
       </main>
-      {/* <Footer /> */}
+      <AppFooter />
     </>
   );
 };

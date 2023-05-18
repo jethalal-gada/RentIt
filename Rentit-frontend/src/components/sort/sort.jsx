@@ -1,5 +1,5 @@
 import React from 'react';
-import './sort.css';
+import './Sort.css';
 import { useGlobalContext } from '../../Context';
 
 function DropdownSort() {
@@ -13,16 +13,16 @@ function DropdownSort() {
       <div className='dropDown-sort'>
         <select id='category-sort' value={selectedSort} onChange={handleChange}>
           <option className='option' value={true}>
-            Likes: high to low
+            Likes: High to Low
           </option>
           <option className='option' value={false}>
-            Likes: low to high
+            Likes: Low to High
           </option>
           <option className='option' value={'Date: latest'}>
-            Date: latest
+            Date: Latest
           </option>
           <option className='option' value={'Date: oldest'}>
-            Date: oldest
+            Date: Oldest
           </option>
         </select>
       </div>

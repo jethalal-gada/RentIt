@@ -8,7 +8,9 @@ import Loading from '../../images/loading.svg';
 import User from '../login/login';
 import { CiCircleRemove } from 'react-icons/ci';
 import { ToastContainer, toast } from 'react-toastify';
+import AppFooter from '../../components/Footer/AppFooter';
 import 'react-toastify/dist/ReactToastify.css';
+
 const EditPost = () => {
   const [values, setValues] = useState({}); //To store the form inputs
   const [loader, setLoader] = useState(false);
@@ -328,6 +330,7 @@ const EditPost = () => {
           <button className='post btn'>Save</button>
         </div>
       </form>
+      <AppFooter />
     </>
   );
 };
