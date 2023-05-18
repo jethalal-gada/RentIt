@@ -4,7 +4,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { GoMarkGithub } from 'react-icons/go';
 import { SiFacebook } from 'react-icons/si';
 import { Link } from 'react-router-dom';
-import Animation from '../../components/SteamCss/animation';
+import Animation from '../../components/steamCss/animation';
 import { LoginSocialGoogle } from 'reactjs-social-login';
 import { useNavigate } from 'react-router-dom';
 import UserDetails from '../userDetails/userDetails';
