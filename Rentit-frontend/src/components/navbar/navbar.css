@@ -115,7 +115,7 @@
   font-size: 1rem;
   color: #212121fd;
   /* border: 0.3px solid #cbcaca; */
-  padding: 12px;
+  padding: 8px;
   border-radius: 0 2px 2px 0;
 }
 .login:hover {
@@ -204,7 +204,7 @@
     font-size: 0.9rem;
     color: #343333fd;
     /* border: 0.3px solid #cbcaca; */
-    padding-left: 12px;
+    padding-left: 8px;
     border-radius: 0 2px 2px 0;
   }
   .search {
