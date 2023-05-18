@@ -86,7 +86,8 @@ const Items = () => {
         <div className='unhappy'>
           <img id='unhappy' src={unhappy} alt='' />
         </div>
-        <div className='searchMsg'>No results found</div>
+        <div className='searchMsg'>Sorry,</div>
+        <div className='searchMsg'>No results found.</div>
       </>
     );
   return (
