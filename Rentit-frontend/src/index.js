@@ -10,7 +10,7 @@ import ItemDetails from './pages/itemDetail/itemDetails';
 import { AppProvider } from './Context';
 import Navbar from './components/navbar/navbar';
 import EditPost from './pages/rent/edit';
-import AppFooter from './components/Footer/footer';
+import AppFooter from './components/Footer/AppFooter';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AppProvider>

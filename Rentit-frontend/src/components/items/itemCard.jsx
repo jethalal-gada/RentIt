@@ -1,4 +1,4 @@
-import './items.css';
+import './Items.css';
 import { useNavigate } from 'react-router-dom';
 import { BsHeartFill } from 'react-icons/bs';
 import unavb from '../../images/unavb.svg';

@@ -1,7 +1,7 @@
-import Items from '../../components/Items/items';
-import Backtotop from '../../components/Backtotop/backtotop';
-import Dropdown from '../../components/Filter/dropDown';
-import DropdownSort from '../../components/Sort/sort';
+import Items from '../../components/Items/Items';
+import Backtotop from '../../components/Backtotop/Backtotop';
+import Dropdown from '../../components/Filter/DropDown';
+import DropdownSort from '../../components/Sort/Sort';
 // import AppFooter from '../../components/Footer/AppFooter';
 import './home.css';
 
