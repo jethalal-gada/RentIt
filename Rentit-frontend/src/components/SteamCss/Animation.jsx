@@ -1,4 +1,4 @@
-import './Animation.css';
+import './animation.css';
 const Animation = () => {
   return (
     <div id='container'>

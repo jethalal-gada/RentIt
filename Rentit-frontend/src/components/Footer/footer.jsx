@@ -6,7 +6,7 @@ import { AiOutlineLinkedin } from 'react-icons/ai';
 import { AiOutlineGithub } from 'react-icons/ai';
 import { AiOutlineInstagram } from 'react-icons/ai';
 
-const AppFooter = () => {
+const Footer = () => {
   return (
     <>
       <section id='footer'>
@@ -69,4 +69,4 @@ const AppFooter = () => {
     </>
   );
 };
-export default AppFooter;
+export default Footer;
