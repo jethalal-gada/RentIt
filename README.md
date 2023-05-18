@@ -1,4 +1,4 @@
 # RentIt
 Akash Singh - Capstone Project,
 
-Live link - https://rentit-v1.netlify.app/
+Live link - https://rentit-rk3v.onrender.com
