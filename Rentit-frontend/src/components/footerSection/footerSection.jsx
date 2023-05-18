@@ -2,9 +2,9 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './footerSection.css';
-import { AiOutlineLinkedin } from 'react-icons/ai';
-import { AiOutlineGithub } from 'react-icons/ai';
-import { AiOutlineInstagram } from 'react-icons/ai';
+// import { AiOutlineLinkedin } from 'react-icons/ai';
+// import { AiOutlineGithub } from 'react-icons/ai';
+// import { AiOutlineInstagram } from 'react-icons/ai';
 
 const Footer = () => {
   return (
@@ -30,7 +30,7 @@ const Footer = () => {
           <div class='com ' data-aos='fade-up'>
             <h1>About</h1>
             <ul>
-              <li>
+              {/* <li>
                 <a href='#'>Home</a>
               </li>
               <li>
@@ -41,14 +41,14 @@ const Footer = () => {
               </li>
               <li>
                 <a href='#'>Contact</a>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div class='socialinfo' data-aos='fade-up'>
             <h1>Social Media</h1>
             <div class='sociallogos'>
               <div class='logobox'>
-                <a
+                {/* <a
                   href='https://www.linkedin.com/in/akash-singh-171227255/'
                   target='_blank'
                 >
@@ -59,7 +59,7 @@ const Footer = () => {
                 </a>
                 <a href='https://www.instagram.com/aka5hhere/' target='_blank'>
                   <AiOutlineInstagram className='icon insta' size={25} />
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
