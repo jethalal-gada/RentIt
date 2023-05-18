@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import './Items.css';
+import './items.css';
 import { useEffect, useState } from 'react';
 import Loading from '../../images/loading.svg';
-import ItemCard from '../Items/ItemCard';
+import ItemCard from './itemCard';
 import { useGlobalContext } from '../../Context';
 import unhappy from '../../images/unhappy.svg';
 

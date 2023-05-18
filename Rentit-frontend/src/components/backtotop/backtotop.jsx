@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './Backtotop.css';
+import './backtotop.css';
 import { IoIosArrowDropupCircle } from 'react-icons/io';
 
 const Backtotop = () => {

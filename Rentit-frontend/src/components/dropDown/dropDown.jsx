@@ -1,8 +1,8 @@
 import React from 'react';
-import './DropDown.css';
+import './dropDown.css';
 import { useGlobalContext } from '../../Context';
 
-function Dropdown() {
+const Dropdown = () => {
   const { selectedOption, setSelectedOption } = useGlobalContext();
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -37,6 +37,6 @@ function Dropdown() {
       </div>
     </>
   );
-}
+};
 
 export default Dropdown;

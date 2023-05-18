@@ -1,8 +1,8 @@
 import React from 'react';
-import './Sort.css';
+import './sort.css';
 import { useGlobalContext } from '../../Context';
 
-function DropdownSort() {
+const DropdownSort = () => {
   const { selectedSort, setSelectedSort } = useGlobalContext();
   const handleChange = (event) => {
     setSelectedSort(event.target.value);
@@ -28,6 +28,6 @@ function DropdownSort() {
       </div>
     </>
   );
-}
+};
 
 export default DropdownSort;
