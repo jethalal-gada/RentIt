@@ -1,5 +1,5 @@
 import React from 'react';
-import './Navbar.css';
+import './navbar.css';
 import logo from '../../images/Logo.svg';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';

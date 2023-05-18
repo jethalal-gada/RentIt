@@ -1,7 +1,6 @@
 import './Items.css';
 import { useNavigate } from 'react-router-dom';
 import { BsHeartFill } from 'react-icons/bs';
-// import unavailable from '../../images/unavailable.svg';
 import unavb from '../../images/unavb.svg';
 
 const ItemCard = ({ data, user }) => {

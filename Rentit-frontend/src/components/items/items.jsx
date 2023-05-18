@@ -2,7 +2,7 @@
 import './Items.css';
 import { useEffect, useState } from 'react';
 import Loading from '../../images/loading.svg';
-import ItemCard from './ItemCard';
+import ItemCard from '../Items/ItemCard';
 import { useGlobalContext } from '../../Context';
 import unhappy from '../../images/unhappy.svg';
 

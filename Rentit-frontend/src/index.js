@@ -8,7 +8,7 @@ import Rent from './pages/rent/rent';
 import Login from './pages/login/login';
 import ItemDetails from './pages/itemDetail/itemDetails';
 import { AppProvider } from './Context';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/navbar/navbar';
 import EditPost from './pages/rent/edit';
 import AppFooter from './components/Footer/AppFooter';
 const root = ReactDOM.createRoot(document.getElementById('root'));
