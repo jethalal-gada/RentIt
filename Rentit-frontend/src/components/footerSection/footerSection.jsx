@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import './footer.css';
+import './footerSection.css';
 import { AiOutlineLinkedin } from 'react-icons/ai';
 import { AiOutlineGithub } from 'react-icons/ai';
 import { AiOutlineInstagram } from 'react-icons/ai';
 
-const AppFooter = () => {
+const Footer = () => {
   return (
     <>
       <section id='footer'>
@@ -69,4 +69,4 @@ const AppFooter = () => {
     </>
   );
 };
-export default AppFooter;
+export default Footer;

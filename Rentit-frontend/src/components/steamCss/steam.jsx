@@ -1,5 +1,5 @@
-import './animation.css';
-const Animation = () => {
+import './steam.css';
+const Steam = () => {
   return (
     <div id='container'>
       <div class='steam' id='steam1'>
@@ -18,4 +18,4 @@ const Animation = () => {
   );
 };
 
-export default Animation;
+export default Steam;

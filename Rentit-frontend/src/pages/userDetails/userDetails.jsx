@@ -6,7 +6,6 @@ import './userDetails.css';
 import { useEffect, useState } from 'react';
 import ProductCard from './productCard';
 import Loading from '../../images/loading.svg';
-// import AppFooter from '../../components/Footer/AppFooter';
 
 //This component is child of login.jsx
 const UserDetails = (props) => {
@@ -137,7 +136,6 @@ const UserDetails = (props) => {
             })
           : 'No products posted'}
       </div>
-      {/* <AppFooter /> */}
     </>
   );
 };
