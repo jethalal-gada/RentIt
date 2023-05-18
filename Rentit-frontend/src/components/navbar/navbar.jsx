@@ -70,7 +70,7 @@ const Navbar = () => {
           <button
             onClick={handleSearch}
             type='submit'
-            className='searchBtn buttom search btn'
+            className='searchBtn buttom search'
           >
             <FaSearch className='search' size={19} />
           </button>

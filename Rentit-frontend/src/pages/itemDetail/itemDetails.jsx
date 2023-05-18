@@ -172,7 +172,7 @@ const ItemDetails = () => {
         <div className='infoItem itemDetailBox'>
           <div className='wrapInteractive'>
             <div
-              className={owner ? 'info0 info owner' : 'info0 info'}
+              className={owner ? 'info0 info owner btn' : 'info0 info'}
               onClick={handleAvailable}
             >
               {loader ? (
