@@ -1,0 +1,19 @@
+#category-sort {
+  font-family: 'Libre Franklin';
+  width: 8.25rem;
+  height: 2rem;
+  font-size: 12px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.dropDown-sort {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -1.25rem;
+  margin-top: 0.5rem;
+  background-color: transparent;
+  margin-right: 10%;
+  /* padding-left: 4rem; */
+}

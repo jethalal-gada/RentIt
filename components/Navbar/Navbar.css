@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;600&family=Libre+Franklin:wght@500&display=swap');
+.navbar {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  justify-content: space-around;
+  background: #ffffff;
+  box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 5rem;
+  top: 0;
+  position: sticky;
+  z-index: 5;
+}
+.logo {
+  width: 8rem;
+  margin-left: 4rem;
+  padding-bottom: 0.5rem;
+}
+.navBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rent {
+  background: #ff5e03;
+  border-radius: 2px;
+  border-style: hidden;
+  width: 4.5em;
+  height: 2.5rem;
+  color: #ffffff;
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  margin-right: 4rem;
+  margin-left: 1.5rem;
+}
+.profile {
+  width: 2.25rem;
+  margin-left: 1rem;
+  border: 2px #ff5e03;
+  margin-top: 2px;
+  border-style: solid;
+  border-radius: 50%;
+}
+.profile:hover {
+  cursor: pointer;
+  transition: 0.25s;
+}
+.login {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #060606fd;
+  margin-left: 0.6rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  border: none;
+  padding: 0 1px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  background: transparent;
+}
+.login-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user {
+  color: #000000fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  padding: 3px;
+  padding-bottom: 2px;
+  border-radius: 50%;
+}
+.loginArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.searchBox {
+  display: flex;
+  background: #ffffff;
+  width: 30%;
+  height: 2.9rem;
+  padding: 0;
+  border: 1px solid #ffffff;
+}
+
+.searchBtn {
+  border-style: none;
+  padding: 5px 10px 2px 10px;
+  background-color: #ffffff;
+  border: none;
+  color: #ffffff;
+  border-radius: 2px 0 0 2px;
+}
+.search {
+  color: #000000;
+  transition: 0.1s;
+}
+.search:hover {
+  color: #ff5e03;
+}
+.searchBar {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #212121fd;
+  /* border: 0.3px solid #cbcaca; */
+  padding: 8px;
+  border-radius: 0 2px 2px 0;
+}
+.login:hover {
+  color: #ff5e03;
+  cursor: pointer;
+  border: none;
+}
+.logo:hover,
+.btn:hover,
+.user:hover {
+  cursor: pointer;
+}
+.buttonName {
+  display: grid;
+  align-items: center;
+  margin: 0 6px;
+}
+@media only screen and (max-width: 668px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    background: #ffffff;
+    box-shadow: 0px -2px 11px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 4.5rem;
+    top: 0;
+    position: sticky;
+  }
+  .logo {
+    width: 5.25rem;
+    margin-left: 0.4rem;
+    padding-bottom: 0.35rem;
+  }
+
+  .navBtns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rent {
+    background: #ff5e03;
+    border-radius: 2px;
+    border-style: hidden;
+    width: 4rem;
+    height: 2rem;
+    color: #ffffff;
+    font-family: 'Be Vietnam Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0rem 0.6rem;
+    /* margin-left: 0.25rem; */
+  }
+  .login {
+    font-family: 'Libre Franklin';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #222222fd;
+    margin-right: 0.5rem;
+    margin-left: 0;
+  }
+  .searchBox {
+    display: flex;
+    background: #ffffff;
+    width: 45%;
+    height: 2.2rem;
+    padding: 0;
+    margin: 0 8px;
+    margin-left: 16px;
+  }
+  .searchBtn {
+    border-style: none;
+    padding: 4px 5px 0px 5px;
+    /* background-color: #ff5e03; */
+    border: none;
+    color: #ffffff;
+    border-radius: 2px 0 0 2px;
+  }
+  .searchBar {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    color: #343333fd;
+    /* border: 0.3px solid #cbcaca; */
+    padding-left: 8px;
+    border-radius: 0 2px 2px 0;
+  }
+  .search {
+    width: 19 !important;
+    height: 19 !important;
+  }
+  .profile {
+    width: 1.85rem;
+    /* margin-left: 0.5rem; */
+    border: 2px #ff5e03;
+    border-style: double;
+    border-radius: 50%;
+    /* margin-top: 2px; */
+    margin: 0;
+  }
+  .login:hover {
+    color: #ff5e03;
+    cursor: pointer;
+  }
+  .logo:hover {
+    cursor: pointer;
+  }
+}

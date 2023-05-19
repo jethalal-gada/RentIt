@@ -1,0 +1,11 @@
+.backToTop {
+  position: fixed;
+  right: 5%;
+  top: 88.5%;
+  padding: 0.32rem;
+  padding-bottom: 1px;
+  border-radius: 50%;
+  border-style: none;
+  background-color: #ff5e03;
+  color: #ffffff;
+}
