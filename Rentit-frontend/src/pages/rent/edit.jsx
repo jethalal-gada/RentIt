@@ -65,17 +65,17 @@ const EditPost = () => {
   const compareEditToOriginal = (values, newValues) => {
     for (const key in newValues) {
       if (values[key] !== newValues[key]) {
-        return true;
+        return false;
       }
     }
-    return false;
+    return true;
   };
 
   //To post the edited post
   const handlePost = async (e) => {
     e.preventDefault();
     //Return if no changes have been made
-    if (!compareEditToOriginal(location.state.data, values)) {
+    if (compareEditToOriginal(location.state.data, values)) {
       toast.error('No changes made', {
         position: 'bottom-right',
       });
