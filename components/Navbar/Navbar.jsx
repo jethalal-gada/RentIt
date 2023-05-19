@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import './navbar.css';
+import './Navbar.css';
 import logo from '../../images/Logo.svg';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -9,8 +10,13 @@ import { useGlobalContext } from '../../Context';
 import { useState, useEffect } from 'react';
 
 const Navbar = () => {
-  const { setSearchTerm, setSearchData, setSelectedOption, setFilteredData } =
-    useGlobalContext();
+  const {
+    setSearchTerm,
+    setSearchData,
+    setSelectedOption,
+    setFilteredData,
+    loginObj,
+  } = useGlobalContext();
   const searchText = useRef('');
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   // let user = null;
@@ -32,6 +38,12 @@ const Navbar = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    if (loginObj) {
+      checkLogin();
+    }
+  }, [loginObj]);
 
   const checkLogin = () => {
     if (sessionStorage.getItem('userDetails')) {

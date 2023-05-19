@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import './footerSection.css';
+import './Footer.css';
 import { AiOutlineLinkedin } from 'react-icons/ai';
 import { AiOutlineGithub } from 'react-icons/ai';
 import { AiOutlineInstagram } from 'react-icons/ai';
@@ -22,7 +22,9 @@ const Footer = () => {
               </li>
               <li>
                 <div class='fa fa-envelope'></div>
-                <a href='mailto:yourmail@gmail.com'>ak45hhere@gmail.com</a>
+                <a className='fa-envelope' href='mailto:yourmail@gmail.com'>
+                  ak45hhere@gmail.com
+                </a>
               </li>
             </div>
           </div>

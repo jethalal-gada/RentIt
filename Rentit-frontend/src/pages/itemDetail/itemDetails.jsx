@@ -14,7 +14,7 @@ const ItemDetails = () => {
   const [count, setCount] = useState(0); //Count user's saved products
   const [product, setProduct] = useState(null); //Store product's data
   const [save, setSave] = useState(null); //Sontroll save button
-  const [like, setLike] = useState(false);
+  const [like, setLike] = useState(null);
   const [available, setAvailable] = useState(true); //Mark product's availablity
   const [owner, setOwner] = useState(false); //Check if current user is owner or not
   const [loader, setLoader] = useState(false); //To display loader
@@ -190,7 +190,7 @@ const ItemDetails = () => {
               )}
             </div>
             <div id='like'>
-              {likeProgress ? (
+              {likeProgress || like === null ? (
                 <img src={miniLoader} className='miniLoader' alt='liking' />
               ) : like ? (
                 <BsHeartFill
@@ -233,6 +233,12 @@ const ItemDetails = () => {
               <p className='infoB br'>Lpu id: </p>
               <p className='infoB or' id='lpuId'>
                 {product.lpuid}
+              </p>
+            </div>
+            <div className='txtA'>
+              <p className='infoB br min'>Category: </p>
+              <p className='infoB or min' id='lpuId'>
+                {product.type}
               </p>
             </div>
           </div>

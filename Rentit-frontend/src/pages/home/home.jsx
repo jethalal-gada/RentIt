@@ -1,7 +1,7 @@
-import Items from '../../components/items/items';
-import Backtotop from '../../components/backtotop/backtotop';
-import DropdownSort from '../../components/sort/sort';
-import Dropdown from '../../components/dropDown/dropDown';
+import Items from '../../components/Items/Items';
+import Backtotop from '../../components/BackToTop/Backtotop';
+import DropdownSort from '../../components/Sort/Sort';
+import Dropdown from '../../components/DropDown/DropDown';
 import './home.css';
 
 const Home = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './dropDown.css';
+import './DropDown.css';
 import { useGlobalContext } from '../../Context';
 
 const Dropdown = () => {

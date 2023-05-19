@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import './items.css';
+import './Items.css';
 import { useEffect, useState } from 'react';
 import Loading from '../../images/loading.svg';
-import ItemCard from './itemCard';
+import ItemCard from './ItemCard';
 import { useGlobalContext } from '../../Context';
 import unhappy from '../../images/unhappy.svg';
 
@@ -86,7 +86,8 @@ const Items = () => {
         <div className='unhappy'>
           <img id='unhappy' src={unhappy} alt='' />
         </div>
-        <div className='searchMsg'>No results found</div>
+        <div className='searchMsg'>Sorry,</div>
+        <div className='searchMsg'>No results found.</div>
       </>
     );
   return (

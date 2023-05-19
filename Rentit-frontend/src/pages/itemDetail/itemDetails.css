@@ -104,9 +104,12 @@
   font-family: 'Archivo';
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 34px;
   /* margin-left: 10px; */
+}
+.min {
+  font-size: 18px;
 }
 .infoC {
   font-family: 'Libre Franklin';
