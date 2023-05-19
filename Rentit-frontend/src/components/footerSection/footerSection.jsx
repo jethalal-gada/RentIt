@@ -22,7 +22,9 @@ const Footer = () => {
               </li>
               <li>
                 <div class='fa fa-envelope'></div>
-                <a href='mailto:yourmail@gmail.com'>ak45hhere@gmail.com</a>
+                <a className='fa-envelope' href='mailto:yourmail@gmail.com'>
+                  ak45hhere@gmail.com
+                </a>
               </li>
             </div>
           </div>
