@@ -25,7 +25,7 @@
   width: 100%;
   font-family: 'Be Vietnam Pro';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200;
   font-size: 22px;
 }
 .userPic {
@@ -46,7 +46,7 @@
 }
 
 .logOut {
-  margin-left: 3rem;
+  margin-left: 2rem;
   background: #ff5e03;
   border-radius: 2px;
   border-style: hidden;
@@ -72,16 +72,16 @@
     width: 100%;
     font-family: 'Be Vietnam Pro';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 200;
     font-size: 12px;
   }
   .logOut {
-    margin-left: 3rem;
+    margin-left: 1rem;
     background: #ff5e03;
     border-radius: 2px;
     border-style: hidden;
-    width: 3.5rem;
-    height: 1.65rem;
+    width: 3.4rem;
+    height: 1.6rem;
     /* padding: 0 4rem; */
     color: #ffffff;
     font-family: 'Be Vietnam Pro';

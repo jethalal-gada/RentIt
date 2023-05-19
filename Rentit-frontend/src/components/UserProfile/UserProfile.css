@@ -121,14 +121,14 @@
 .name {
   font-family: 'Be Vietnam Pro';
   font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 16px;
 }
 .price {
   font-family: 'Be Vietnam Pro';
   font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 14px;
 }
 .ver {
   height: 100%;
@@ -176,6 +176,7 @@
 .loading-txt {
   font-family: 'Be Vietnam Pro';
   font-size: 16px;
+  margin-top: 1rem;
 }
 @keyframes tilt-shaking {
   0% {
@@ -222,43 +223,6 @@
     border-bottom: 2px solid #ff5e03;
   }
 
-  .wlcm {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    font-family: 'Be Vietnam Pro';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-  }
-  .logOut {
-    margin-left: 3rem;
-    background: #ff5e03;
-    border-radius: 2px;
-    border-style: hidden;
-    width: 3.5rem;
-    height: 1.65rem;
-    /* padding: 0 4rem; */
-    color: #ffffff;
-    font-family: 'Be Vietnam Pro';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 10px;
-    /* font-size: 14px; */
-  }
-  .userPic {
-    width: 1.5rem;
-    border-radius: 50%;
-  }
-  #userPic {
-    margin-left: 0.5rem;
-    margin-top: 0.35rem;
-  }
-  #userName {
-    padding-left: 0.25rem;
-    text-transform: capitalize;
-  }
   .Prod-Heading {
     font-weight: 600;
     font-size: 1.2rem;
@@ -322,13 +286,13 @@
     font-family: 'Be Vietnam Pro';
     font-style: normal;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 12px;
   }
   .name {
     font-family: 'Be Vietnam Pro';
     font-style: normal;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25rem;
   }
   .description {
@@ -342,5 +306,6 @@
   .loading-txt {
     font-family: 'Be Vietnam Pro';
     font-size: 12px;
+    margin-top: 2rem;
   }
 }
