@@ -1,4 +1,4 @@
-import './steam.css';
+import './Steam.css';
 const Steam = () => {
   return (
     <div id='container'>

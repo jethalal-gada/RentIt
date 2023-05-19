@@ -1,5 +1,5 @@
 import React from 'react';
-import './sort.css';
+import './Sort.css';
 import { useGlobalContext } from '../../Context';
 
 const DropdownSort = () => {
