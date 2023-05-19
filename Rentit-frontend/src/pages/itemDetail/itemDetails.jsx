@@ -235,6 +235,12 @@ const ItemDetails = () => {
                 {product.lpuid}
               </p>
             </div>
+            <div className='txtA'>
+              <p className='infoB br min'>Category: </p>
+              <p className='infoB or min' id='lpuId'>
+                {product.type}
+              </p>
+            </div>
           </div>
 
           <div className='info3 info'>
