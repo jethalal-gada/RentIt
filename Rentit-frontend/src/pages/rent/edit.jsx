@@ -62,14 +62,14 @@ const EditPost = () => {
       console.log('Error: ', error);
     };
   };
-  function compareEditToOriginal(values, newValues) {
+  const compareEditToOriginal = (values, newValues) => {
     for (const key in newValues) {
       if (values[key] !== newValues[key]) {
         return true;
       }
     }
     return false;
-  }
+  };
 
   //To post the edited post
   const handlePost = async (e) => {
