@@ -8,9 +8,9 @@ import Rent from './pages/rent/rent';
 import Login from './pages/login/login';
 import ItemDetails from './pages/itemDetail/itemDetails';
 import { AppProvider } from './Context';
-import Navbar from './components/navbar/navbar';
+import Navbar from './components/Navbar/Navbar';
 import EditPost from './pages/rent/edit';
-import Footer from './components/footerSection/footerSection';
+import Footer from './components/Footer/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

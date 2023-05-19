@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import './navbar.css';
+import './Navbar.css';
 import logo from '../../images/Logo.svg';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
