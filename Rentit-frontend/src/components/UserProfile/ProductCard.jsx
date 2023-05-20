@@ -51,8 +51,8 @@ const ProductCard = (props) => {
           </div>
           <div className='line ver'></div>
           <div className='detailsBox'>
-            <div className='name BX or'>{data.product}</div>
-            <div className='price BX or'>
+            <div className='name BX bl'>{data.product}</div>
+            <div className='price BX bl'>
               {' '}
               ₹{data.price} per {data.unit}
             </div>
@@ -72,11 +72,7 @@ const ProductCard = (props) => {
               size={22}
             />
           ) : (
-            <CgRemove
-              title='Remove from my saves'
-              className='remove '
-              size={22}
-            />
+            <CgRemove title='Remove from saves' className='remove ' size={22} />
           )}
         </div>
       </div>
