@@ -72,6 +72,17 @@ const productSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
+    enum: {
+      values: [
+        'electronics',
+        'sports',
+        'sports',
+        'hardware',
+        'accessories',
+        'others',
+      ],
+      message: 'Not accepted type',
+    },
   },
   createdAt: {
     type: Date,
