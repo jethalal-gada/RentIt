@@ -8,34 +8,15 @@ cloudinary.config({
   api_secret: `${process.env.API_SECRET}`,
 });
 
-// exports.getItems = async (req, res) => {
-//   try {
-//     const queryObj = { ...req.query };
-//     const items = await Product.find(queryObj);
-//     res.status(200).json({
-//       status: 'sucess',
-//       results: items.length,
-//       data: {
-//         items: items,
-//       },
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(404).json({
-//       status: 'fail',
-//       message: err,
-//     });
-//   }
-// };
-
 exports.getItems = async (req, res) => {
   try {
+    //This class will hanlde queries attached on request
     const features = new APIFeatures(Product.find(), req.query)
       .filter()
       .search()
       .sort();
 
-    const items = await features.query;
+    const items = await features.query; //wait till fearure return the final output after chaining
 
     res.status(200).json({
       status: 'success',
@@ -52,29 +33,6 @@ exports.getItems = async (req, res) => {
     });
   }
 };
-
-// exports.getSearchResults = async (req, res) => {
-//   try {
-//     const results = await Product.find({
-//       $or: [
-//         { product: { $regex: new RegExp(req.params.term, 'i') } },
-//         { description: { $regex: new RegExp(req.params.term, 'i') } },
-//       ],
-//     });
-//     res.status(200).json({
-//       status: 'sucess',
-//       data: {
-//         items: results,
-//       },
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(404).json({
-//       status: 'fail',
-//       message: err,
-//     });
-//   }
-// };
 
 exports.getItemDetails = async (req, res) => {
   try {
