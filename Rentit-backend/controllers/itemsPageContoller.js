@@ -1,5 +1,6 @@
 const Product = require('../models/productsModel');
 const User = require('../models/usersModel');
+const APIFeatures = require('./../utils/apiFeatures');
 const cloudinary = require('cloudinary').v2;
 cloudinary.config({
   cloud_name: `${process.env.CLOUD_NAME}`,
@@ -7,12 +8,37 @@ cloudinary.config({
   api_secret: `${process.env.API_SECRET}`,
 });
 
+// exports.getItems = async (req, res) => {
+//   try {
+//     const queryObj = { ...req.query };
+//     const items = await Product.find(queryObj);
+//     res.status(200).json({
+//       status: 'sucess',
+//       results: items.length,
+//       data: {
+//         items: items,
+//       },
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(404).json({
+//       status: 'fail',
+//       message: err,
+//     });
+//   }
+// };
+
 exports.getItems = async (req, res) => {
   try {
-    const queryObj = { ...req.query };
-    const items = await Product.find(queryObj);
+    const features = new APIFeatures(Product.find(), req.query)
+      .filter()
+      .search()
+      .sort();
+
+    const items = await features.query;
+
     res.status(200).json({
-      status: 'sucess',
+      status: 'success',
       results: items.length,
       data: {
         items: items,
@@ -27,28 +53,28 @@ exports.getItems = async (req, res) => {
   }
 };
 
-exports.getSearchResults = async (req, res) => {
-  try {
-    const results = await Product.find({
-      $or: [
-        { product: { $regex: new RegExp(req.params.id, 'i') } },
-        { description: { $regex: new RegExp(req.params.id, 'i') } },
-      ],
-    });
-    res.status(200).json({
-      status: 'sucess',
-      data: {
-        items: results,
-      },
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-};
+// exports.getSearchResults = async (req, res) => {
+//   try {
+//     const results = await Product.find({
+//       $or: [
+//         { product: { $regex: new RegExp(req.params.term, 'i') } },
+//         { description: { $regex: new RegExp(req.params.term, 'i') } },
+//       ],
+//     });
+//     res.status(200).json({
+//       status: 'sucess',
+//       data: {
+//         items: results,
+//       },
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(404).json({
+//       status: 'fail',
+//       message: err,
+//     });
+//   }
+// };
 
 exports.getItemDetails = async (req, res) => {
   try {
