@@ -64,7 +64,6 @@ const Navbar = () => {
   };
 
   const handleGoHome = () => {
-    console.log('go home');
     setSearchTerm(null);
     setReqParams({
       type: '',
