@@ -12,27 +12,28 @@ import { useState, useEffect } from 'react';
 const Navbar = () => {
   const {
     setSearchTerm,
-    setSearchData,
     setSelectedOption,
-    setFilteredData,
+    setSelectedSort,
     loginObj,
+    setReqParams,
+    setQueryData,
   } = useGlobalContext();
+
   const searchText = useRef('');
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  // let user = null;
   let data = null;
   const navigate = useNavigate();
-  document.addEventListener('keyup', (event) => {
-    if (event.key === 'Enter' && searchText.current.value.trim()) {
-      handleSearch();
-    }
-  });
 
   useEffect(() => {
     function handleResize() {
       setScreenWidth(window.innerWidth);
     }
     window.addEventListener('resize', handleResize);
+    document.addEventListener('keyup', (event) => {
+      if (event.key === 'Enter' && searchText.current.value.trim()) {
+        handleSearch();
+      }
+    });
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -53,16 +54,25 @@ const Navbar = () => {
   };
 
   const handleSearch = (e) => {
-    navigate('/');
     if (e) e.preventDefault();
-    setSearchTerm(searchText.current.value.trim());
+    if (searchText.current.value) {
+      navigate('/');
+      setReqParams((prevQuery) => {
+        return { ...prevQuery, search: searchText.current.value };
+      });
+    } else return;
   };
 
   const handleGoHome = () => {
     setSearchTerm(null);
-    setSearchData(null);
-    setFilteredData(null);
-    setSelectedOption('all');
+    setReqParams({
+      type: '',
+      search: '',
+      sort: '',
+    });
+    setQueryData(null);
+    setSelectedOption('');
+    setSelectedSort('');
     searchText.current.value = '';
   };
   return (

@@ -13,8 +13,8 @@ const ItemDetails = () => {
   const navigate = useNavigate();
   const [count, setCount] = useState(0); //Count user's saved products
   const [product, setProduct] = useState(null); //Store product's data
-  const [save, setSave] = useState(null); //Sontroll save button
-  const [like, setLike] = useState(null);
+  const [save, setSave] = useState(null); //to controll save button
+  const [like, setLike] = useState(null); //To controll like button
   const [available, setAvailable] = useState(true); //Mark product's availablity
   const [owner, setOwner] = useState(false); //Check if current user is owner or not
   const [loader, setLoader] = useState(false); //To display loader

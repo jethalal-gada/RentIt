@@ -3,16 +3,19 @@ import './DropDown.css';
 import { useGlobalContext } from '../../Context';
 
 const Dropdown = () => {
-  const { selectedOption, setSelectedOption } = useGlobalContext();
+  const { setReqParams, selectedOption, setSelectedOption } =
+    useGlobalContext();
   const handleChange = (event) => {
+    setReqParams((prevQuery) => {
+      return { ...prevQuery, type: event.target.value };
+    });
     setSelectedOption(event.target.value);
   };
-
   return (
     <>
       <div className='dropDown'>
         <select id='category' value={selectedOption} onChange={handleChange}>
-          <option className='option' value='all'>
+          <option className='option' value=''>
             All
           </option>
           <option className='option' value='electronics'>
