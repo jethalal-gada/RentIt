@@ -9,19 +9,13 @@ import unhappy from '../../images/unhappy.svg';
 const Items = () => {
   const [user, setUser] = useState(null);
   const { searching, queryData } = useGlobalContext();
-  const [displayData, setDispayData] = useState(null);
 
   useEffect(() => {
     setUser(JSON.parse(sessionStorage.getItem('userDetails')));
   }, []);
 
-  useEffect(() => {
-    if (queryData && queryData.length) setDispayData(queryData);
-    else setDispayData('');
-  }, [queryData]);
-
   //To activate loading screen when data is not there to display or search is going on
-  if (displayData === null || searching)
+  if (queryData === null || searching)
     return (
       <>
         <div id='loader'>
@@ -29,26 +23,28 @@ const Items = () => {
         </div>
       </>
     );
-  //To show empty search
-  if (displayData === '')
+  //To display main results
+  else if (queryData && queryData.length) {
     return (
       <>
-        <div className='unhappy'>
-          <img id='unhappy' src={unhappy} alt='' />
+        <div className='allItems'>
+          {queryData.map((data, index) => {
+            return <ItemCard key={index} data={data} user={user} />;
+          })}
         </div>
-        <div className='searchMsg'>Sorry,</div>
-        <div className='searchMsg'>No results found.</div>
       </>
     );
-
+  }
+  //To show empty search
   return (
     <>
-      <div className='allItems'>
-        {displayData.map((data, index) => {
-          return <ItemCard key={index} data={data} user={user} />;
-        })}
+      <div className='unhappy'>
+        <img id='unhappy' src={unhappy} alt='' />
       </div>
+      <div className='searchMsg'>Sorry,</div>
+      <div className='searchMsg'>No results found.</div>
     </>
   );
 };
+
 export default Items;

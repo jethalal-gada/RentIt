@@ -1,3 +1,4 @@
+//Class to create methods
 class APIFeatures {
   constructor(query, queryString) {
     this.query = query; //this will be used to chain queries
