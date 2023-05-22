@@ -49,7 +49,7 @@ const AppProvider = ({ children }) => {
     if (loginObj) saveUser();
   }, [loginObj]);
 
-  //After getting a query from user
+  //After getting a query from user or when the app loads
   useEffect(() => {
     const getQuery = async () => {
       setSearching(true);
