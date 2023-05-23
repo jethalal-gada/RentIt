@@ -21,8 +21,8 @@ root.render(
         <Route path='/' element={<Home />} />
         <Route path='user/:userId?' element={<Login />} />
         <Route path='rent' element={<Rent />} />
-        <Route path='rent/edit/:id' element={<EditPost />} />
-        <Route path='ItemDetails/:id' element={<ItemDetails />} />
+        <Route path='rent/edit/:id?' element={<EditPost />} />
+        <Route path='ItemDetails/:id?' element={<ItemDetails />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />
