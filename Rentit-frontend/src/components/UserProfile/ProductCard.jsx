@@ -14,6 +14,9 @@ const ProductCard = (props) => {
     useGlobalContext();
   const type = props.type; //To check if the product is saved one or a posted one
   const user = JSON.parse(sessionStorage.getItem('userDetails')).sub;
+  const access_token = JSON.parse(
+    sessionStorage.getItem('userDetails')
+  ).access_token;
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/items`;
 
@@ -35,7 +38,15 @@ const ProductCard = (props) => {
           : 'Do you want to unsave this?'
       )
     ) {
-      await axios.delete(`${url}/${id}/${user}/${type}`).then(remove());
+      await axios
+        .delete(`${url}/${id}/${type}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            access_token: access_token,
+            sub: user,
+          },
+        })
+        .then(remove());
     }
   };
   if (!data) return <></>; //Show nothing
