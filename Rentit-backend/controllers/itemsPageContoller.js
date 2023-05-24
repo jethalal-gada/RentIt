@@ -26,8 +26,7 @@ exports.getItems = async (req, res) => {
       },
     });
   } catch (err) {
-    console.log(err);
-    res.status(404).json({
+    res.status(500).json({
       status: 'fail',
       message: err,
     });
@@ -44,7 +43,6 @@ exports.getItemDetails = async (req, res) => {
       },
     });
   } catch (err) {
-    console.log(err);
     res.status(404).json({
       status: 'fail',
       message: err,
@@ -53,39 +51,49 @@ exports.getItemDetails = async (req, res) => {
 };
 exports.deleteItem = async (req, res) => {
   try {
-    const { id, user, type } = req.params;
-
-    //Check the post type
-    if (type === 'posts') {
-      const product = await Product.findById(req.params.id);
-      if (product.sub === user) {
-        //Delete the product's image from cloudinary
-        cloudinary.uploader.destroy(product.image.public_id);
-        //First delete the post's document
-        await Product.findByIdAndDelete(req.params.id);
-        //Then if any user has saved it then delete it from there too
-        await User.updateMany(
-          { savedProducts: id },
-          { $pull: { savedProducts: id } }
-        );
-        await User.updateMany(
-          { likedProducts: id },
-          { $pull: { likedProducts: id } }
+    const { id, type } = req.params;
+    const user = await User.findOne({ sub: req.headers.sub });
+    if (
+      req.headers.access_token &&
+      String(user.access_token) === String(req.headers.access_token)
+    ) {
+      //Check the post type
+      if (type === 'posts') {
+        const product = await Product.findById(req.params.id);
+        if (product.sub === user.sub) {
+          //Delete the product's image from cloudinary
+          cloudinary.uploader.destroy(product.image.public_id);
+          //First delete the post's document
+          await Product.findByIdAndDelete(req.params.id);
+          //Then if any user has saved it then delete it from there too
+          await User.updateMany(
+            { savedProducts: id },
+            { $pull: { savedProducts: id } }
+          );
+          await User.updateMany(
+            { likedProducts: id },
+            { $pull: { likedProducts: id } }
+          );
+          res.status(204).json({
+            status: 'sucess',
+            data: null,
+          });
+        }
+      } else if (type === 'saves') {
+        await User.findOneAndUpdate(
+          { sub: user.sub },
+          { $pull: { savedProducts: id } },
+          { new: true }
         );
         res.status(204).json({
           status: 'sucess',
           data: null,
         });
       }
-    } else if (type === 'saves') {
-      await User.findOneAndUpdate(
-        { sub: user },
-        { $pull: { savedProducts: id } },
-        { new: true }
-      );
-      res.status(204).json({
-        status: 'sucess',
-        data: null,
+    } else {
+      res.status(401).json({
+        status: 'fail',
+        message: 'Autherisation failed',
       });
     }
   } catch (err) {
