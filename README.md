@@ -1,5 +1,5 @@
 # RentIt App
-![RentIt App](https://drive.google.com/file/d/1V3DWjG8Q_R_XKhc28pEdUo52WKFwxZt2/view)
+[RentIt App](https://drive.google.com/file/d/1V3DWjG8Q_R_XKhc28pEdUo52WKFwxZt2/view)
 
 RentIt is a MERN stack web application developed by Akash Singh. It is a platform where users can easily rent or rent out various products. Whether you are looking to rent something or have something to offer, RentIt provides a convenient and user-friendly experience.
 
