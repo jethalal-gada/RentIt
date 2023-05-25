@@ -61,22 +61,35 @@ exports.deleteItem = async (req, res) => {
       if (type === 'posts') {
         const product = await Product.findById(req.params.id);
         if (product.sub === user.sub) {
-          //Delete the product's image from cloudinary
+          // Delete the product's image from cloudinary
           cloudinary.uploader.destroy(product.image.public_id);
-          //First delete the post's document
-          await Product.findByIdAndDelete(req.params.id);
-          //Then if any user has saved it then delete it from there too
-          await User.updateMany(
-            { savedProducts: id },
-            { $pull: { savedProducts: id } }
-          );
-          await User.updateMany(
-            { likedProducts: id },
-            { $pull: { likedProducts: id } }
-          );
-          res.status(204).json({
-            status: 'sucess',
-            data: null,
+          // Delete the post's document and related data
+          const deleteResult = await Product.deleteOne({ _id: req.params.id });
+          if (deleteResult.deletedCount > 0) {
+            // Delete the product from user's savedProducts
+            await User.updateMany(
+              { savedProducts: req.params.id },
+              { $pull: { savedProducts: req.params.id } }
+            );
+            // Delete the product from user's likedProducts
+            await User.updateMany(
+              { likedProducts: req.params.id },
+              { $pull: { likedProducts: req.params.id } }
+            );
+            res.status(204).json({
+              status: 'success',
+              data: null,
+            });
+          } else {
+            res.status(404).json({
+              status: 'fail',
+              message: 'Product not found.',
+            });
+          }
+        } else {
+          res.status(403).json({
+            status: 'fail',
+            message: 'Unauthorized to delete this product.',
           });
         }
       } else if (type === 'saves') {
