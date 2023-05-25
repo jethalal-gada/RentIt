@@ -16,14 +16,14 @@ Check out the live version of RentIt: [RentIt App Live Demo](https://rentit-app.
 - User-friendly interface and smooth navigation
 
 # Technologies Used
--RentIt is built using the following technologies:
--MongoDB: A NoSQL database used to store product and user information
--Express: A web application framework for Node.js used to build the backend server
--React: A JavaScript library used for building the user interface
--Node.js: A JavaScript runtime used for server-side development
--HTML: The standard markup language for creating web pages
--CSS: A stylesheet language used for designing the application's appearance
--JavaScript: The programming language used for client-side and server-side scripting
+- RentIt is built using the following technologies:
+- MongoDB: A NoSQL database used to store product and user information
+- Express: A web application framework for Node.js used to build the backend server
+- React: A JavaScript library used for building the user interface
+- Node.js: A JavaScript runtime used for server-side development
+- HTML: The standard markup language for creating web pages
+- CSS: A stylesheet language used for designing the application's appearance
+- JavaScript: The programming language used for client-side and server-side scripting
 
 # Installation
 To run RentIt locally on your machine, follow these steps:
