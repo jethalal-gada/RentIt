@@ -172,8 +172,8 @@ textarea {
 .uploadImg {
   display: grid;
   align-items: center;
-  height: 3rem;
-  width: 3rem;
+  max-height: 3.5rem;
+  max-width: 3.5rem;
   border-radius: 5px;
   transition: 0.25s;
 }
@@ -181,7 +181,7 @@ textarea {
   /* opacity: 50%; */
   border: 1px solid #ff5e03;
   /* cursor: pointer; */
-  transform: scale(2.25);
+  transform: scale(3);
 }
 .imgUploadSection {
   display: flex;
