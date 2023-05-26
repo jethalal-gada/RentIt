@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 .items-wrap {
-  min-height: 60vh;
+  min-height: 65vh;
 }
 .allItems {
   display: flex;
