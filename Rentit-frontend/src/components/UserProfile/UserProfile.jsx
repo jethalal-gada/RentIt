@@ -83,32 +83,34 @@ const UserProfile = () => {
         {/* tab-2 */}
       </div>
 
-      <div className={highlight === 0 ? 'saves fade-in' : 'hide'}>
-        {loader ? (
-          <div className='loading-txt'>Loading...</div>
-        ) : savesCount > 0 && savesCount !== null ? (
-          savedProducts.map((data, index) => {
-            if (data)
-              return <ProductCard key={index} data={data} type={'saves'} />;
-            else return null;
-          })
-        ) : (
-          'No products saved'
-        )}
-      </div>
+      <div className='user-prods-wrap'>
+        <div className={highlight === 0 ? 'saves fade-in' : 'hide'}>
+          {loader ? (
+            <div className='loading-txt'>Loading...</div>
+          ) : savesCount > 0 && savesCount !== null ? (
+            savedProducts.map((data, index) => {
+              if (data)
+                return <ProductCard key={index} data={data} type={'saves'} />;
+              else return null;
+            })
+          ) : (
+            'No products saved'
+          )}
+        </div>
 
-      <div className={highlight === 1 ? 'saves fade-in' : 'hide'}>
-        {loader ? (
-          <div className='loading-txt'>Loading...</div>
-        ) : postsCount > 0 && postsCount !== null ? (
-          posts.map((data, index) => {
-            if (data)
-              return <ProductCard key={index} data={data} type={'posts'} />;
-            else return null;
-          })
-        ) : (
-          'No products posted'
-        )}
+        <div className={highlight === 1 ? 'saves fade-in' : 'hide'}>
+          {loader ? (
+            <div className='loading-txt'>Loading...</div>
+          ) : postsCount > 0 && postsCount !== null ? (
+            posts.map((data, index) => {
+              if (data)
+                return <ProductCard key={index} data={data} type={'posts'} />;
+              else return null;
+            })
+          ) : (
+            'No products posted'
+          )}
+        </div>
       </div>
     </>
   );

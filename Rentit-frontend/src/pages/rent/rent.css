@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@600&display=swap');
 @import url('https://fonts.cdnfonts.com/css/lohit-tamil');
+
+.rent-pg-wrap {
+  min-height: 120vh;
+}
 .post {
   background: #ff5e03;
   border-radius: 2px;
@@ -194,6 +198,9 @@ textarea {
   transform: scale(1.1);
 }
 @media only screen and (max-width: 668px) {
+  .rent-pg-wrap {
+    min-height: 90vh;
+  }
   .post {
     background: #ff5e03;
     border-radius: 2px;
@@ -340,6 +347,9 @@ textarea {
   }
 }
 @media only screen and (max-width: 512px) {
+  .rent-pg-wrap {
+    min-height: 75vh;
+  }
   .post {
     background: #ff5e03;
     border-radius: 2px;

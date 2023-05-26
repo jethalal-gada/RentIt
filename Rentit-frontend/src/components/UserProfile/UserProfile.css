@@ -30,6 +30,9 @@
   font-weight: 600;
   font-size: 1.5rem;
 }
+.user-prods-wrap {
+  min-height: 55vh;
+}
 .saves {
   display: flex;
   align-items: center;
@@ -245,7 +248,7 @@
     width: 19rem;
     height: 7rem;
     margin: 0.5rem 0rem;
-    margin-left: 1.2rem;
+    /* margin-left: 1.2rem; */
     /* border: 1px solid #cecece; */
     border-right: 1px solid #ffffff;
     border-left: 1px solid #ffffff;

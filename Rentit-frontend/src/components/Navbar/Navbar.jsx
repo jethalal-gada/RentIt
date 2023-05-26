@@ -21,6 +21,7 @@ const Navbar = () => {
 
   const searchText = useRef('');
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [searched, setSearched] = useState(false);
   let data = null;
   const navigate = useNavigate();
 
@@ -40,11 +41,15 @@ const Navbar = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (loginObj) {
-      checkLogin();
-    }
-  }, [loginObj]);
+  useEffect(
+    () => {
+      if (loginObj) {
+        checkLogin();
+      }
+    },
+    [],
+    [loginObj]
+  );
 
   const checkLogin = () => {
     if (sessionStorage.getItem('userDetails')) {
@@ -60,11 +65,13 @@ const Navbar = () => {
       setReqParams((prevQuery) => {
         return { ...prevQuery, search: searchText.current.value };
       });
+      setSearched(true);
     } else return;
   };
 
   const handleGoHome = () => {
     setSearchTerm(null);
+    setSearched(false);
     setReqParams({
       type: '',
       search: '',
@@ -94,7 +101,7 @@ const Navbar = () => {
             type='submit'
             className='searchBtn buttom search'
           >
-            <FaSearch className='search' size={19} />
+            <FaSearch className={searched ? 'search or' : 'search'} size={19} />
           </button>
           <input
             type='text'
