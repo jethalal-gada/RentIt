@@ -109,9 +109,9 @@ const Rent = () => {
     );
   }
   return (
-    <>
+    <div className='rent-pg-wrap'>
       <ToastContainer />
-      <div className='rentHeading or heading'>What do you want to rent ?</div>
+      <div className='rentHeading heading'>What do you want to rent ?</div>
       <form onSubmit={handlePost}>
         <div className='rentForm'>
           <div className='detail1'>
@@ -292,7 +292,7 @@ const Rent = () => {
           <button className='post btn'>Post</button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 export default Rent;

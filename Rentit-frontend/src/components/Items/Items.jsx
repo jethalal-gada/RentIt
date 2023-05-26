@@ -26,13 +26,13 @@ const Items = () => {
   //To display main results
   else if (queryData && queryData.length) {
     return (
-      <>
+      <div className='items-wrap'>
         <div className='allItems'>
           {queryData.map((data, index) => {
             return <ItemCard key={index} data={data} user={user} />;
           })}
         </div>
-      </>
+      </div>
     );
   }
   //To show empty search

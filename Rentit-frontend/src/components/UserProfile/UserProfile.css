@@ -30,6 +30,9 @@
   font-weight: 600;
   font-size: 1.5rem;
 }
+.user-prods-wrap {
+  min-height: 55vh;
+}
 .saves {
   display: flex;
   align-items: center;
