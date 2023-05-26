@@ -156,14 +156,14 @@ const ItemDetails = () => {
 
   if (!product)
     return (
-      <>
+      <div className='details-pg-wrap'>
         <div id='loader'>
           <img className='loader' src={Loading} alt='loaing...' />
         </div>
-      </>
+      </div>
     );
   return (
-    <>
+    <div className='details-pg-wrap'>
       <div className='items'>
         <div className='imgItemDetail itemDetailBox'>
           <img className='imgItemTag' src={product.image.image} alt='' />
@@ -274,7 +274,7 @@ const ItemDetails = () => {
         )}
         {/* <button onClick={handleLike}>Like</button> */}
       </div>
-    </>
+    </div>
   );
 };
 
