@@ -103,6 +103,7 @@ form {
   border-radius: 2px;
   padding: 8px;
   outline: none;
+  /* outline: #ff5e03; */
 }
 .des {
   height: 56px;
@@ -118,8 +119,8 @@ form {
 .rentCharge {
   width: 200px;
 }
-.rentBox:active {
-  border-color: #ff5e03;
+.rentBox:focus {
+  border: 1px solid #ff5e03;
 }
 .upload {
   margin-top: 0.5rem;
@@ -144,6 +145,9 @@ textarea {
   min-height: 35px;
   min-width: 533px;
 }
+/* input:active {
+  outline: #ff5e03;
+} */
 .rentCharge {
   display: flex;
   width: 100%;
