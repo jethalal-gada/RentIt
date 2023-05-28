@@ -11,14 +11,10 @@ const AppProvider = ({ children }) => {
     sort: '',
   });
   const [loginObj, setLoginObj] = useState(null); //Current user's login data
-  const [savesCount, setSavesCount] = useState(0);
-  const [postsCount, setPostsCount] = useState(0);
   const [searchTerm, setSearchTerm] = useState(''); //Store the searched term
-  // const [searchData, setSearchData] = useState(null); //Store search results
   const [searching, setSearching] = useState(false); //To handle loader while search
   const [selectedOption, setSelectedOption] = useState(''); //To handle filter
   const [selectedSort, setSelectedSort] = useState('');
-  // const [filteredData, setFilteredData] = useState(null);
   const [queryData, setQueryData] = useState(null);
 
   const url = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_LOCALHOST}/${process.env.REACT_APP_ADDRESS}/items`;
@@ -83,10 +79,6 @@ const AppProvider = ({ children }) => {
         setReqParams,
         loginObj,
         setLoginObj,
-        savesCount,
-        setSavesCount,
-        postsCount,
-        setPostsCount,
         searchTerm,
         setSearchTerm,
         searching,

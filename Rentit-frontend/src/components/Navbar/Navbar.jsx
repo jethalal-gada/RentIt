@@ -2,6 +2,7 @@
 import React from 'react';
 import './Navbar.css';
 import logo from '../../images/Logo.svg';
+import placeHolder from '../../images/user-icon-placeholder.jpg';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -90,7 +91,7 @@ const Navbar = () => {
             <img
               className='logo'
               src={logo}
-              alt='logo'
+              alt='Rentit'
               onClick={handleGoHome}
             />
           </Link>
@@ -115,13 +116,23 @@ const Navbar = () => {
             <div className='login-box' name='login'>
               {checkLogin() ? (
                 <>
-                  <img
-                    name='login'
-                    className='profile'
-                    src={data.picture}
-                    alt='profile'
-                    onClick={() => navigate('/user')}
-                  />
+                  {data.picture ? (
+                    <img
+                      name='login'
+                      className='profile'
+                      src={data.picture}
+                      alt=''
+                      onClick={() => navigate('/user')}
+                    />
+                  ) : (
+                    <img
+                      name='login'
+                      className='profile'
+                      src={placeHolder}
+                      alt=''
+                      onClick={() => navigate('/user')}
+                    />
+                  )}
                   {screenWidth >= 858 ? (
                     <div
                       className='login'

@@ -1,17 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
-import { useGlobalContext } from '../../Context';
 import './UserProfile.css';
 import ProductCard from './ProductCard';
 
 const UserProfile = () => {
-  //   const navigate = useNavigate();
   const [savedProducts, setSavedProducts] = useState([]); //Storing array of saves
   const [posts, setPosts] = useState([]); //Storing the array of posts
   const [highlight, setHighlight] = useState(0); //Adding highlight to active Tab
+  const [savesCount, setSavesCount] = useState(0);
+  const [postsCount, setPostsCount] = useState(0);
   const [loader, setLoader] = useState(false); //To display loader
-  const { savesCount, setSavesCount, postsCount, setPostsCount } =
-    useGlobalContext();
   const user = JSON.parse(sessionStorage.getItem('userDetails')).sub;
   const access_token = JSON.parse(
     sessionStorage.getItem('userDetails')
@@ -90,7 +88,15 @@ const UserProfile = () => {
           ) : savesCount > 0 && savesCount !== null ? (
             savedProducts.map((data, index) => {
               if (data)
-                return <ProductCard key={index} data={data} type={'saves'} />;
+                return (
+                  <ProductCard
+                    key={index}
+                    cardData={data}
+                    type={'saves'}
+                    savesCount={savesCount}
+                    setSavesCount={setSavesCount}
+                  />
+                );
               else return null;
             })
           ) : (
@@ -104,7 +110,15 @@ const UserProfile = () => {
           ) : postsCount > 0 && postsCount !== null ? (
             posts.map((data, index) => {
               if (data)
-                return <ProductCard key={index} data={data} type={'posts'} />;
+                return (
+                  <ProductCard
+                    key={index}
+                    cardData={data}
+                    type={'posts'}
+                    postsCount={postsCount}
+                    setPostsCount={setPostsCount}
+                  />
+                );
               else return null;
             })
           ) : (
