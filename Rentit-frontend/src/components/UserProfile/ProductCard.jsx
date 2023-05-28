@@ -2,17 +2,20 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { CgRemove } from 'react-icons/cg';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { useGlobalContext } from '../../Context';
 import axios from 'axios';
 import unavb from '../../images/unavb.svg';
 
 //This component is child of userDetail.jsx
-const ProductCard = (props) => {
+const ProductCard = ({
+  cardData,
+  type,
+  savesCount,
+  setSavesCount,
+  postsCount,
+  setPostsCount,
+}) => {
   const navigate = useNavigate();
-  const [data, setData] = useState(props.data);
-  const { savesCount, setSavesCount, postsCount, setPostsCount } =
-    useGlobalContext();
-  const type = props.type; //To check if the product is saved one or a posted one
+  const [data, setData] = useState(cardData);
   const user = JSON.parse(sessionStorage.getItem('userDetails')).sub;
   const access_token = JSON.parse(
     sessionStorage.getItem('userDetails')
@@ -49,7 +52,7 @@ const ProductCard = (props) => {
         .then(remove());
     }
   };
-  if (!data) return <></>; //Show nothing
+  if (!data) return null; //Show nothing
   return (
     <>
       <div className='cellBox'>
