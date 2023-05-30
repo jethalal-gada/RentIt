@@ -21,10 +21,10 @@ root.render(
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='user/:userId?' element={<Login />} />
+        <Route path='user' element={<Login />} />
         <Route path='rent' element={<Rent />} />
-        <Route path='rent/edit/:id?' element={<EditPost />} />
-        <Route path='ItemDetails/:id?' element={<ItemDetails />} />
+        <Route path='rent/edit/:id' element={<EditPost />} />
+        <Route path='itemdetails/:id' element={<ItemDetails />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />
