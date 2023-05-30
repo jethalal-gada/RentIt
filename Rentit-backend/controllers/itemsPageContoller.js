@@ -1,12 +1,7 @@
 const Product = require('../models/productsModel');
 const User = require('../models/usersModel');
 const APIFeatures = require('./../utils/apiFeatures');
-const cloudinary = require('cloudinary').v2;
-cloudinary.config({
-  cloud_name: `${process.env.CLOUD_NAME}`,
-  api_key: `${process.env.API_KEY}`,
-  api_secret: `${process.env.API_SECRET}`,
-});
+const cloudinary = require('../utils/cloudinary');
 
 exports.getItems = async (req, res) => {
   try {
