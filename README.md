@@ -4,7 +4,7 @@
 
 RentIt is a MERN stack web application developed by Akash Singh. It is a platform where users can easily rent or rent out various products. Whether you are looking to rent something or have something to offer, RentIt provides a convenient and user-friendly experience.
 
-⚠ RentIt is hosted on a free web hosting platform, so it may take a while to start due to cold starts. Visit [https://rentit-v1-pq08.onrender.com/api-rentit/v1] to check if the server is running.
+⚠ RentIt is hosted on a free web hosting platform, so it may take a while to start due to cold starts. Visit [https://rentit-v1-pq08.onrender.com/api-rentit/v1] to check if the server is running.(You should get a page saying "Cannot GET /api-rentit/v1")
 # Live Demo
 
 Check out the live version of RentIt: [RentIt App Live Demo](https://rentit-app.netlify.app/)
