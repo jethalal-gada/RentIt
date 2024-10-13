@@ -21,7 +21,7 @@ mongoose
 const port = process.env.PORT || 5000;
 const host = process.env.LOCALHOST;
 
-app.get("/", (req, res) => {
+app.get("/api-rentit/v1", (req, res) => {
   res.json({ version: "Rentit APIs v0" });
 });
 
